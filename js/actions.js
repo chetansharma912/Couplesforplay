@@ -4,6 +4,28 @@ window.onresize = ()=>{
     checkScreensize();
 }
 
+function startHeartbubble(){
+    setInterval(()=>{
+        let allHearting = document.querySelectorAll(".hearting");
+        allHearting.forEach((i)=>{
+            document.body.removeChild(i);
+        });
+        
+
+        let numberOfHearts = (Math.random())*5;
+        for (let i = 0; i < numberOfHearts ; i++) {
+            let i = document.createElement("img");
+            i.src = "./images/HeartBubble.gif";
+            i.classList.add("hearting");
+            i.style.position = "absolute";
+            i.style.left = ((Math.random())*window.screen.width)+"px";
+            i.style.bottom = ((Math.random())*1000)+"px";
+            document.body.appendChild(i);
+        }
+        
+    }, 2150);
+}
+
 function checkScreensize(){
     if(window.screen.width>570 && !(window.location.href.includes("error.html"))){
         window.location.href = "error.html"
@@ -36,6 +58,7 @@ function loadblock(event,blockname){
 
 window.onload=()=>{
     checkScreensize();
+    startHeartbubble();
 
     let header = `
     <nav class="navbar navbar-expand-sm">
