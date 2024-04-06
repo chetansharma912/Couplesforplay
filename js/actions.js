@@ -18,7 +18,7 @@ function gotoPage(url){
 }
 
 
-function loadblock(blockname){
+function loadblock(event,blockname){
     if(blockname=="login"){
         document.querySelector("#login").style.display = "block";
         document.querySelector("#signup").style.display = "none";
@@ -27,6 +27,10 @@ function loadblock(blockname){
         document.querySelector("#login").style.display = "none";
         document.querySelector("#signup").style.display = "block";
     }
+    document.querySelectorAll(".nav-link").forEach((item)=>{
+        item.classList.remove("active");
+    });
+    event.classList.add("active");
 }
 
 
