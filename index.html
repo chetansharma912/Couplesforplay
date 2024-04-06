@@ -8,13 +8,14 @@
     <link href="css/awesome.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
     <script src="js/bootstrap@5.1.3.js"></script>
+    <script src="js/actions.js"></script>
 </head>
 <body>
     <div class="container-fluid">
 		<header>
             <nav class="navbar navbar-expand-sm">
                 <div class="container-fluid">
-                  <a class="navbar-brand" href="#">
+                  <a class="navbar-brand" href="#" onclick="gotoPage('index')">
                     <!-- <b>Couple Game</b> -->
                     <img class="animate__animated animate__bounceIn" src="images/logo_1.PNG" width="70">
                     <b>Couple's For.Play</b>
@@ -23,10 +24,10 @@
                     <span class="navbar-toggler-icon">menu</span>
                   </button>
                   <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                    <button class="btn btn-success">Login</button>
-                    <button class="btn btn-danger">SignUp</button>   
-                    <button class="btn btn-info">About</button>   
-                    <button class="btn btn-warning">Contact <span style="color:red !important;">&hearts;</span></button>   
+                    <button class="btn btn-success" onclick="gotoPage('login')">Login</button>
+                    <button class="btn btn-danger" onclick="gotoPage('signin')">SignUp</button>   
+                    <button class="btn btn-info" onclick="gotoPage('about')">About</button>   
+                    <button class="btn btn-warning" onclick="gotoPage('contact')">Contact <span style="color:red !important;">&hearts;</span></button>   
 
                     <!-- <ul class="navbar-nav">
                       <li class="nav-item">
@@ -214,7 +215,7 @@
         }
         .textDiv {
             box-shadow: 0px 0px 2px 0.1px #a3859a !important;
-            background: url(logo_1.PNG) #fff7fd no-repeat 90% 90%;
+            background: url(images/logo_1.PNG) #fff7fd no-repeat 90% 90%;
             background-size: 75px;
             p {
                 /* background: #fff7fd; */
@@ -260,9 +261,6 @@
             background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ff55cc'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
         }
 	</style>
-	<script>
-
-	</script>
 	
 </body>
 </html>

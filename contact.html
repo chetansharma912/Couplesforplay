@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Couple's For.play</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap@5.1.3.min.css" rel="stylesheet">
+    <link href="css/awesome.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <script src="js/bootstrap@5.1.3.js"></script>
+    <script src="js/actions.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+		<header>
+            <nav class="navbar navbar-expand-sm">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#" onclick="gotoPage('index')">
+                    <!-- <b>Couple Game</b> -->
+                    <img class="animate__animated animate__bounceIn" src="images/logo_1.PNG" width="70">
+                    <b>Couple's For.Play</b>
+                  </a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon">menu</span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <button class="btn btn-success" onclick="gotoPage('login')">Login</button>
+                    <button class="btn btn-danger" onclick="gotoPage('signin')">SignUp</button>   
+                    <button class="btn btn-info" onclick="gotoPage('about')">About</button>   
+                    <button class="btn btn-warning" onclick="gotoPage('contact')">Contact <span style="color:red !important;">&hearts;</span></button>   
+
+                    <!-- <ul class="navbar-nav">
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Contact Us</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">About Us</a>
+                      </li>
+                    </ul> -->
+                  </div>
+                </div>
+              </nav>
+        </header>
+
+        
+
+
+
+        
+        this is contact us page
+
+
+
+        
+
+        <footer>
+            <div class="card">
+                <div class="card-body">
+                  <!-- <h4 class="card-title text-center">Contact Us</h4> -->
+                  <a href="#">Contact Us</a>
+                  <a href="#">Terms</a>
+                  <a href="#">Privacy</a>
+                  <p class="card-text text-center">Made With <span style="color:red !important;">&hearts;</span> and <span style="color:red !important;">&hearts;</span></p>
+                </div>
+              </div>
+        </footer>
+		
+    </div>
+	
+	
+
+	
+	<style>
+        .container-fluid {
+            padding: 0px;
+        }
+        nav {
+            padding: 35px;
+            /* background: #ffd7f3; */
+            background: #fff7fd;
+            ul {
+                text-align: left;
+                padding: 20px;
+            }
+        }
+        .navbar-brand{
+            position: relative;
+            img {
+                margin-bottom: 15px;
+                margin-left: 5px;
+            }
+            b {
+                position: absolute;
+                left: 7px;
+                bottom: 0px;
+                font-size: 13px;
+            }
+        }
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+        .navbar-toggler {
+            padding: 0.25rem 1rem;
+            border: 1px solid #ff00b2  !important;
+            background: #ffd7f3;
+            span {
+                font-size: 12px;
+                width: 100%;
+            }
+        }
+        #collapsibleNavbar{
+            padding-top: 20px;
+            padding-bottom: 20px;
+            text-align: center;
+            button {
+                margin: 0px;
+                border: 1px solid #ff00b2  !important;
+                background: #efa9da;
+                font-size: 12px;
+                font-weight: 800;  
+            }
+        }
+        .navbar-collapse {
+            /* background: rgb(31, 171, 194); */
+            /* border-top: 3px solid rgb(0, 0, 0); */
+            /* margin-top: 20px; */
+            max-width: 100%;
+        }
+        body{
+            /* background: rgb(209,0,255) !important;
+            background: linear-gradient(180deg, rgba(209,0,255,1) 0%, rgba(0,159,185,1) 35%, rgba(255,255,255,1) 100%) !important;
+            background-repeat: no-repeat !important;
+            background-size: cover !important;*/
+            * {
+                color: rgb(0, 0, 0) !important;
+                font-family: cursive;
+            }
+        }
+        .bannerDiv {
+            background: #ffd7f3;
+            /* background: url(logo_1.PNG) #ffd7f3 no-repeat 222px 25px;
+            background-size: 160px; */
+        }
+        .banner{
+            margin: auto;
+            /* background: white; */
+            width: 100%;
+            padding: 1px 10px 10px 10px;
+            color: black !important;
+            /* font-size: 10px; */
+            margin: auto;
+            text-align: center;
+            font-weight: 700;
+            p {
+                font-size: 20px;
+                margin-top: 25px;
+                color: #ff55cc !important;
+                /* text-shadow: 1px 3px 5px #ff8edd; */
+            }
+        }
+        .textDiv {
+            box-shadow: 0px 0px 2px 0.1px #a3859a !important;
+            background: url(logo_1.PNG) #fff7fd no-repeat 90% 90%;
+            background-size: 75px;
+            p {
+                /* background: #fff7fd; */
+                color: #ff00b2 !important;
+                font-size: 12px;
+                padding: 50px;
+                margin:0px;
+            }
+        }
+        footer {
+            text-align: center;
+            a {
+                margin: 10px;
+                text-decoration:none;
+                font-size: 12px !important;
+                color:#ff55cc !important;
+            }
+            p {
+                margin-top: 20px;
+                font-size: 12px !important;
+            }
+        }
+        .carousel-item {
+            padding: 20px;
+            background-color: #ffd7f3;
+            img {
+                margin: auto;
+                width: 100px;
+                height:100px;
+                border:1px solid black;
+            }
+            * {
+                color: #ff55cc !important;
+            }
+        }
+        .carousel-caption{
+            position: unset;
+        }
+        .carousel-control-prev-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ff55cc'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e") !important;
+        }
+        .carousel-control-next-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ff55cc'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
+        }
+	</style>
+	<script>
+
+	</script>
+	
+</body>
+</html>
