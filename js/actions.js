@@ -45,9 +45,9 @@ window.onload=()=>{
               <img class="animate__animated animate__bounceIn" src="./images/logo_1.PNG" width="70">
               <b>Couple's For.Play</b>
           </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+          <!--  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
               <span class="navbar-toggler-icon">menu</span>
-          </button>
+          </button> -->
           <div class="collapse navbar-collapse" id="collapsibleNavbar">
               <button class="btn btn-success" onclick="gotoPage('index')">Home</button>
               <!-- <button class="btn btn-danger" onclick="gotoPage('signin')">SignUp</button> -->
