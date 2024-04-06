@@ -26,8 +26,8 @@
                     <div class="collapse navbar-collapse" id="collapsibleNavbar">
                         <button class="btn btn-success" onclick="gotoPage('index')">Home</button>
                         <!-- <button class="btn btn-danger" onclick="gotoPage('signin')">SignUp</button> -->
-                        <button class="btn btn-info" onclick="gotoPage('about')">About</button>
-                        <button class="btn btn-warning" onclick="gotoPage('contact')">Contact <span
+                        <button class="btn btn-info">About</button>
+                        <button class="btn btn-warning">Contact <span
                                 style="color:red !important;">&hearts;</span></button>
         
                         <!-- <ul class="navbar-nav">
@@ -123,16 +123,16 @@
         <div class="content loginSignup" >
             <ul class="nav nav-tabs">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="javascript:void(0);"  onclick="loadblock('login')">Login</a>
+                    <a class="nav-link " aria-current="page" href="javascript:void(0);"  onclick="loadblock('login')">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0);" onclick="loadblock('signup')">Sign up</a>
+                    <a class="nav-link active" href="javascript:void(0);" onclick="loadblock('signup')">Sign up</a>
                 </li>
             </ul>
 
 
             <form id="login">
-                <h4>Login and Start Playing</h4>
+                <h4>Start Playing</h4>
                 <div class="mb-3">
                     <!-- <label for="exampleInputEmail1" class="form-label">Email address</label> -->
                     <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
@@ -149,23 +149,23 @@
             </form>
 
             <form id="signup">
-                <h4>Login and Start Playing</h4>
+                <h4>Sign Up</h4>
                 <div class="mb-3">
                     <!-- <label for="exampleInputEmail1" class="form-label">Email address</label> -->
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Your Name">
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your Name">
                 </div>
                 <div class="mb-3">
                     <!-- <label for="exampleInputEmail1" class="form-label">Email address</label> -->
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Your Email">
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your Email">
                     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                 </div>
                 <div class="mb-3">
                     <!-- <label for="exampleInputPassword1" class="form-label">Password</label> -->
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Your password">
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter your password">
                 </div>
                 <div class="mb-3">
                     <select class="form-control">
-                        <option value="0-18">---Select Age---</option>
+                        <option value="0-18">---Select age---</option>
                         <option value="0-18">0-18</option>
                         <option value="18-20">18-20</option>
                         <option value="20-25">20-25</option>
@@ -177,7 +177,7 @@
                 </div>
                 <div class="mb-3">
                     <select class="form-control">
-                        <option value="0-18">---Select Gender---</option>
+                        <option value="0-18">---Select gender---</option>
                         <option value="male">Male</option>
                         <option value="Female">Female</option>
                         <option value="Other">Other</option>
