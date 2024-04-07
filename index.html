@@ -19,7 +19,109 @@
         <div class="bannerDiv container text-center">
             <h1 class="banner">
                 <p>The World's #1 Website for Couple's to Play Online Games</p>
+                <button class="btn btn-success text-light" data-bs-toggle="modal" data-bs-target="#myModal">Start Playing with your Partner <span
+                    style="color:red !important;">&hearts;</span></button>
             </h1>
+        </div>
+
+        <!-- Modal sextion -->
+        <div class="modal" id="myModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+        
+                    <!-- Modal Header -->
+                    <!-- <div class="modal-header">
+                        <h4 class="modal-title">Modal Heading</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div> -->
+        
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <!-- login and sign up page -->
+                        <div class="content loginSignup">
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="javascript:void(0);"
+                                        onclick="loadblock(this,'login')">Login</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="javascript:void(0);" onclick="loadblock(this,'signup')">Sign up</a>
+                                </li>
+                            </ul>
+                        
+                        
+                            <form id="login">
+                                <h4>Start Playing</h4>
+                                <div class="mb-3">
+                                    <!-- <label for="exampleInputEmail1" class="form-label">Email address</label> -->
+                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                        placeholder="Enter username">
+                                </div>
+                                <div class="mb-3">
+                                    <!-- <label for="exampleInputPassword1" class="form-label">Password</label> -->
+                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter password">
+                                    <br>
+                                    <a href="#">Forgot password?</a>
+                                </div>
+                                <button type="submit" class="btn btn-success">Login</button>
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                            </form>
+                        
+                            <form id="signup">
+                                <h4>Sign Up</h4>
+                                <div class="mb-3">
+                                    <!-- <label for="exampleInputEmail1" class="form-label">Email address</label> -->
+                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                        placeholder="Enter your Name">
+                                </div>
+                                <div class="mb-3">
+                                    <!-- <label for="exampleInputEmail1" class="form-label">Email address</label> -->
+                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                        placeholder="Enter your Email">
+                                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                                </div>
+                                <div class="mb-3">
+                                    <!-- <label for="exampleInputPassword1" class="form-label">Password</label> -->
+                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter your password">
+                                </div>
+                                <div class="mb-3">
+                                    <select class="form-control">
+                                        <option value="0-18">---Select age---</option>
+                                        <option value="0-18">0-18</option>
+                                        <option value="18-20">18-20</option>
+                                        <option value="20-25">20-25</option>
+                                        <option value="25-30">25-30</option>
+                                        <option value="30-40">30-40</option>
+                                        <option value="40-50">40-50</option>
+                                        <option value="50+">50+</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <select class="form-control">
+                                        <option value="0-18">---Select gender---</option>
+                                        <option value="male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <label class="form-check-label" for="exampleCheck1">I agree</label>
+                                </div>
+                        
+                                <button type="submit" class="btn btn-success">Sign Up</button>
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                            </form>
+                        </div>
+                    </div>
+        
+                    <!-- Modal footer -->
+                    <!-- <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    </div> -->
+        
+                </div>
+            </div>
         </div>
         
         <!-- information sextion -->
@@ -32,132 +134,69 @@
         </div>
 
 
-        <!-- sliding window -->
-        <div class="sliding-here">
-            <!-- Carousel -->
-            <div id="demo" class="carousel slide" data-bs-ride="carousel">
-        
-                <!-- Indicators/dots -->
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-                    <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-                    <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
-                </div>
-        
-                <!-- The slideshow/carousel -->
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="images/game1.png" alt="Los Angeles" class="d-block">
-                        <div class="carousel-caption">
-                            <p>We had such a great Apple!</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="images/game2.png" alt="Chicago" class="d-block">
-                        <div class="carousel-caption">
-                            <p>Thank you, banana!</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="images/game3.png" alt="New York" class="d-block">
-                        <div class="carousel-caption">
-                            <p>We love the Big Apple!</p>
-                        </div>
-                    </div>
-                </div>
-        
-                <!-- Left and right controls/icons -->
-                <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
-                    <span class="carousel-control-next-icon"></span>
-                </button>
-            </div>
+        <div class="bannerDiv container text-center">
+            <h2 class="banner">
+                <p>Try Our Best Range Couple Games <span
+                    style="color:red !important;">&hearts;</span></p>
+            </h2>
         </div>
-        
+
+        <div class="sliding-here">
+            <input type="radio" name="position">
+            <input type="radio" name="position" checked>
+            <input type="radio" name="position">
+            <input type="radio" name="position">
+            <input type="radio" name="position">
+            <main id="myCarousel">
+                <div class="myitem">
+                    <img src="images/game1.png" alt="">
+                    <h3 class="name">I Spy</h3>
+                    <p class="description">Apples are so sweet</p>
+                    <button class="btn btn-success">Play</button>
+                </div>
+                <div class="myitem">
+                    <img src="images/game1.png" alt="">
+                    <h3 class="name">Trivia</h3>
+                    <p class="description">Banana is yellow</p>
+                    <button class="btn btn-success">Play</button>
+                </div>
+                <div class="myitem">
+                    <img src="images/game1.png" alt="">
+                    <h3 class="name">Questions</h3>
+                    <p class="description">Apples are red</p>
+                    <button class="btn btn-success">Play</button>
+                </div>
+                <div class="myitem">
+                    <img src="images/game1.png" alt="">
+                    <h3 class="name">Chess</h3>
+                    <p class="description">Peach is rich</p>
+                    <button class="btn btn-success">Play</button>
+                </div>
+                <div class="myitem">
+                    <img src="images/game1.png" alt="">
+                    <h3 class="name">Code Names</h3>
+                    <p class="description">My code is agent</p>
+                    <button class="btn btn-success">Play</button>
+                </div>
+            </main>
+        </div>
+
+
+        <!-- sliding window END -->
         
         <div class="textDiv content">
-            <h4>About Us</h4>
-            <p class="text-center padding-12 margin-10">Couple Room helps you get to know your partner even better and have an
-                even happier relationship through fun and compitative gameplays
+            <h4 style="font-weight: 800;">About Us &#128516;</h4>
+            <p class="text-center padding-12 margin-10">Welcome to our platform dedicated to enhanching the bond between couples through online gaming!
+                <br><br>We offer a diverse range of iteractive games designed specially for couples to enjoy together, regardless of distance.
+                <br><br>Whether you're looking to reignite the spark or simply spend quality time together, our platform provides a fun and convienient way to connect and create memorable experiences.
+                <br><br>Join our community today and emberk on a journey of shared "laughter, friendly compitition, and lasting connection"
                 <br><br>
-                Answer questions and get even closer to your S.O.
+                Spread love <span
+                style="color:red !important;">&hearts;</span> and enjoy online games 
+                <br><br>
+                Happy Playing &#128516;
+                <br><br>
             </p>
-        </div>
-        
-        <!-- login and sign up page -->
-        <div class="content loginSignup" >
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="javascript:void(0);"  onclick="loadblock(this,'login')">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0);" onclick="loadblock(this,'signup')">Sign up</a>
-                </li>
-            </ul>
-
-
-            <form id="login">
-                <h4>Start Playing</h4>
-                <div class="mb-3">
-                    <!-- <label for="exampleInputEmail1" class="form-label">Email address</label> -->
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        placeholder="Enter username">
-                </div>
-                <div class="mb-3">
-                    <!-- <label for="exampleInputPassword1" class="form-label">Password</label> -->
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter password">
-                    <br>
-                    <a href="#">Forgot password?</a>
-                </div>
-                <button type="submit" class="btn btn-success">Login</button>
-                <button type="button" class="btn btn-danger">Cancel</button>
-            </form>
-
-            <form id="signup">
-                <h4>Sign Up</h4>
-                <div class="mb-3">
-                    <!-- <label for="exampleInputEmail1" class="form-label">Email address</label> -->
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your Name">
-                </div>
-                <div class="mb-3">
-                    <!-- <label for="exampleInputEmail1" class="form-label">Email address</label> -->
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your Email">
-                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                </div>
-                <div class="mb-3">
-                    <!-- <label for="exampleInputPassword1" class="form-label">Password</label> -->
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter your password">
-                </div>
-                <div class="mb-3">
-                    <select class="form-control">
-                        <option value="0-18">---Select age---</option>
-                        <option value="0-18">0-18</option>
-                        <option value="18-20">18-20</option>
-                        <option value="20-25">20-25</option>
-                        <option value="25-30">25-30</option>
-                        <option value="30-40">30-40</option>
-                        <option value="40-50">40-50</option>
-                        <option value="50+">50+</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <select class="form-control">
-                        <option value="0-18">---Select gender---</option>
-                        <option value="male">Male</option>
-                        <option value="Female">Female</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
-                <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">I agree</label>
-                </div>
-                
-                <button type="submit" class="btn btn-success">Sign Up</button>
-                <button type="button" class="btn btn-danger">Cancel</button>
-            </form>
         </div>
         
         <!-- footer section -->
