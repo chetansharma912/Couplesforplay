@@ -8,7 +8,7 @@
     <link href="css/awesome.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
     <script src="js/bootstrap@5.1.3.js"></script>
-    <script src="js/actions.js"></script>
+	
 	<script type="text/javascript" src="js/easy.js"></script>
 	<style>
 		body {
@@ -21,16 +21,19 @@
 	</style>
 	<script>
 		window.onload=function(){
-			var canvas=new createCanvas(window.screen.width-2,window.screen.height-200,"border:1px dotted black;");
+			let windowWidth = window.screen.width-2;
+			let windowHeight = window.screen.height-2;
+
+			let  canvas=new createCanvas(windowWidth, windowHeight,"border:1px dotted black;");
 			canvas.drawCanvas();
 
 			canvas.setBackground("yellow");
 			
-			var c1=new Circle(300,300,10);
-			var c2=new Circle(200,200,10);
-			var c3=new Circle(300,200,10);
+			let c1=new Circle(300,300,10);
+			let c2=new Circle(200,200,10);
+			let c3=new Circle(300,200,10);
 
-			var t=new Text("Hello World","50px Arial",20,100);
+			let t=new Text("Hello World","50px Arial",20,100);
 
 			setup();
 			function setup(){
@@ -45,7 +48,22 @@
 				else{
 					canvas.drawCircle(c1,"black","red");
 				}
+				
 				vibrate(c1,5);
+
+				if(c1.x<0){
+					c1.x = 20;
+				}
+				if(c1.x>windowWidth){
+					c1.x = windowWidth-20;
+				}
+				if(c1.y>windowHeight){
+					c1.y = windowHeight-20;
+				}
+				if(c1.y<0){
+					c1.y = 20;
+				}
+
 				canvas.drawCircle(c2,"black","green");
 				canvas.drawCircle(c3,"black","blue");
 
@@ -54,7 +72,7 @@
 				t.text = `
 					Green - (x: ${Math.round(c2.x)}, y:${Math.round(c2.y)})
 					Red - (x: ${c1.x}, y:${c1.y})
-					Blue - (x: ${c3.x}, y:${c3.y})
+					Blue - (x: ${Math.round(c3.x)}, y:${Math.round(c3.y)})
 					`;
 				setTimeout(draw,1);
 			}
