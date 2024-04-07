@@ -99,7 +99,12 @@
 				canvas.drawText(t1,"red");
 				canvas.drawText(t2,"red");
 
+				var body = document.body, html = document.documentElement;
+				var height = Math.max( body.scrollHeight, body.offsetHeight, 
+									html.clientHeight, html.scrollHeight, html.offsetHeight );
+
 				t.text = `
+					${height}, ${windowHeight}, 
 					Green - (x: ${Math.round(c2.x)}, y:${Math.round(c2.y)})
 					Red - (x: ${c1.x}, y:${c1.y})
 					Blue - (x: ${Math.round(ball.x)}, y:${Math.round(ball.y)})
