@@ -33,7 +33,8 @@
 			let c2=new Circle(200,200,10);
 			let c3=new Circle(300,200,10);
 
-			let t=new Text("Hello World","50px Arial",20,100);
+			let t=new Text("Hello World","50px Arial", 20, 100);
+			let t1=new Text("Some Text","50px Arial", 40, 150);
 
 			setup();
 			function setup(){
@@ -44,6 +45,7 @@
 				canvas.clear();
 				if(circleCollide(c1,c2)){
 					canvas.drawCircle(c1,"black","black");
+					t1.text = "red circle detected collision with green circle";
 				}
 				else{
 					canvas.drawCircle(c1,"black","red");
@@ -53,21 +55,26 @@
 
 				if(c1.x<0){
 					c1.x = 20;
+					t1.text = "red circle detected 0 on x axis";
 				}
 				if(c1.x>windowWidth){
 					c1.x = windowWidth-20;
+					t1.text = "red circle detected width on x axis";
 				}
 				if(c1.y>windowHeight){
 					c1.y = windowHeight-20;
+					t1.text = "red circle detected height on y axis";
 				}
 				if(c1.y<0){
 					c1.y = 20;
+					t1.text = "red circle detected 0 on y axis";
 				}
 
 				canvas.drawCircle(c2,"black","green");
 				canvas.drawCircle(c3,"black","blue");
 
-				canvas.drawText(t,"red")
+				canvas.drawText(t,"red");
+				canvas.drawText(t1,"red")
 
 				t.text = `
 					Green - (x: ${Math.round(c2.x)}, y:${Math.round(c2.y)})
