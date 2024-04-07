@@ -27,11 +27,12 @@
 			let  canvas=new createCanvas(windowWidth, windowHeight,"border:1px dotted black;");
 			canvas.drawCanvas();
 
-			canvas.setBackground("yellow");
+			// canvas.setBackground("yellow");
 			
 			let c1=new Circle(300,300,10);
 			let c2=new Circle(200,200,10);
-			let c3=new Circle(300,200,10);
+			let ball=new Circle(300,200,10);
+			let newx = 1, newy = 1;
 
 			let t=new Text("Hello World","50px Arial", 20, 100);
 			let t1=new Text("Some Text","50px Arial", 40, 150);
@@ -50,7 +51,6 @@
 				}
 				else{
 					canvas.drawCircle(c1,"black","red");
-					t2.text = "nothing happening";
 				}
 				
 				vibrate(c1,5);
@@ -72,8 +72,28 @@
 					t1.text = "red circle detected 0 on y axis";
 				}
 
+				if(ball.x<0){
+					newx = 1;
+					t2.text = "red circle detected 0 on x axis";
+				}
+				if(ball.x>windowWidth){
+					newx = -1;
+					t2.text = "red circle detected width on x axis";
+				}
+				if(ball.y> windowHeight-20){
+					newy=-1;
+					t2.text = "red circle detected height on y axis";
+				}
+				if(ball.y<0){
+					newy=1;
+					t2.text = "red circle detected 0 on y axis";
+				}				
+
+				ball.x += newx;
+				ball.y += newy;
+
 				canvas.drawCircle(c2,"black","green");
-				canvas.drawCircle(c3,"black","blue");
+				canvas.drawCircle(ball,"black","blue");
 
 				canvas.drawText(t,"red");
 				canvas.drawText(t1,"red");
@@ -82,7 +102,7 @@
 				t.text = `
 					Green - (x: ${Math.round(c2.x)}, y:${Math.round(c2.y)})
 					Red - (x: ${c1.x}, y:${c1.y})
-					Blue - (x: ${Math.round(c3.x)}, y:${Math.round(c3.y)})
+					Blue - (x: ${Math.round(ball.x)}, y:${Math.round(ball.y)})
 					`;
 				setTimeout(draw,1);
 			}
@@ -93,8 +113,8 @@
 				c2.y=e.touches[0].clientY;
 
 				if(e.touches[1]){
-					c3.x=e.touches[1].clientX;
-					c3.y=e.touches[1].clientY;
+					//ball.x=e.touches[1].clientX;
+					//ball.y=e.touches[1].clientY;
 				}
 				
 			});
