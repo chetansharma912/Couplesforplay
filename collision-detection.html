@@ -5,15 +5,21 @@
 	<link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<script type="text/javascript" src="js/easy.js"></script>
+	<style>
+		body {
+			overflow: hidden;
+		}
+	</style>
 	<script>
 		window.onload=function(){
-			var canvas=new createCanvas(window.screen.width,window.screen.height,"border:1px dotted black;");
+			var canvas=new createCanvas(window.screen.width-20,window.screen.height-20,"border:1px dotted black;");
 			canvas.drawCanvas();
 
 			
 			
 			var c1=new Circle(300,300,10);
 			var c2=new Circle(200,200,10);
+			var c3=new Circle(300,200,10);
 
 			setup();
 			function setup(){
@@ -30,12 +36,17 @@
 				}
 				vibrate(c1,5);
 				canvas.drawCircle(c2,"black","green");
+				canvas.drawCircle(c3,"black","blue");
 				setTimeout(draw,1);
 			}
 
 			canvas.getCanvas().addEventListener('touchmove', function(e) { 
-				c2.x=e.pageX;
-				c2.y=e.pageY;
+				//console.log(e.touches);
+				c2.x=e.touches[0].clientX;
+				c2.y=e.touches[0].clientY;
+
+				c3.x=e.touches[1].clientX;
+				c3.y=e.touches[1].clientY;
 			});
 		}
 	</script>
