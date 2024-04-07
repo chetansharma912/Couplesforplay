@@ -21,8 +21,8 @@
 	</style>
 	<script>
 		window.onload=function(){
-			let windowWidth = window.screen.width-2;
-			let windowHeight = window.screen.height-2;
+			let windowWidth = window.innerWidth;
+			let windowHeight = window.innerHeight;
 
 			let  canvas=new createCanvas(windowWidth, windowHeight,"border:1px dotted black;");
 			canvas.drawCanvas();
@@ -80,7 +80,7 @@
 					newx = -1;
 					t2.text = "red circle detected width on x axis";
 				}
-				if(ball.y> windowHeight-20){
+				if(ball.y> windowHeight){
 					newy=-1;
 					t2.text = "red circle detected height on y axis";
 				}
@@ -98,17 +98,11 @@
 				canvas.drawText(t,"red");
 				canvas.drawText(t1,"red");
 				canvas.drawText(t2,"red");
-
-				var body = document.body, html = document.documentElement;
-				var height = Math.max( body.scrollHeight, body.offsetHeight, 
-									html.clientHeight, html.scrollHeight, html.offsetHeight );
-
+				
 				t.text = `
-					${height}, ${windowHeight}, ${window.innerHeight}
 					Blue - (x: ${Math.round(ball.x)}, y:${Math.round(ball.y)})
 					Green - (x: ${Math.round(c2.x)}, y:${Math.round(c2.y)})
 					Red - (x: ${c1.x}, y:${c1.y})
-					
 					`;
 				setTimeout(draw,1);
 			}
