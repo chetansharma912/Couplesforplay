@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<script type="text/javascript" src="js/easy.js"></script>
+	<script>
+		window.onload=function(){
+			var canvas=new createCanvas(window.screen.width,window.screen.height,"border:1px dotted black;");
+			canvas.drawCanvas();
+
+			
+			
+			var c1=new Circle(300,300,10);
+			var c2=new Circle(200,200,10);
+
+			setup();
+			function setup(){
+				draw();
+			}
+
+			function draw(){
+				canvas.clear();
+				if(circleCollide(c1,c2)){
+					canvas.drawCircle(c1,"black","black");		
+				}
+				else{
+					canvas.drawCircle(c1,"black","red");
+				}
+				vibrate(c1,5);
+				canvas.drawCircle(c2,"black","green");
+				setTimeout(draw,1);
+			}
+
+			canvas.getCanvas().addEventListener('touchmove', function(e) { 
+				c2.x=e.pageX;
+				c2.y=e.pageY;
+			});
+		}
+	</script>
+</head>
+<body>
+</body>
+</html>
