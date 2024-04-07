@@ -104,10 +104,11 @@
 									html.clientHeight, html.scrollHeight, html.offsetHeight );
 
 				t.text = `
-					${height}, ${windowHeight}, 
+					${height}, ${windowHeight}, ${window.innerHeight}
+					Blue - (x: ${Math.round(ball.x)}, y:${Math.round(ball.y)})
 					Green - (x: ${Math.round(c2.x)}, y:${Math.round(c2.y)})
 					Red - (x: ${c1.x}, y:${c1.y})
-					Blue - (x: ${Math.round(ball.x)}, y:${Math.round(ball.y)})
+					
 					`;
 				setTimeout(draw,1);
 			}
