@@ -3,16 +3,19 @@
 <head>
 	<title></title>
 	<link rel="icon" type="image/x-icon" href="images/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable='no'">
 	<script type="text/javascript" src="js/easy.js"></script>
 	<style>
 		body {
 			overflow: hidden;
+			canvas {
+				margin-top: 20px;
+			}
 		}
 	</style>
 	<script>
 		window.onload=function(){
-			var canvas=new createCanvas(window.screen.width-20,window.screen.height-20,"border:1px dotted black;");
+			var canvas=new createCanvas(window.screen.width-20,window.screen.height-100,"border:1px dotted black;");
 			canvas.drawCanvas();
 
 			
@@ -45,8 +48,8 @@
 				c2.x=e.touches[0].clientX;
 				c2.y=e.touches[0].clientY;
 
-				c3.x=e.touches[1].clientX;
-				c3.y=e.touches[1].clientY;
+				// c3.x=e.touches[1].clientX;
+				// c3.y=e.touches[1].clientY;
 			});
 		}
 	</script>
