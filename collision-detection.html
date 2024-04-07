@@ -8,9 +8,6 @@
 	<style>
 		body {
 			overflow: hidden;
-			canvas {
-				margin-top: 20%;
-			}
 		}
 	</style>
 	<script>
@@ -18,7 +15,7 @@
 			var canvas=new createCanvas(window.screen.width-20,window.screen.height-200,"border:1px dotted black;");
 			canvas.drawCanvas();
 
-			
+			canvas.setBackground("yellow");
 			
 			var c1=new Circle(300,300,10);
 			var c2=new Circle(200,200,10);
@@ -32,7 +29,10 @@
 			function draw(){
 				canvas.clear();
 				if(circleCollide(c1,c2)){
-					canvas.drawCircle(c1,"black","black");		
+					canvas.drawCircle(c1,"black","black");
+					document.querySelector("#display2").innerText = `
+						Collide green and red circle
+					`;	
 				}
 				else{
 					canvas.drawCircle(c1,"black","red");
@@ -40,20 +40,30 @@
 				vibrate(c1,5);
 				canvas.drawCircle(c2,"black","green");
 				canvas.drawCircle(c3,"black","blue");
+				document.querySelector("#display").innerText = `
+					Green - (x: ${c2.x}, y:${c2.y})
+					Red - (x: ${c1.x}, y:${c1.y})
+					Blue - (x: ${c3.x}, y:${c3.y})
+					`;
 				setTimeout(draw,1);
 			}
 
 			canvas.getCanvas().addEventListener('touchmove', function(e) { 
 				//console.log(e.touches);
-				c2.x=e.touches[0].clientX;
-				c2.y=e.touches[0].clientY;
+				c2.x=e.touches[0].clientX-20;
+				c2.y=e.touches[0].clientY-200;
 
-				// c3.x=e.touches[1].clientX;
-				// c3.y=e.touches[1].clientY;
+				if(e.touches[1]){
+					c3.x=e.touches[1].clientX;
+					c3.y=e.touches[1].clientY;
+				}
+				
 			});
 		}
 	</script>
 </head>
 <body>
+	<p id="display">data</p>
+	<p id="display2">data</p>
 </body>
 </html>
