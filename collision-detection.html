@@ -35,6 +35,7 @@
 
 			let t=new Text("Hello World","50px Arial", 20, 100);
 			let t1=new Text("Some Text","50px Arial", 40, 150);
+			let t2=new Text("Some Text","50px Arial", 40, 200);
 
 			setup();
 			function setup(){
@@ -49,7 +50,7 @@
 				}
 				else{
 					canvas.drawCircle(c1,"black","red");
-					t1.text = "nothing happening";
+					t2.text = "nothing happening";
 				}
 				
 				vibrate(c1,5);
@@ -75,7 +76,8 @@
 				canvas.drawCircle(c3,"black","blue");
 
 				canvas.drawText(t,"red");
-				canvas.drawText(t1,"red")
+				canvas.drawText(t1,"red");
+				canvas.drawText(t2,"red");
 
 				t.text = `
 					Green - (x: ${Math.round(c2.x)}, y:${Math.round(c2.y)})
