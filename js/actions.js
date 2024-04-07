@@ -101,8 +101,7 @@ window.onload=()=>{
             <a href="#">Contact Us</a>
             <a href="#">Terms</a>
             <a href="#">Privacy</a>
-            <p class="card-text text-center">Made With <span style="color:red !important;">&hearts;</span> and <span
-                    style="color:red !important;">&hearts;</span></p>
+            <p class="card-text text-center">Made With <span style="color:red !important;">&hearts;</span>./p>
         </div>
     </div>
     `;
