@@ -4,13 +4,14 @@ window.onresize = ()=>{
     checkScreensize();
 }
 
+
 function startHeartbubble(){
+    let countIndex=2;
     setInterval(()=>{
         let allHearting = document.querySelectorAll(".hearting");
         allHearting.forEach((i)=>{
             document.body.removeChild(i);
         });
-        
 
         let numberOfHearts = (Math.random())*5;
         for (let i = 0; i < numberOfHearts ; i++) {
@@ -22,6 +23,16 @@ function startHeartbubble(){
             i.style.bottom = ((Math.random())*1000)+"px";
             document.body.appendChild(i);
         }
+
+        let carousel = document.querySelector("input[type='radio']:nth-child("+countIndex+")");
+        carousel.click();
+        if(countIndex>=5) {
+            countIndex=1;
+        }
+        else{
+            countIndex++;
+        }
+        // console.log(countIndex);
         
     }, 2150);
 }
