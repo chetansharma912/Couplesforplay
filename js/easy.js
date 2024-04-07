@@ -33,16 +33,25 @@ class Line{
 	}
 }
 
+class Text{
+	constructor(text,font,x,y){
+		this.x=x;
+		this.y=y;
+		this.text=text;
+	}
+}
+
 var createCanvas=function(width,height,css) {
 	this.width=width;
 	this.height=height;
 	this.css=css;
 	this.drawCanvas=function(){
+		let container = document.querySelector(".container");
 		this.canvas= document.createElement("CANVAS");
 		this.canvas.setAttribute("width",this.width+"");
 		this.canvas.setAttribute("height",this.height+"");
 		this.canvas.setAttribute("style",this.css+"")
-		document.body.appendChild(this.canvas);
+		container.appendChild(this.canvas);
 	};
 	this.getCanvas=function(){
 		return this.canvas;
@@ -165,6 +174,13 @@ var createCanvas=function(width,height,css) {
 		ctx.strokeStyle=color;
 		ctx.closePath();
 		ctx.stroke();
+	}
+
+	this.drawText=function(t,color){
+		var ctx=this.context();
+		ctx.font=t.font;
+		ctx.strokeStyle=color;
+		ctx.strokeText(t.text,t.x,t.y);
 	}
 
 	this.setBackground=function(bgcolor){
