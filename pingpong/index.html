@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable='no'">
+	<link href="../css/bootstrap@5.1.3.min.css" rel="stylesheet">
+    <link href="../css/awesome.css" rel="stylesheet">
+    <link href="../css/animate.css" rel="stylesheet">
+    <script src="../js/bootstrap@5.1.3.js"></script>
+	
+	<script type="text/javascript" src="../js/easy.js"></script>
+	<style>
+		body {
+			overflow: hidden;
+			* {
+				padding: 0px !important;
+				margin: 0px !important;
+			}
+		}
+	</style>
+	<script>
+		window.onload=function(){
+            let windowWidth = window.innerWidth;
+			let windowHeight = window.innerHeight;
+            
+            let  canvas=new createCanvas(windowWidth, windowHeight,"border:1px dotted black;");
+			canvas.drawCanvas();
+
+            // Setup
+
+            // middle line and circle
+            let middleLine = new Line(0, windowHeight*0.50, windowWidth, windowHeight*0.50);
+            let midCircle = new Circle(windowWidth/2,windowHeight/2,100);
+            let midMidCircle = new Circle(windowWidth/2,windowHeight/2,25);
+            
+            // start rect and end rect
+            let startLine = new Rectangle(0, 0, windowWidth, windowHeight*0.10);
+            let endLine = new Rectangle(0, windowHeight*0.90, windowWidth, windowHeight);
+
+            // Ball here
+			let ball= new Circle(300,200,10);
+
+            // user one
+            let userOne = new Circle(0 , (windowHeight*0.90)-20 ,15);
+
+            // user two
+            let userTwo = new Circle(200 , 200 ,15);
+           
+
+			let newx = 1, newy = 1;
+
+			let t=new Text("Hello World","50px Arial", 20, 100);
+
+			setup();
+			function setup(){
+				draw();
+			}
+
+			function draw(){
+				canvas.clear();
+                canvas.setBackground("black");
+
+				if(circleCollide(userOne,ball)){
+					newy = -1*randomBetween(1,5);
+                    newx = randomSign();
+				}
+
+                if(circleCollide(userTwo,ball)){
+					newy = 1*randomBetween(1,5);
+                    newx = randomSign();
+				}
+
+				if(ball.x< ( 0 + ball.radius/2)){
+					newx = randomBetween(1,3);
+				}
+				if(ball.x> (windowWidth - ball.radius/2)){
+					newx = -1*randomBetween(1,3);
+				}
+				if(ball.y> (windowHeight - ball.radius/2)){
+					newy= -1*randomBetween(1,3);
+				}
+				if(ball.y< (0 + ball.radius/2) ){
+					newy= randomBetween(1,3);
+				}				
+
+				ball.x += newx;
+				ball.y += newy;
+
+                // draw setup here
+                canvas.drawCircle(midCircle,"white");
+                canvas.drawCircle(midMidCircle,"blue");
+                canvas.drawLine(middleLine,"white"); 
+
+                // ball and users
+				canvas.drawCircle(ball,"red","yellow");
+                canvas.drawCircle(userOne,"pink","pink");
+                canvas.drawCircle(userTwo,"lightblue","lightblue");
+
+                // start and end rects
+                canvas.drawRect(startLine,"lightblue","lightblue"); 
+                canvas.drawRect(endLine,"pink", "pink"); 
+                
+                
+                
+				canvas.drawText(t,"red");
+				
+				t.text = `
+					Blue - (x: ${Math.round(ball.x)}, y:${Math.round(ball.y)})
+					`;
+				setTimeout(draw,1);
+			}
+
+			canvas.getCanvas().addEventListener('touchmove', function(e) {
+				userOne.x=e.touches[0].clientX;
+                userOne.y=e.touches[0].clientY;
+                if(userOne.x<=0){
+                    userOne.x = userOne.radius;
+                }
+                if(userOne.x>= windowWidth-userOne.radius ){
+                    userOne.x = windowWidth-userOne.radius;
+                }
+                if(userOne.y <= windowHeight*0.50){
+                    userOne.y = windowHeight*0.50;
+                }
+                if(userOne.y> windowHeight-userOne.radius){
+                    userOne.y = windowHeight-userOne.radius;
+                }
+
+                if(e.touches.length>=2){
+                    userTwo.x=e.touches[1].clientX;
+                    userTwo.y=e.touches[1].clientY;
+                    if(userTwo.x<=0){
+                        userTwo.x = userTwo.radius;
+                    }
+                    if(userTwo.x>= windowWidth-userOne.radius ){
+                        userTwo.x = windowWidth-userTwo.radius;
+                    }
+                    if(userTwo.y >= windowHeight*0.50){
+                        userTwo.y = windowHeight*0.50;
+                    }
+                    if(userTwo.y <= 0 ){
+                        userTwo.y = userTwo.radius;
+                    }
+                }
+				
+			});
+		}
+	</script>
+</head>
+<body>
+	<div class="container"></div>
+</body>
+</html>

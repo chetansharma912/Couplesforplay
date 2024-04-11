@@ -111,6 +111,30 @@ var createCanvas=function(width,height,css) {
 		}
 	}
 
+	this.drawLine=function(l,color){
+		var ctx=this.context();
+		if(typeof r != "undefined" && typeof color != "undefined"){
+			ctx.beginPath();
+			ctx.line(l.x,l.y,l.x1,l.y1);
+			ctx.strokeStyle=color;
+			ctx.closePath();
+			ctx.stroke();
+		}
+		if(typeof r != "undefined" && typeof color != "undefined"){
+			ctx.beginPath();
+			ctx.strokeStyle=color;
+			ctx.fillStyle=bgcolor;
+			ctx.line(l.x,l.y,l.x1,l.y1);
+			ctx.closePath();
+		}
+		if(typeof r != "undefined" && typeof color == ""){
+			ctx.beginPath();
+			ctx.fillStyle=bgcolor;
+			ctx.line(l.x,l.y,l.x1,l.y1);
+			ctx.closePath();
+		}
+	}
+
 	this.drawEllipse=function(e,color,bgcolor){
 		var ctx=this.context();
 		if(typeof e != "undefined" && typeof color != "undefined"){
@@ -187,16 +211,13 @@ var createCanvas=function(width,height,css) {
 		this.canvas.style.background=bgcolor;
 	}
 };
-
 var vibrate=function(shape,two){
 	shape.x+=random(two,"-");
 	shape.y+=random(two,"-");
 }
-
 function distCircle(c1,c2){
 	return (Math.sqrt(Math.pow((c2.x-c1.x),2)+Math.pow((c2.y-c1.y),2)));
 }
-
 function circleCollide(c1,c2) {
     if(distCircle(c1,c2)<(c1.radius+c2.radius)){
     	return true;
@@ -205,7 +226,6 @@ function circleCollide(c1,c2) {
     	return false;
     }
 }
-
 function random(end,negative){
 	var k=Math.floor(Math.random()*end);
 	if(negative=="-"){
