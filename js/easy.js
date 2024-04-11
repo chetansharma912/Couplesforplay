@@ -38,6 +38,7 @@ class Text{
 		this.x=x;
 		this.y=y;
 		this.text=text;
+		this.font=font;
 	}
 }
 
@@ -216,7 +217,10 @@ var vibrate=function(shape,two){
 	shape.y+=random(two,"-");
 }
 function distCircle(c1,c2){
-	return (Math.sqrt(Math.pow((c2.x-c1.x),2)+Math.pow((c2.y-c1.y),2)));
+	let dist = (Math.sqrt(Math.pow((c2.x-c1.x),2)+Math.pow((c2.y-c1.y),2)));
+	// console.log(dist);
+	return dist;
+	
 }
 function circleCollide(c1,c2) {
     if(distCircle(c1,c2)<(c1.radius+c2.radius)){
