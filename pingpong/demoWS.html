@@ -1,48 +1,56 @@
 <!DOCTYPE HTML>
 
 <html>
-   <head>
-      
-      <script type = "text/javascript">
-         function WebSocketTest() {
-            
+<head>
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable='no'">
+    <link href="../css/bootstrap@5.1.3.min.css" rel="stylesheet">
+    <link href="../css/awesome.css" rel="stylesheet">
+    <link href="../css/animate.css" rel="stylesheet">
+    <script src="../js/bootstrap@5.1.3.js"></script>
+
+    <script type="text/javascript" src="../js/easy.js"></script>
+    <script type="text/javascript">
+        function WebSocketTest() {
+
             if ("WebSocket" in window) {
-               alert("WebSocket is supported by your Browser!");
-               
-               // Let us open a web socket
-               var ws = new WebSocket("ws://localhost:9998/echo");
-				
-               ws.onopen = function() {
-                  
-                  // Web Socket is connected, send data using send()
-                  ws.send("Message to send");
-                  alert("Message is sent...");
-               };
-				
-               ws.onmessage = function (evt) { 
-                  var received_msg = evt.data;
-                  alert("Message is received...");
-               };
-				
-               ws.onclose = function() { 
-                  
-                  // websocket is closed.
-                  alert("Connection is closed..."); 
-               };
+                alert("WebSocket is supported by your Browser!");
+
+                // Let us open a web socket
+                var ws = new WebSocket("ws://chetansharma912.github.io/Couplesforplay/pingpong//echo");
+
+                ws.onopen = function () {
+
+                    // Web Socket is connected, send data using send()
+                    ws.send("Message to send");
+                    alert("Message is sent...");
+                };
+
+                ws.onmessage = function (evt) {
+                    var received_msg = evt.data;
+                    alert("Message is received...");
+                };
+
+                ws.onclose = function () {
+
+                    // websocket is closed.
+                    alert("Connection is closed...");
+                };
             } else {
-              
-               // The browser doesn't support WebSocket
-               alert("WebSocket NOT supported by your Browser!");
+
+                // The browser doesn't support WebSocket
+                alert("WebSocket NOT supported by your Browser!");
             }
-         }
-      </script>
-		
-   </head>
-   
-   <body>
-      <div id = "sse">
-         <a href = "javascript:WebSocketTest()">Run WebSocket</a>
-      </div>
-      
-   </body>
+        }
+    </script>
+
+</head>
+
+<body>
+    <div id="sse">
+        <a href="javascript:WebSocketTest()">Run WebSocket</a>
+    </div>
+
+</body>
+
 </html>
