@@ -42,10 +42,10 @@
 			let ball= new Circle(300,200,10);
 
             // user one
-            let userOne = new Circle(0 , (windowHeight*0.90)-20 ,15);
+            let userOne = new Circle(0 , (windowHeight*0.90)-20 ,40);
 
             // user two
-            let userTwo = new Circle(200 , 200 ,15);
+            let userTwo = new Circle(200 , 200 ,40);
            
 
 			let newx = 1, newy = 1;
@@ -88,9 +88,10 @@
 				ball.y += newy;
 
                 // draw setup here
+                
                 canvas.drawCircle(midCircle,"white");
-                canvas.drawCircle(midMidCircle,"blue");
-                canvas.drawLine(middleLine,"white"); 
+                canvas.drawLine(middleLine,"#adadad"); 
+                canvas.drawCircle(midMidCircle,"#3d858e","#3d858e");
 
                 // ball and users
 				canvas.drawCircle(ball,"red","yellow");
