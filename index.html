@@ -15,6 +15,121 @@
 <body>
     <div class="container-fluid">
         <header></header>
+        <div class="menu row">
+            <div class="menu-item col-md-3 ">
+                <span class="icon home active"></span>
+                <span class="text">Home</span>
+            </div>
+            <div class="menu-item col-md-3">
+                <span class="icon share"></span>
+                <span class="text">Share</span>
+            </div>
+            <div class="menu-item col-md-3">
+                <span class="icon chatbox"></span>
+                <span class="text">Chatbox</span>
+            </div>
+            <div class="menu-item col-md-3">
+                <span class="icon profile"></span>
+                <span class="text">Profile</span>
+            </div>
+            
+        </div>
+        <style>
+            :root {
+                --iconsize : 60%;
+            }
+            .menu {
+                text-align: center;
+                margin: 2px;
+                border-radius: 10px;
+                position: relative;
+                background-color: white;
+                
+            }
+            .menu .menu-item {
+                /* border: 1px solid black; */
+                padding: 0px;
+                text-align: center;
+                width: 25%;
+                font-size: 10px;
+                cursor: pointer;
+                transition: all 0.5s;
+                .icon{
+                    display: block;
+                    padding: 0px;
+                    width: 30px;
+                    height: 30px;
+                    margin: auto;
+                    background-size: var(--iconsize);
+                    transition:  all 0.1s;
+                }
+                .text {
+                    display: block;
+                    width: 100%;
+                    transition: all 0.1s;
+                }
+            }
+            .menu .menu-item:hover{
+                background-color: white;
+                .icon {
+                    translate: 0px -50% !important;
+                    /* color:green; */
+                    background-color: lightpink;
+                    box-shadow: 0px 0px 0px 5px #fff7fd;
+                    border: 2px solid black;
+                    border-radius: 50%;
+                }
+                .icon:before {
+                    content: "";
+                    position: absolute;
+                    top: 51%;
+                    left: -22px;
+                    background-color: white;
+                    height: 20px;
+                    width: 20px;
+                    border-top-right-radius: 20px;
+                    box-shadow: 1px -10px 0px 0px #fff7fd;
+                }
+                .icon:after {
+                    content: "";
+                    position: absolute;
+                    top: 52%;
+                    right: -22px;
+                    background-color: white;
+                    height: 20px;
+                    width: 20px;
+                    border-top-left-radius: 20px;
+                    box-shadow: -1px -10px 0px 0px #fff7fd;
+                }
+                .text {
+                    translate: 0px -50% !important;
+                    color:black;
+                    font-size: 11px;
+                    font-weight: 800;
+                }
+            }
+            
+            .home {
+                background: url(./images/svg/home-outline.svg) no-repeat center;
+            }
+            .setting {
+                background: url(./images/svg/settings-outline.svg) no-repeat center;
+            }
+            .chatbox {
+                background: url(./images/svg/chatbox-outline.svg) no-repeat center;
+            }
+            .profile {
+                background: url(./images/svg/person-outline.svg) no-repeat center;
+            }
+            .star {
+                background: url(./images/svg/star-outline.svg) no-repeat center;
+            }
+            .share {
+                background: url(./images/svg/share-social-outline.svg) no-repeat center;
+            }
+    
+            
+        </style>
 
         <!-- banner section -->
         <div class="bannerDiv container text-center">
