@@ -120,6 +120,12 @@ body {
         margin-bottom: 10px;
     }
 }
+.content {
+    h4{
+        color: #a80075 !important;
+        margin-bottom: 10px;
+    }
+}
 .loginSignup .active {
     box-shadow: 0px 0px 1px 0.1px #bb2e90;
 }
@@ -127,6 +133,8 @@ body {
 .hearting{
     position: absolute;
     width: 20px;
+    right: 10px;
+    top: 15%;
 }
 
 footer {

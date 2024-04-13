@@ -7,34 +7,34 @@ window.onresize = ()=>{
 
 function startHeartbubble(){
     let countIndex=2;
-    setInterval(()=>{
-        let allHearting = document.querySelectorAll(".hearting");
-        allHearting.forEach((i)=>{
-            document.body.removeChild(i);
-        });
+    // setInterval(()=>{
+    //     let allHearting = document.querySelectorAll(".hearting");
+    //     allHearting.forEach((i)=>{
+    //         document.body.removeChild(i);
+    //     });
 
-        let numberOfHearts = (Math.random())*5;
-        for (let i = 0; i < numberOfHearts ; i++) {
-            let i = document.createElement("img");
-            i.src = "./images/HeartBubble.gif";
-            i.classList.add("hearting");
-            i.style.position = "absolute";
-            i.style.left = ((Math.random())*window.screen.width)+"px";
-            i.style.bottom = ((Math.random())*1000)+"px";
-            document.body.appendChild(i);
-        }
+    //     let numberOfHearts = (Math.random())*5;
+    //     for (let i = 0; i < numberOfHearts ; i++) {
+    //         let i = document.createElement("img");
+    //         i.src = "./images/HeartBubble.gif";
+    //         i.classList.add("hearting");
+    //         i.style.position = "absolute";
+    //         i.style.left = ((Math.random())*window.screen.width)+"px";
+    //         i.style.bottom = ((Math.random())*1000)+"px";
+    //         document.body.appendChild(i);
+    //     }
 
-        let carousel = document.querySelector("input[type='radio']:nth-child("+countIndex+")");
-        carousel.click();
-        if(countIndex>=5) {
-            countIndex=1;
-        }
-        else{
-            countIndex++;
-        }
-        // console.log(countIndex);
+    //     let carousel = document.querySelector("input[type='radio']:nth-child("+countIndex+")");
+    //     carousel.click();
+    //     if(countIndex>=5) {
+    //         countIndex=1;
+    //     }
+    //     else{
+    //         countIndex++;
+    //     }
+    //     console.log(countIndex);
         
-    }, 2150);
+    // }, 2150);
 }
 
 function checkScreensize(){
@@ -76,8 +76,8 @@ window.onload=()=>{
       <div class="container-fluid">
           <a class="navbar-brand" href="#" onclick="gotoPage('index')">
               <!-- <b>Couple Game</b> -->
-              <img class="animate__animated animate__bounceIn" src="./images/logo_1.PNG" width="70">
-              <b>Couple's For.Play</b>
+              <img class="animate__animated animate__bounceIn" src="./images/logo_1.PNG" width="100">
+              <!-- <b>Couple's For.Play</b> -->
           </a>
           <!--  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
               <span class="navbar-toggler-icon">menu</span>
