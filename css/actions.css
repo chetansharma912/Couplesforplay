@@ -377,3 +377,122 @@ form {
         text-align: center;
     }
 }
+
+/* Fixed Menu */
+:root {
+    --iconsize : 60%;
+}
+.menu {
+    text-align: center;
+    margin: 2px;
+    border-radius: 10px;
+    position: relative;
+    background-color: white;
+    position: fixed;
+    z-index: 999999;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    
+}
+.menu .menu-item {
+    /* border: 1px solid black; */
+    padding: 0px;
+    text-align: center;
+    width: 20%;
+    font-size: 10px;
+    cursor: pointer;
+    transition: all 0.5s;
+    .icon{
+        display: block;
+        padding: 0px;
+        width: 40px;
+        height: 40px;
+        margin: auto;
+        background-size: var(--iconsize);
+        transition:  all 0.1s;
+    }
+    .text {
+        display: block;
+        width: 100%;
+        transition: all 0.1s;
+    }
+}
+.menu .menu-item:hover{
+    background-color: white;
+    .icon {
+        translate: 0px -50% !important;
+        /* color:green; */
+        background-color: #ffd7f3;
+        box-shadow: 0px 0px 0px 5px #fff7fd;
+        border: 2px solid black;
+        border-radius: 50%;
+    }
+    .icon:before {
+        content: "";
+        position: absolute;
+        top: 51%;
+        left: -22px;
+        background-color: white;
+        height: 20px;
+        width: 20px;
+        border-top-right-radius: 20px;
+        box-shadow: 1px -10px 0px 0px #fff7fd;
+    }
+    .icon:after {
+        content: "";
+        position: absolute;
+        top: 52%;
+        right: -22px;
+        background-color: white;
+        height: 20px;
+        width: 20px;
+        border-top-left-radius: 20px;
+        box-shadow: -1px -10px 0px 0px #fff7fd;
+    }
+    .text {
+        translate: 0px -50% !important;
+        color: #a80075 !important;
+        font-size: 11px;
+        font-weight: 800 !important;
+    }
+}
+
+.home {
+    background: url(../images/svg/home-outline.svg) no-repeat center;
+}
+.setting {
+    background: url(../images/svg/settings-outline.svg) no-repeat center;
+}
+.chatbox {
+    background: url(../images/svg/chatbox-outline.svg) no-repeat center;
+}
+.profile {
+    background: url(../images/svg/person-outline.svg) no-repeat center;
+}
+.star {
+    background: url(../images/svg/star-outline.svg) no-repeat center;
+}
+.share {
+    background: url(../images/svg/share-social-outline.svg) no-repeat center;
+}
+.login {
+    background: url(../images/svg/log-in-outline.svg) no-repeat center;
+}
+.aboutus {
+    background: url(../images/svg/information-outline.svg) no-repeat center;
+}
+.contactus {
+    background: url(../images/svg/call-outline.svg) no-repeat center;
+}
+
+
+/* Modal Cnnfiguation */
+#aboutusButton {
+    position: absolute;
+    top: -20px;
+    z-index: 999;
+    right: 0;
+    border-radius: 50%;
+    border: 2px solid white;
+}

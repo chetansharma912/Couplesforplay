@@ -15,133 +15,61 @@
 <body>
     <div class="container-fluid">
         <header></header>
-        <div class="menu row">
-            <div class="menu-item col-md-3 ">
-                <span class="icon home active"></span>
-                <span class="text">Home</span>
-            </div>
-            <div class="menu-item col-md-3">
-                <span class="icon share"></span>
-                <span class="text">Share</span>
-            </div>
-            <div class="menu-item col-md-3">
-                <span class="icon chatbox"></span>
-                <span class="text">Chatbox</span>
-            </div>
-            <div class="menu-item col-md-3">
-                <span class="icon profile"></span>
-                <span class="text">Profile</span>
-            </div>
-            
-        </div>
-        <style>
-            :root {
-                --iconsize : 60%;
-            }
-            .menu {
-                text-align: center;
-                margin: 2px;
-                border-radius: 10px;
-                position: relative;
-                background-color: white;
-                
-            }
-            .menu .menu-item {
-                /* border: 1px solid black; */
-                padding: 0px;
-                text-align: center;
-                width: 25%;
-                font-size: 10px;
-                cursor: pointer;
-                transition: all 0.5s;
-                .icon{
-                    display: block;
-                    padding: 0px;
-                    width: 30px;
-                    height: 30px;
-                    margin: auto;
-                    background-size: var(--iconsize);
-                    transition:  all 0.1s;
-                }
-                .text {
-                    display: block;
-                    width: 100%;
-                    transition: all 0.1s;
-                }
-            }
-            .menu .menu-item:hover{
-                background-color: white;
-                .icon {
-                    translate: 0px -50% !important;
-                    /* color:green; */
-                    background-color: lightpink;
-                    box-shadow: 0px 0px 0px 5px #fff7fd;
-                    border: 2px solid black;
-                    border-radius: 50%;
-                }
-                .icon:before {
-                    content: "";
-                    position: absolute;
-                    top: 51%;
-                    left: -22px;
-                    background-color: white;
-                    height: 20px;
-                    width: 20px;
-                    border-top-right-radius: 20px;
-                    box-shadow: 1px -10px 0px 0px #fff7fd;
-                }
-                .icon:after {
-                    content: "";
-                    position: absolute;
-                    top: 52%;
-                    right: -22px;
-                    background-color: white;
-                    height: 20px;
-                    width: 20px;
-                    border-top-left-radius: 20px;
-                    box-shadow: -1px -10px 0px 0px #fff7fd;
-                }
-                .text {
-                    translate: 0px -50% !important;
-                    color:black;
-                    font-size: 11px;
-                    font-weight: 800;
-                }
-            }
-            
-            .home {
-                background: url(./images/svg/home-outline.svg) no-repeat center;
-            }
-            .setting {
-                background: url(./images/svg/settings-outline.svg) no-repeat center;
-            }
-            .chatbox {
-                background: url(./images/svg/chatbox-outline.svg) no-repeat center;
-            }
-            .profile {
-                background: url(./images/svg/person-outline.svg) no-repeat center;
-            }
-            .star {
-                background: url(./images/svg/star-outline.svg) no-repeat center;
-            }
-            .share {
-                background: url(./images/svg/share-social-outline.svg) no-repeat center;
-            }
-    
-            
-        </style>
 
         <!-- banner section -->
         <div class="bannerDiv container text-center">
             <h1 class="banner">
                 <p>The World's #1 Website for Couple's to Play Online Games</p>
-                <button class="btn btn-success text-light" data-bs-toggle="modal" data-bs-target="#myModal">Start Playing with your Partner <span
+                <button class="btn btn-success text-light" data-bs-toggle="modal" data-bs-target="#loginModal">Start Playing with your Partner <span
                     style="color:red !important;">&hearts;</span></button>
             </h1>
         </div>
 
-        <!-- Modal sextion -->
-        <div class="modal" id="myModal">
+        
+        <!-- sliding window START -->
+        <div class="sliding-here">
+            <input type="radio" name="position">
+            <input type="radio" name="position" checked>
+            <input type="radio" name="position">
+            <input type="radio" name="position">
+            <input type="radio" name="position">
+            <main id="myCarousel">
+                <div class="myitem">
+                    <img src="images/game1.png" alt="">
+                    <h3 class="name">I Spy</h3>
+                    <p class="description">Apples are so sweet</p>
+                    <button class="btn btn-success">Play</button>
+                </div>
+                <div class="myitem">
+                    <img src="images/game1.png" alt="">
+                    <h3 class="name">Trivia</h3>
+                    <p class="description">Banana is yellow</p>
+                    <button class="btn btn-success">Play</button>
+                </div>
+                <div class="myitem">
+                    <img src="images/game1.png" alt="">
+                    <h3 class="name">Questions</h3>
+                    <p class="description">Apples are red</p>
+                    <button class="btn btn-success">Play</button>
+                </div>
+                <div class="myitem">
+                    <img src="images/game1.png" alt="">
+                    <h3 class="name">Chess</h3>
+                    <p class="description">Peach is rich</p>
+                    <button class="btn btn-success">Play</button>
+                </div>
+                <div class="myitem">
+                    <img src="images/game1.png" alt="">
+                    <h3 class="name">Code Names</h3>
+                    <p class="description">My code is agent</p>
+                    <button class="btn btn-success">Play</button>
+                </div>
+            </main>
+        </div>
+        <!-- sliding window END -->
+
+        <!-- Login / Registration Modal section -->
+        <div class="modal" id="loginModal">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
         
@@ -239,6 +167,68 @@
                 </div>
             </div>
         </div>
+
+        <!-- contact us Modal -->
+        <div class="modal" id="contactusModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="content">
+                            <h4 style="font-weight: 800;">Contact Us &#128516;</h4>
+                            <form>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                        placeholder="Enter your Name">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                        placeholder="Enter your Email">
+                                </div>
+                                <div class="mb-3">
+                                    <textarea class="form-control" placeholder="Write Your Query Here"></textarea>
+                                </div>
+                        
+                                <button type="submit" class="btn btn-success">Send</button>
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                            </form>
+                            <!-- <button id="aboutusButton" type="button" class="btn btn-danger" data-bs-dismiss="modal">X</button> -->
+                        </div>
+                    </div>
+        
+                </div>
+            </div>
+        </div>
+
+        <!-- About us Modal -->
+        <div class="modal" id="aboutusModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="textDiv content">
+                            <h4 style="font-weight: 800;">About Us &#128516;</h4>
+                            <p class="text-center padding-12 margin-10">Welcome to our platform dedicated to enhanching the bond between couples through online gaming!
+                                <br><br>We offer a diverse range of iteractive games designed specially for couples to enjoy together, regardless of distance.
+                                <br><br>Whether you're looking to reignite the spark or simply spend quality time together, our platform provides a fun and convienient way to connect and create memorable experiences.
+                                <br><br>Join our community today and emberk on a journey of shared "laughter, friendly compitition, and lasting connection"
+                                <br><br>
+                                Spread love <span
+                                style="color:red !important;">&hearts;</span> and enjoy online games 
+                                <br><br>
+                                Happy Playing &#128516;
+                                <br><br>
+                                <button type="button" class="btn btn-danger text-light" data-bs-dismiss="modal">Close</button>
+                                <br><br>
+                                <br><br>
+                            </p>
+                            <!-- <button id="aboutusButton" type="button" class="btn btn-danger" data-bs-dismiss="modal">X</button> -->
+                        </div>
+                    </div>
+        
+                </div>
+            </div>
+        </div>
         
         <!-- information sextion -->
         <div class="textDiv content">
@@ -249,74 +239,60 @@
             </p>
         </div>
 
-
         <div class="bannerDiv container text-center">
             <h2 class="banner">
-                <p>Try Our Best Range Couple Games <span
-                    style="color:red !important;">&hearts;</span></p>
+                <p>Try Our Best Range Couple Games <br>
+                    Today..! <span style="color:red !important;">&hearts;</span></p>
             </h2>
         </div>
 
-        <div class="sliding-here">
-            <input type="radio" name="position">
-            <input type="radio" name="position" checked>
-            <input type="radio" name="position">
-            <input type="radio" name="position">
-            <input type="radio" name="position">
-            <main id="myCarousel">
-                <div class="myitem">
-                    <img src="images/game1.png" alt="">
-                    <h3 class="name">I Spy</h3>
-                    <p class="description">Apples are so sweet</p>
-                    <button class="btn btn-success">Play</button>
-                </div>
-                <div class="myitem">
-                    <img src="images/game1.png" alt="">
-                    <h3 class="name">Trivia</h3>
-                    <p class="description">Banana is yellow</p>
-                    <button class="btn btn-success">Play</button>
-                </div>
-                <div class="myitem">
-                    <img src="images/game1.png" alt="">
-                    <h3 class="name">Questions</h3>
-                    <p class="description">Apples are red</p>
-                    <button class="btn btn-success">Play</button>
-                </div>
-                <div class="myitem">
-                    <img src="images/game1.png" alt="">
-                    <h3 class="name">Chess</h3>
-                    <p class="description">Peach is rich</p>
-                    <button class="btn btn-success">Play</button>
-                </div>
-                <div class="myitem">
-                    <img src="images/game1.png" alt="">
-                    <h3 class="name">Code Names</h3>
-                    <p class="description">My code is agent</p>
-                    <button class="btn btn-success">Play</button>
-                </div>
-            </main>
+        <div class="bannerDiv container text-center" style="visibility: hidden;">
+            <h2 class="banner">
+                <p>Try Our Best Range Couple Games <br>
+                    Today..! <span style="color:red !important;">&hearts;</span></p>
+            </h2>
         </div>
-
-
-        <!-- sliding window END -->
         
-        <div class="textDiv content">
-            <h4 style="font-weight: 800;">About Us &#128516;</h4>
-            <p class="text-center padding-12 margin-10">Welcome to our platform dedicated to enhanching the bond between couples through online gaming!
-                <br><br>We offer a diverse range of iteractive games designed specially for couples to enjoy together, regardless of distance.
-                <br><br>Whether you're looking to reignite the spark or simply spend quality time together, our platform provides a fun and convienient way to connect and create memorable experiences.
-                <br><br>Join our community today and emberk on a journey of shared "laughter, friendly compitition, and lasting connection"
-                <br><br>
-                Spread love <span
-                style="color:red !important;">&hearts;</span> and enjoy online games 
-                <br><br>
-                Happy Playing &#128516;
-                <br><br>
-            </p>
+
+        <div class="menu row">
+            <div class="menu-item col-md-2">
+                <span class="icon home active"></span>
+                <span class="text">Home</span>
+            </div>
+            <div class="menu-item col-md-2" data-bs-toggle="modal" data-bs-target="#loginModal">
+                <span class="icon login"></span>
+                <span class="text">Login</span>
+            </div>
+            <div class="menu-item col-md-2">
+                <span class="icon share"></span>
+                <span class="text">Share</span>
+            </div>
+            <!-- <div class="menu-item col-md-2">
+                <span class="icon chatbox"></span>
+                <span class="text">Chatbox</span>
+            </div> -->
+            <div class="menu-item col-md-2" data-bs-toggle="modal" data-bs-target="#contactusModal">
+                <span class="icon contactus"></span>
+                <span class="text">Contact Us</span>
+            </div>
+            <!-- <div class="menu-item col-md-2">
+                <span class="icon profile"></span>
+                <span class="text">Profile</span>
+            </div> -->
+            <div class="menu-item col-md-2" data-bs-toggle="modal" data-bs-target="#aboutusModal">
+                <span class="icon aboutus"></span>
+                <span class="text">About Us</span>
+            </div>
+            
+            
         </div>
+        
         
         <!-- footer section -->
-        <footer></footer>
+        <!-- <footer></footer> -->
+        <span style="height: 200px;visibility: hidden;"></span>
+
+        
 		
     </div>
     <img src="images/HeartBubble.gif" width="10" class="hearting">

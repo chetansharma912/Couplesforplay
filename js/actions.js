@@ -119,6 +119,6 @@ window.onload=()=>{
     
       setTimeout(() => {
         document.querySelector("header").innerHTML = header;
-        document.querySelector("footer").innerHTML = footer;
-      }, 200);
+        // document.querySelector("footer").innerHTML = footer;
+      }, 50);
     }
