@@ -436,7 +436,7 @@ form {
         border: 2px solid black;
         border-radius: 50%;
     }
-    .icon:before {
+    /* .icon:before {
         content: "";
         position: absolute;
         top: 51%;
@@ -457,7 +457,7 @@ form {
         width: 20px;
         border-top-left-radius: 20px;
         box-shadow: -1px -10px 0px 0px #fff7fd;
-    }
+    } */
     .text {
         translate: 0px -50% !important;
         color: #a80075 !important;
