@@ -392,8 +392,8 @@ form {
 }
 .menu {
     text-align: center;
-    margin: 2px;
-    border-radius: 10px;
+    margin: 0px;
+    border-radius: 0;
     position: relative;
     background-color: white;
     position: fixed;
@@ -401,6 +401,7 @@ form {
     bottom: 0;
     width: 100%;
     padding: 10px;
+    box-shadow: 0px 0px 5px 0.5px #a80075;
     
 }
 .menu .menu-item {
