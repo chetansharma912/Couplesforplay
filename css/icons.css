@@ -3,7 +3,7 @@
     display: block;
     padding: 0px;
     margin: auto;
-    background-size: 100%;
+    /* background-size: 100% !important; */
 }
 
 .home {
@@ -48,8 +48,7 @@
 .phone-portrait-outline {
     background: url(../images/svg/phone-portrait-outline.svg) no-repeat center;
 }
-.flower-outline
-{
+.flower-outline {
     background: url(../images/svg/flower-outline.svg) no-repeat center;
 }
 

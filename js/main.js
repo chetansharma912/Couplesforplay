@@ -1,12 +1,12 @@
 
 
-// window.onload=()=>{
-//     checkScreensize();
-// }
+window.onload=()=>{
+    checkScreensize();
+}
 
-// window.onresize = ()=>{
-//     checkScreensize();
-// }
+window.onresize = ()=>{
+    checkScreensize();
+}
 
 function checkScreensize(){
     if(window.screen.width>570 && !(window.location.href.includes("error.html"))){
