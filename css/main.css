@@ -33,8 +33,6 @@ body {
 
 .div-two {
     box-shadow: 0px 0px 2px 0.1px #a3859a !important;
-    background: url(../images/logo_1.PNG) #fff7fd no-repeat 90% 90%;
-    background-size: 75px;
     padding: 50px;
     color: #a80075 !important;
     p {
@@ -47,17 +45,31 @@ body {
         color: #a80075 !important;
         margin-bottom: 10px;
     }
-}
-.content {
-    h4{
-        color: #a80075 !important;
-        margin-bottom: 10px;
+    .icon {
+        width: 60px;
+        height: 60px;
+        background-size: 100%;
     }
+    .col-md-6 {
+        padding: 10px;
+        span {
+            margin-bottom: 10px;
+        }
+        p {
+            /* border: 1px solid black; */
+            padding: 10px;
+        }
+    }
+}
+
+.carousel {
+    background: url(../images/logo_1.PNG) #fff7fd no-repeat 90% 90%;
+    background-size: 75px;
 }
 
 .hearting{
     position: absolute;
     width: 20px;
     right: 10px;
-    bottom: 15%;
+    top: 15%;
 }

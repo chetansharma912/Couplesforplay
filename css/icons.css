@@ -1,0 +1,55 @@
+/* Icons */
+.icon {
+    display: block;
+    padding: 0px;
+    margin: auto;
+    background-size: 100%;
+}
+
+.home {
+    background: url(../images/svg/home-outline.svg) no-repeat center;
+}
+.setting {
+    background: url(../images/svg/settings-outline.svg) no-repeat center;
+}
+.chatbox {
+    background: url(../images/svg/chatbox-outline.svg) no-repeat center;
+}
+.profile {
+    background: url(../images/svg/person-outline.svg) no-repeat center;
+}
+.star {
+    background: url(../images/svg/star-outline.svg) no-repeat center;
+}
+.share {
+    background: url(../images/svg/share-social-outline.svg) no-repeat center;
+}
+.login {
+    background: url(../images/svg/log-in-outline.svg) no-repeat center;
+}
+.about-us {
+    background: url(../images/svg/information-outline.svg) no-repeat center;
+}
+.contact-us {
+    background: url(../images/svg/call-outline.svg) no-repeat center;
+}
+.document-attach {
+    background: url(../images/svg/document-attach-outline.svg) no-repeat center;
+}
+.diamond {
+    background: url(../images/svg/diamond-outline.svg) no-repeat center;
+}
+.heart {
+    background: url(../images/svg/heart-outline.svg) no-repeat center;
+}
+.heart-dislike-circle-outline {
+    background: url(../images/svg/heart-dislike-circle-outline.svg) no-repeat center;
+}
+.phone-portrait-outline {
+    background: url(../images/svg/phone-portrait-outline.svg) no-repeat center;
+}
+.flower-outline
+{
+    background: url(../images/svg/flower-outline.svg) no-repeat center;
+}
+

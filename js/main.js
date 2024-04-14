@@ -1,12 +1,12 @@
 
 
-window.onload=()=>{
-    checkScreensize();
-}
+// window.onload=()=>{
+//     checkScreensize();
+// }
 
-window.onresize = ()=>{
-    checkScreensize();
-}
+// window.onresize = ()=>{
+//     checkScreensize();
+// }
 
 function checkScreensize(){
     if(window.screen.width>570 && !(window.location.href.includes("error.html"))){
@@ -31,3 +31,11 @@ function loadblock(event,blockname){
     });
     event.classList.add("active");
 }
+
+// function activeMenu(event){
+//     let items = document.querySelectorAll(".menu .menu-item");
+//     items.forEach((item)=>{
+//         item.classList.remove("active");
+//     });
+//     event.classList.add("active");
+// }

@@ -20,13 +20,11 @@
 }
 
 .menu .menu-item {
-    /* border: 1px solid black; */
     padding: 0px;
     text-align: center;
     width: 20%;
     font-size: 10px;
     cursor: pointer;
-    /* transition: all 0.5s; */
     .icon{
         display: block;
         padding: 0px;
@@ -42,6 +40,24 @@
         transition: transform 0.1s,translate 0.1s;
     }
 }
+
+/* .menu .active {
+    background-color: white;
+    .icon {
+        translate: 0px -50% !important;
+        background-color: #ffd7f3;
+        box-shadow: 0px 0px 0px 5px #fff7fd;
+        border: 2px solid black;
+        border-radius: 50%;
+        transform: scale(1.2);
+    }
+    .text {
+        translate: 0px -50% !important;
+        color: #a80075 !important;
+        font-size: 11px;
+        font-weight: 800 !important;
+    }
+} */
 
 .menu .menu-item:hover{
     background-color: white;
@@ -81,33 +97,4 @@
         font-size: 11px;
         font-weight: 800 !important;
     }
-}
-
-/* Icons */
-.home {
-    background: url(../images/svg/home-outline.svg) no-repeat center;
-}
-.setting {
-    background: url(../images/svg/settings-outline.svg) no-repeat center;
-}
-.chatbox {
-    background: url(../images/svg/chatbox-outline.svg) no-repeat center;
-}
-.profile {
-    background: url(../images/svg/person-outline.svg) no-repeat center;
-}
-.star {
-    background: url(../images/svg/star-outline.svg) no-repeat center;
-}
-.share {
-    background: url(../images/svg/share-social-outline.svg) no-repeat center;
-}
-.login {
-    background: url(../images/svg/log-in-outline.svg) no-repeat center;
-}
-.aboutus {
-    background: url(../images/svg/information-outline.svg) no-repeat center;
-}
-.contactus {
-    background: url(../images/svg/call-outline.svg) no-repeat center;
 }
