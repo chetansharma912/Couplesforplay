@@ -1,0 +1,10 @@
+/* Modal Configuation */
+
+#aboutusButton {
+    position: absolute;
+    top: -20px;
+    z-index: 999;
+    right: 0;
+    border-radius: 50%;
+    border: 2px solid white;
+}

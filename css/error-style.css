@@ -1,0 +1,19 @@
+/* CSS for ERROR Page */
+
+.errorpage {
+    padding: 20px;
+    background: #ffd7f3;
+    p {
+        margin: auto;
+        border: 5px solid #a80075;
+        padding: 20px;
+        text-align: center;
+        color: #a80075 !important;
+    }
+    h5{
+        margin: 10px;
+        border: 5px solid #a80075;
+        padding: 10px;
+        text-align: center;
+    }
+}

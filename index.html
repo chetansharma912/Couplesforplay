@@ -3,235 +3,28 @@
 <head>
     <title>Couple's For.play</title>
     <meta charset="utf-8">
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/bootstrap@5.1.3.min.css" rel="stylesheet">
-    <link href="css/awesome.css" rel="stylesheet">
-    <link href="css/animate.css" rel="stylesheet">
-    <script src="js/bootstrap@5.1.3.js"></script>
-    <script src="js/actions.js"></script>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     
 </head>
 <body>
     <div class="container-fluid">
-        <header></header>
+        <div class="div-two text-center">
+            <h1 class="banner">
+                <p>Carousel</p>
+            </h1>
+        </div>
 
-        <!-- banner section -->
-        <div class="bannerDiv container text-center">
+        <div class="div-one text-center">
             <h1 class="banner">
                 <p>The World's #1 Website for Couple's to Play Online Games</p>
                 <button class="btn btn-success text-light" data-bs-toggle="modal" data-bs-target="#loginModal">Start Playing with your Partner <span
                     style="color:red !important;">&hearts;</span></button>
             </h1>
         </div>
-
         
-        <!-- sliding window START -->
-        <!-- <div class="sliding-here">
-            <input type="radio" name="position">
-            <input type="radio" name="position" checked>
-            <input type="radio" name="position">
-            <input type="radio" name="position">
-            <input type="radio" name="position">
-            <main id="myCarousel">
-                <div class="myitem">
-                    <img src="images/game1.png" alt="">
-                    <h3 class="name">I Spy</h3>
-                    <p class="description">Apples are so sweet</p>
-                    <button class="btn btn-success">Play</button>
-                </div>
-                <div class="myitem">
-                    <img src="images/game1.png" alt="">
-                    <h3 class="name">Trivia</h3>
-                    <p class="description">Banana is yellow</p>
-                    <button class="btn btn-success">Play</button>
-                </div>
-                <div class="myitem">
-                    <img src="images/game1.png" alt="">
-                    <h3 class="name">Questions</h3>
-                    <p class="description">Apples are red</p>
-                    <button class="btn btn-success">Play</button>
-                </div>
-                <div class="myitem">
-                    <img src="images/game1.png" alt="">
-                    <h3 class="name">Chess</h3>
-                    <p class="description">Peach is rich</p>
-                    <button class="btn btn-success">Play</button>
-                </div>
-                <div class="myitem">
-                    <img src="images/game1.png" alt="">
-                    <h3 class="name">Code Names</h3>
-                    <p class="description">My code is agent</p>
-                    <button class="btn btn-success">Play</button>
-                </div>
-            </main>
-        </div> -->
-        <!-- sliding window END -->
-
-        <!-- Login / Registration Modal section -->
-        <div class="modal" id="loginModal">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-        
-                    <!-- Modal Header -->
-                    <!-- <div class="modal-header">
-                        <h4 class="modal-title">Modal Heading</h4>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div> -->
-        
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        <!-- login and sign up page -->
-                        <div class="content loginSignup">
-                            <ul class="nav nav-tabs">
-                                <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="javascript:void(0);"
-                                        onclick="loadblock(this,'login')">Login</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="javascript:void(0);" onclick="loadblock(this,'signup')">Sign up</a>
-                                </li>
-                            </ul>
-                        
-                        
-                            <form id="login">
-                                <h4>Start Playing</h4>
-                                <div class="mb-3">
-                                    <!-- <label for="exampleInputEmail1" class="form-label">Email address</label> -->
-                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                                        placeholder="Enter username">
-                                </div>
-                                <div class="mb-3">
-                                    <!-- <label for="exampleInputPassword1" class="form-label">Password</label> -->
-                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter password">
-                                    <br>
-                                    <a href="#">Forgot password?</a>
-                                </div>
-                                <button type="submit" class="btn btn-success">Login</button>
-                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                            </form>
-                        
-                            <form id="signup">
-                                <h4>Sign Up</h4>
-                                <div class="mb-3">
-                                    <!-- <label for="exampleInputEmail1" class="form-label">Email address</label> -->
-                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                                        placeholder="Enter your Name">
-                                </div>
-                                <div class="mb-3">
-                                    <!-- <label for="exampleInputEmail1" class="form-label">Email address</label> -->
-                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                                        placeholder="Enter your Email">
-                                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                                </div>
-                                <div class="mb-3">
-                                    <!-- <label for="exampleInputPassword1" class="form-label">Password</label> -->
-                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter your password">
-                                </div>
-                                <div class="mb-3">
-                                    <select class="form-control">
-                                        <option value="0-18">---Select age---</option>
-                                        <option value="0-18">0-18</option>
-                                        <option value="18-20">18-20</option>
-                                        <option value="20-25">20-25</option>
-                                        <option value="25-30">25-30</option>
-                                        <option value="30-40">30-40</option>
-                                        <option value="40-50">40-50</option>
-                                        <option value="50+">50+</option>
-                                    </select>
-                                </div>
-                                <div class="mb-3">
-                                    <select class="form-control">
-                                        <option value="0-18">---Select gender---</option>
-                                        <option value="male">Male</option>
-                                        <option value="Female">Female</option>
-                                        <option value="Other">Other</option>
-                                    </select>
-                                </div>
-                                <div class="mb-3 form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">I agree</label>
-                                </div>
-                        
-                                <button type="submit" class="btn btn-success">Sign Up</button>
-                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                            </form>
-                        </div>
-                    </div>
-        
-                    <!-- Modal footer -->
-                    <!-- <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                    </div> -->
-        
-                </div>
-            </div>
-        </div>
-
-        <!-- contact us Modal -->
-        <div class="modal" id="contactusModal">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        <div class="content">
-                            <h4 style="font-weight: 800;">Contact Us &#128516;</h4>
-                            <form>
-                                <div class="mb-3">
-                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                                        placeholder="Enter your Name">
-                                </div>
-                                <div class="mb-3">
-                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                                        placeholder="Enter your Email">
-                                </div>
-                                <div class="mb-3">
-                                    <textarea class="form-control" placeholder="Write Your Query Here"></textarea>
-                                </div>
-                        
-                                <button type="submit" class="btn btn-success">Send</button>
-                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                            </form>
-                            <!-- <button id="aboutusButton" type="button" class="btn btn-danger" data-bs-dismiss="modal">X</button> -->
-                        </div>
-                    </div>
-        
-                </div>
-            </div>
-        </div>
-
-        <!-- About us Modal -->
-        <div class="modal" id="aboutusModal">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        <div class="textDiv content">
-                            <h4 style="font-weight: 800;">About Us &#128516;</h4>
-                            <p class="text-center padding-12 margin-10">Welcome to our platform dedicated to enhanching the bond between couples through online gaming!
-                                <br><br>We offer a diverse range of iteractive games designed specially for couples to enjoy together, regardless of distance.
-                                <br><br>Whether you're looking to reignite the spark or simply spend quality time together, our platform provides a fun and convienient way to connect and create memorable experiences.
-                                <br><br>Join our community today and emberk on a journey of shared "laughter, friendly compitition, and lasting connection"
-                                <br><br>
-                                Spread love <span
-                                style="color:red !important;">&hearts;</span> and enjoy online games 
-                                <br><br>
-                                Happy Playing &#128516;
-                                <br><br>
-                                <button type="button" class="btn btn-danger text-light" data-bs-dismiss="modal">Close</button>
-                                <br><br>
-                                <br><br>
-                            </p>
-                            <!-- <button id="aboutusButton" type="button" class="btn btn-danger" data-bs-dismiss="modal">X</button> -->
-                        </div>
-                    </div>
-        
-                </div>
-            </div>
-        </div>
-        
-        <!-- information sextion -->
-        <div class="textDiv content">
+        <!-- information section -->
+        <div class="div-two content">
             <p class="text-center padding-12 margin-10">Couple Room helps you get to know your partner even better and have an
                 even happier relationship through fun and compitative gameplays
                 <br><br>
@@ -239,20 +32,19 @@
             </p>
         </div>
 
-        <div class="bannerDiv container text-center">
+        <div class="div-one text-center">
             <h2 class="banner">
                 <p>Try Our Best Range Couple Games <br>
                     Today..! <span style="color:red !important;">&hearts;</span></p>
             </h2>
         </div>
 
-        <div class="bannerDiv container text-center" style="visibility: hidden;">
+        <div class="div-one text-center" style="visibility: hidden;">
             <h2 class="banner">
                 <p>Try Our Best Range Couple Games <br>
                     Today..! <span style="color:red !important;">&hearts;</span></p>
             </h2>
         </div>
-        
 
         <div class="menu row">
             <div class="menu-item col-md-2">
@@ -286,19 +78,153 @@
             
             
         </div>
-        
-        
-        <!-- footer section -->
-        <!-- <footer></footer> -->
-        <span style="height: 200px;visibility: hidden;"></span>
 
+        <!-- Login / Registration Modal section -->
+        <div class="modal" id="loginModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="content loginSignup">
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="javascript:void(0);"
+                                        onclick="loadblock(this,'login')">Login</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="javascript:void(0);" onclick="loadblock(this,'signup')">Sign up</a>
+                                </li>
+                            </ul>
+                            <form id="login">
+                                <h4>Start Playing</h4>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                        placeholder="Enter username">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter password">
+                                    <br>
+                                    <a href="#">Forgot password?</a>
+                                </div>
+                                <button type="submit" class="btn btn-success">Login</button>
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                            </form>
+                        
+                            <form id="signup">
+                                <h4>Sign Up</h4>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                        placeholder="Enter your Name">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                        placeholder="Enter your Email">
+                                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter your password">
+                                </div>
+                                <div class="mb-3">
+                                    <select class="form-control">
+                                        <option value="0-18">---Select age---</option>
+                                        <option value="0-18">0-18</option>
+                                        <option value="18-20">18-20</option>
+                                        <option value="20-25">20-25</option>
+                                        <option value="25-30">25-30</option>
+                                        <option value="30-40">30-40</option>
+                                        <option value="40-50">40-50</option>
+                                        <option value="50+">50+</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <select class="form-control">
+                                        <option value="0-18">---Select gender---</option>
+                                        <option value="male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <label class="form-check-label" for="exampleCheck1">I agree</label>
+                                </div>
+                                <button type="submit" class="btn btn-success">Sign Up</button>
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- contact us Modal -->
+        <div class="modal" id="contactusModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="content">
+                            <h4 style="font-weight: 800;">Contact Us &#128516;</h4>
+                            <form>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                        placeholder="Enter your Name">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                        placeholder="Enter your Email">
+                                </div>
+                                <div class="mb-3">
+                                    <textarea class="form-control" placeholder="Write Your Query Here"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-success">Send</button>
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                            </form>
+                        </div>
+                    </div>
         
-		
+                </div>
+            </div>
+        </div>
+
+        <!-- About us Modal -->
+        <div class="modal" id="aboutusModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="div-two content">
+                            <h4 style="font-weight: 800;">About Us &#128516;</h4>
+                            <p class="text-center padding-12 margin-10">Welcome to our platform dedicated to enhanching the bond between couples through online gaming!
+                                <br><br>We offer a diverse range of iteractive games designed specially for couples to enjoy together, regardless of distance.
+                                <br><br>Whether you're looking to reignite the spark or simply spend quality time together, our platform provides a fun and convienient way to connect and create memorable experiences.
+                                <br><br>Join our community today and emberk on a journey of shared "laughter, friendly compitition, and lasting connection"
+                                <br><br>
+                                Spread love <span
+                                style="color:red !important;">&hearts;</span> and enjoy online games 
+                                <br><br>
+                                Happy Playing &#128516;
+                                <br><br>
+                                <button type="button" class="btn btn-danger text-light" data-bs-dismiss="modal">Close</button>
+                                <br><br>
+                                <br><br>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
     </div>
     <img src="images/HeartBubble.gif" width="10" class="hearting">
 	
-	<link href="css/actions.css" rel="stylesheet">
-    <script src="js/actions.js"></script>
+    <!-- Styling CSS -->
+    <link href="css/bootstrap@5.1.3.min.css" rel="stylesheet">
+	<link href="css/main.css" rel="stylesheet">
+    <link href="css/fixed-menu.css" rel="stylesheet">
+    <link href="css/forms-style.css" rel="stylesheet">
+    <link href="css/modal-style.css" rel="stylesheet">
+
+    <!-- Scripts -->
+    <script src="js/bootstrap@5.1.3.js"></script>
+    <script src="js/main.js"></script>
 	
 </body>
 </html>

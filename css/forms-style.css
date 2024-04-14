@@ -1,0 +1,47 @@
+.loginSignup .active {
+    box-shadow: 0px 0px 1px 0.1px #bb2e90;
+}
+
+.loginSignup ul li {
+    background: #ffd7f3;
+    width: 50%;
+    text-align: center;
+    color:#a80075 !important;
+
+    *{
+        color:#a80075 !important;
+    }
+
+    
+}
+
+#signup{
+    display: none;
+}
+
+form {
+    background-color: #ffd7f3;
+    padding: 50px;
+    * {
+        color:#a80075 !important;
+    }
+    input, option, select {
+        color: black !important;
+    }
+    button{
+        color: white !important;
+    }
+    #emailHelp{
+        font-size: 10px !important;
+        color: black !important;
+    }
+    a{
+        color:blue !important;
+    }
+    h4{
+        margin-bottom: 20px;
+        margin-left: 5px;
+        color: #a80075 !important;
+    }
+    
+}
