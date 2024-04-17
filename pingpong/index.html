@@ -66,7 +66,7 @@
             
             canvas.animate(()=>{
                 if(loader.width<loadingIndicator.width){
-                    loader.width+= 0.3;
+                    loader.width+= 10;
                 }
                 else{
                     canvas.setShapes([
@@ -152,6 +152,7 @@
                     h1Image.y = userOne.y-userOne.radius;
                     h2Image.x = userTwo.x-userTwo.radius;
                     h2Image.y = userTwo.y-userTwo.radius;
+                    userTwo.x=ball.x;
 
                     // move shape function ends
                 }
