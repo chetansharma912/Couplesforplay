@@ -51,4 +51,24 @@
 .flower-outline {
     background: url(../images/svg/flower-outline.svg) no-repeat center;
 }
+.chatbox {
+    background: url(../images/svg/chatbox.svg) no-repeat center;
+}
+.share-file {
+    background: url(../images/svg/share.svg) no-repeat center;
+}
+
+/* Social Media */
+.facebook {
+    background: url(../images/social-media/Facebook.jpg) no-repeat center;
+}
+.whatsapp {
+    background: url(../images/social-media/WhatsApp.png) no-repeat center;
+}
+.telegram {
+    background: url(../images/social-media/Telegram.png) no-repeat center;
+}
+.instagram {
+    background: url(../images/social-media/Instagram.jpg) no-repeat center;
+}
 

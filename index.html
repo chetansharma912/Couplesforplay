@@ -11,13 +11,13 @@
     <div class="container-fluid">
 
         <div class="div-two text-center carousel">
-            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+            <div id="carouselSlidesOnly" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    <button type="button" data-bs-target="#carouselCaptions" data-bs-slide-to="0" class="active"
                         aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    <button type="button" data-bs-target="#carouselCaptions" data-bs-slide-to="1"
                         aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    <button type="button" data-bs-target="#carouselCaptions" data-bs-slide-to="2"
                         aria-label="Slide 3"></button>
                 </div>
                 <div class="carousel-inner">
@@ -42,12 +42,12 @@
                             <p>Some representative</p>
                         </div>
                     </div>
-                    <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleSlidesOnly"
+                    <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselSlidesOnly"
                         data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleSlidesOnly"
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselSlidesOnly"
                         data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
@@ -123,7 +123,7 @@
                 <span class="icon login"></span>
                 <span class="text">Login</span>
             </div>
-            <div class="menu-item col-md-2" >
+            <div class="menu-item col-md-2" data-bs-toggle="modal" data-bs-target="#shareModal" >
                 <span class="icon share"></span>
                 <span class="text">Share</span>
             </div>
@@ -165,11 +165,11 @@
                             <form id="login">
                                 <h4>Start Playing</h4>
                                 <div class="mb-3">
-                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                    <input type="text" class="form-control" id="InputEmailLogin" aria-describedby="emailHelp"
                                         placeholder="Enter username">
                                 </div>
                                 <div class="mb-3">
-                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter password">
+                                    <input type="password" class="form-control" id="InputPasswordLogin" placeholder="Enter password">
                                     <br>
                                     <a href="#">Forgot password?</a>
                                 </div>
@@ -180,16 +180,16 @@
                             <form id="signup">
                                 <h4>Sign Up</h4>
                                 <div class="mb-3">
-                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                    <input type="text" class="form-control" id="InputNameSignUp" aria-describedby="emailHelp"
                                         placeholder="Enter your Name">
                                 </div>
                                 <div class="mb-3">
-                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                    <input type="email" class="form-control" id="InputEmailSignUp" aria-describedby="emailHelp"
                                         placeholder="Enter your Email">
                                     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                                 </div>
                                 <div class="mb-3">
-                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter your password">
+                                    <input type="password" class="form-control" id="InputPasswordSignUp" placeholder="Enter your password">
                                 </div>
                                 <div class="mb-3">
                                     <select class="form-control">
@@ -212,14 +212,54 @@
                                     </select>
                                 </div>
                                 <div class="mb-3 form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">I agree</label>
+                                    <input type="checkbox" class="form-check-input" id="Check">
+                                    <label class="form-check-label" for="Check">I agree</label>
                                 </div>
                                 <button type="submit" class="btn btn-success">Sign Up</button>
                                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                             </form>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- share Modal -->
+        <div class="modal" id="shareModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="content">
+                            <h4 style="font-weight: 800;">Share On ...</h4>
+                            <p style="font-weight: 800;">https://www.Couplesforplay.io/</p>
+                            <button class="btn btn-secondary">Copy</button><br>
+                            <div class="col-md-2">
+                                <span class="icon chatbox"></span>
+                                <span class="text">Messages</span>
+                            </div>
+                            <div class="col-md-2">
+                                <span class="icon share-file"></span>
+                                <span class="text">NearBy</span>
+                            </div>
+                            <div class="col-md-2">
+                                <span class="icon instagram"></span>
+                                <span class="text">Instagram</span>
+                            </div>
+                            <div class="col-md-2">
+                                <span class="icon facebook"></span>
+                                <span class="text">Facebook</span>
+                            </div>
+                            <div class="col-md-2">
+                                <span class="icon whatsapp"></span>
+                                <span class="text">WhatsApp</span>
+                            </div>
+                            <div class="col-md-2">
+                                <span class="icon telegram"></span>
+                                <span class="text">Telegram</span>
+                            </div>
+                        </div>
+                    </div>
+        
                 </div>
             </div>
         </div>
@@ -233,11 +273,11 @@
                             <h4 style="font-weight: 800;">Contact Us &#128516;</h4>
                             <form>
                                 <div class="mb-3">
-                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                    <input type="text" class="form-control" id="InputNameContactUs" aria-describedby="emailHelp"
                                         placeholder="Enter your Name">
                                 </div>
                                 <div class="mb-3">
-                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                    <input type="email" class="form-control" id="InputEmailContactUs" aria-describedby="emailHelp"
                                         placeholder="Enter your Email">
                                 </div>
                                 <div class="mb-3">

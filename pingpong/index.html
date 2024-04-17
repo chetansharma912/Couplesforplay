@@ -24,137 +24,138 @@
             let windowWidth = window.innerWidth;
 			let windowHeight = window.innerHeight;
             
-            let  canvas=new createCanvas(windowWidth, windowHeight,"border:1px dotted black;");
-			canvas.drawCanvas();
-
-            // Setup
-
-            // middle line and circle
-            let middleLine = new Line(0, windowHeight*0.50, windowWidth, windowHeight*0.50);
-            let midCircle = new Circle(windowWidth/2,windowHeight/2,100);
-            let midMidCircle = new Circle(windowWidth/2,windowHeight/2,25);
+            let  canvas=new createCanvas(windowWidth, windowHeight,"border:1px dotted black;background:#e09410;");
             
+            // middle line and circle
+            let midRect = new Rectangle(0, windowHeight*0.5-5, windowWidth, 10,"#ffffff70","#ffffff70");
+            let midLine = new Rectangle(windowWidth*0.5, 0, 1, windowHeight ,"#00000036","#00000036");
+
             // start rect and end rect
-            let startLine = new Rectangle(0, 0, windowWidth, windowHeight*0.02);
-            let endLine = new Rectangle(0, windowHeight*0.98, windowWidth, windowHeight);
+            let startLine = new Rectangle(0, 0, windowWidth, windowHeight*0.02,"#006ba0","#006ba0");
+            let endLine = new Rectangle(0, windowHeight*0.98, windowWidth, windowHeight,"#83306a", "#83306a");
 
             // Ball here
-			let ball= new Circle((windowWidth*0.50),(windowHeight*0.50),10);
+			let ball= new Circle((windowWidth*0.50),(windowHeight*0.50),10,"#e0941000","#e0941000");
 
             // user one
-            let userOne = new Circle(0 , (windowHeight*0.90)-20 ,40);
-            let userOneText=new Text("0","50px Arial", (windowWidth*0.50)-10 , windowHeight*0.25);
-            
+            let userOne = new Circle(0 , (windowHeight*0.90)-20 ,40,"#83306a","#83306a");
+            let userOneText=new Text("0","50px Arial", (windowWidth*0.90)-10 , windowHeight*0.25-25,"black");
 
             // user two
-            let userTwo = new Circle(100 , 100 ,40);
-            let userTwoText=new Text("0","50px Arial", (windowWidth*0.50)-10 , windowHeight*0.75);
+            let userTwo = new Circle(100 , 100 ,40,"#006ba0","#006ba0");
+            let userTwoText=new Text("0","50px Arial", (windowWidth*0.90)-10 , windowHeight*0.75+60,"black");
+
+            let ballImage=new SpriteImage("images/Ball.png",100-ball.radius*2,100-ball.radius*2,ball.radius*2,ball.radius*2);
+            let bgImage=new SpriteImage("images/Intro.png",0,windowHeight*0.50 - windowWidth*0.50 ,windowWidth,windowWidth);
+            let h1Image=new SpriteImage("images/H1.png",userOne.x-userOne.radius,userOne.y-userOne.radius,userOne.radius*2,userOne.radius*2);
+            let h2Image=new SpriteImage("images/H2.png",userTwo.x-userTwo.radius,userTwo.y-userTwo.radius,userTwo.radius*2,userTwo.radius*2);
             
-
-			let newx = 0, newy = 0;
-
-			
-
-			setup();
-			function setup(){
-				draw();
-			}
-
-			function draw(){
-				canvas.clear();
-                canvas.setBackground("black");
-
-				if(circleCollide(userOne,ball)){
-                    if(ball.x > userOne.x){
-                        newx = 1*randomBetween(1,5);
-                    }
-                    if(ball.x < userOne.x){
-                        newx = -1*randomBetween(1,5);
-                    }
-
-                    if(ball.y > userOne.y){
-                        newy = 1*randomBetween(1,5);
-                    }
-                    if(ball.y < userOne.y){
-                        newy = -1*randomBetween(1,5);
-                    }
-				}
-
-                if(circleCollide(userTwo,ball)){
-					if(ball.x > userTwo.x){
-                        newx = 1*randomBetween(1,5);
-                    }
-                    if(ball.x < userTwo.x){
-                        newx = -1*randomBetween(1,5);
-                    }
-
-                    if(ball.y > userTwo.y){
-                        newy = 1*randomBetween(1,5);
-                    }
-                    if(ball.y < userTwo.y){
-                        newy = -1*randomBetween(1,5);
-                    }
-				}
-
-				if(ball.x< ( 0 + ball.radius/2)){
-					newx = randomBetween(1,4);
-				}
-				if(ball.x> (windowWidth - ball.radius/2)){
-					newx = -1*randomBetween(1,4);
-                    
-				}
-				if(ball.y+10> (windowHeight - ball.radius/2)){
-					newy= -1*randomBetween(1,3);
-                    userOneText.text = parseInt(userOneText.text)+1;
-                    ball.x = windowWidth/2;
-                    ball.y = windowHeight/2;
-                    newx = 0;
-                    newy = 0;
-                    if(parseInt(userOneText.text)>=10){
-                        alert("Blue Win");
-                        userOneText.text = 0;
-                        userTwoText.text = 0;
-                    }
-				}
-				if(ball.y-10< (0 + ball.radius/2) ){
-					newy= randomBetween(1,3);
-                    userTwoText.text = parseInt(userTwoText.text)+1;
-                    ball.x = windowWidth/2;
-                    ball.y = windowHeight/2;
-                    newx = 0;
-                    newy = 0;
-                    if(parseInt(userTwoText.text)>=10){
-                        alert("Pink Win");
-                        userOneText.text = 0;
-                        userTwoText.text = 0;
-                    }
-				}				
-
-				ball.x += newx;
-				ball.y += newy;
-
-                // console.log(ballandUserLine);
-
-                // draw setup here
+            let newx = 0, newy = 0;
+            
+            let loadingIndicator = new RoundRectangle(windowWidth*0.50-windowWidth*0.25, windowHeight*0.90-20, windowWidth*0.50, 15,[40,40,40,40],"black","black");
+            let loader = new RoundRectangle(loadingIndicator.x, loadingIndicator.y, loadingIndicator.width*0.10, loadingIndicator.height,[40,40,40,40],"#20c997","#20c997");
+            
+            canvas.drawCanvas();
+            
+            canvas.setShapes([
+                    bgImage,
+                    loadingIndicator, loader
+                ]);
                 
-                canvas.drawCircle(midCircle,"white");
-                canvas.drawLine(middleLine,"#adadad"); 
-                canvas.drawCircle(midMidCircle,"#3d858e","#3d858e");
+            canvas.draw();
+            
+            canvas.animate(()=>{
+                if(loader.width<loadingIndicator.width){
+                    loader.width+= 0.3;
+                }
+                else{
+                    canvas.setShapes([
+                        midLine,midRect,
+                        ball, userOne, userTwo,
+                        userOneText, userTwoText,
+                        startLine, endLine,
+                        ballImage,h1Image,h2Image
+                        
+                    ]);
 
-                // ball and users
-				canvas.drawCircle(ball,"red","yellow");
-                canvas.drawCircle(userOne,"pink","pink");
-                canvas.drawCircle(userTwo,"lightblue","lightblue");
+                    if(circleCollide(userOne,ball)){
+                        if(ball.x > userOne.x){
+                            newx = 1*randomBetween(1,5);
+                        }
+                        if(ball.x < userOne.x){
+                            newx = -1*randomBetween(1,5);
+                        }
 
-                canvas.drawText(userOneText,"lightblue");
-                canvas.drawText(userTwoText,"pink");
+                        if(ball.y > userOne.y){
+                            newy = 1*randomBetween(1,5);
+                        }
+                        if(ball.y < userOne.y){
+                            newy = -1*randomBetween(1,5);
+                        }
+                    }
 
-                // start and end rects
-                canvas.drawRect(startLine,"lightblue","lightblue"); 
-                canvas.drawRect(endLine,"pink", "pink"); 
+                    if(circleCollide(userTwo,ball)){
+                        if(ball.x > userTwo.x){
+                            newx = 1*randomBetween(1,5);
+                        }
+                        if(ball.x < userTwo.x){
+                            newx = -1*randomBetween(1,5);
+                        }
 
-				setTimeout(draw,1);
-			}
+                        if(ball.y > userTwo.y){
+                            newy = 1*randomBetween(1,5);
+                        }
+                        if(ball.y < userTwo.y){
+                            newy = -1*randomBetween(1,5);
+                        }
+                    }
+
+                    if(ball.x< ( 0 + ball.radius/2)){
+                        newx = randomBetween(1,4);
+                    }
+                    if(ball.x> (windowWidth - ball.radius/2)){
+                        newx = -1*randomBetween(1,4);
+                        
+                    }
+                    if(ball.y+10> (windowHeight - ball.radius/2)){
+                        newy= -1*randomBetween(1,3);
+                        userOneText.text = parseInt(userOneText.text)+1;
+                        ball.x = windowWidth/2;
+                        ball.y = windowHeight/2;
+                        newx = 0;
+                        newy = 0;
+                        if(parseInt(userOneText.text)>=10){
+                            alert("Blue Win");
+                            userOneText.text = 0;
+                            userTwoText.text = 0;
+                        }
+                    }
+                    if(ball.y-10< (0 + ball.radius/2) ){
+                        newy= randomBetween(1,3);
+                        userTwoText.text = parseInt(userTwoText.text)+1;
+                        ball.x = windowWidth/2;
+                        ball.y = windowHeight/2;
+                        newx = 0;
+                        newy = 0;
+                        if(parseInt(userTwoText.text)>=10){
+                            alert("Pink Win");
+                            userOneText.text = 0;
+                            userTwoText.text = 0;
+                        }
+                    }				
+                    // ball.fillColor = randomColor();
+                    ball.x += newx;
+                    ball.y += newy;
+                    ballImage.x = ball.x-ball.radius;
+                    ballImage.y = ball.y-ball.radius;
+                    h1Image.x = userOne.x-userOne.radius;
+                    h1Image.y = userOne.y-userOne.radius;
+                    h2Image.x = userTwo.x-userTwo.radius;
+                    h2Image.y = userTwo.y-userTwo.radius;
+
+                    // move shape function ends
+                }
+            });
 
 			canvas.getCanvas().addEventListener('touchmove', function(e) {
 				userOne.x=e.touches[0].clientX;
