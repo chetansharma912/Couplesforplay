@@ -180,6 +180,10 @@ var createCanvas=function(width,height,css) {
 	this.setShapes = (arr)=>{
 		shapes=arr;
 	}
+
+	this.getShapes = ()=>{
+		return shapes;
+	}
 	
 	this.animate = (moveShapes)=>{
 		setInterval(()=>{

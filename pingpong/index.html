@@ -38,19 +38,24 @@
 			let ball= new Circle((windowWidth*0.50),(windowHeight*0.50),10,"#e0941000","#e0941000");
 
             // user one
-            let userOne = new Circle(0 , (windowHeight*0.90)-20 ,40,"#83306a","#83306a");
+            let userOne = new Circle(0 , (windowHeight*0.90)-20 ,40,"#e0941000","#e0941000");
             let userOneText=new Text("0","50px Arial", (windowWidth*0.90)-10 , windowHeight*0.25-25,"black");
 
             // user two
-            let userTwo = new Circle(100 , 100 ,40,"#006ba0","#006ba0");
+            let userTwo = new Circle(100 , 100 ,40,"#e0941000","#e0941000");
             let userTwoText=new Text("0","50px Arial", (windowWidth*0.90)-10 , windowHeight*0.75+60,"black");
 
             let ballImage=new SpriteImage("images/Ball.png",100-ball.radius*2,100-ball.radius*2,ball.radius*2,ball.radius*2);
+            let ballImageTail= [];
+            for(let i=0;i<20;i++){
+                ballImageTail.push(new Circle( (windowWidth*0.50),(windowHeight*0.50),15-(i*(15/20)), "black", "#ff0000b3") );
+            }
+
             let bgImage=new SpriteImage("images/Intro.png",0,windowHeight*0.50 - windowWidth*0.50 ,windowWidth,windowWidth);
             let h1Image=new SpriteImage("images/H1.png",userOne.x-userOne.radius,userOne.y-userOne.radius,userOne.radius*2,userOne.radius*2);
             let h2Image=new SpriteImage("images/H2.png",userTwo.x-userTwo.radius,userTwo.y-userTwo.radius,userTwo.radius*2,userTwo.radius*2);
             
-            let newx = 0, newy = 0;
+            let newx = 0, newy = 0, newXYRandom = 7;
             
             let loadingIndicator = new RoundRectangle(windowWidth*0.50-windowWidth*0.25, windowHeight*0.90-20, windowWidth*0.50, 15,[40,40,40,40],"black","black");
             let loader = new RoundRectangle(loadingIndicator.x, loadingIndicator.y, loadingIndicator.width*0.10, loadingIndicator.height,[40,40,40,40],"#20c997","#20c997");
@@ -66,59 +71,76 @@
             
             canvas.animate(()=>{
                 if(loader.width<loadingIndicator.width){
-                    loader.width+= 10;
+                    loader.width+= 20;
                 }
                 else{
-                    canvas.setShapes([
-                        midLine,midRect,
+                    if(Math.abs(newx)>3 || Math.abs(newy)>3){
+                        for(let i=ballImageTail.length-1;i>0;i--){
+                            ballImageTail[i].x = ballImageTail[i-1].x;
+                            ballImageTail[i].y = ballImageTail[i-1].y;
+                            ballImageTail[0].x = ball.x;
+                            ballImageTail[0].y = ball.y;
+                            vibrate(ballImageTail[i],3);
+                        }
+                    }
+                    else {
+                        for(let i=ballImageTail.length-1;i>0;i--){
+                            ballImageTail[i].x = -100;
+                            ballImageTail[i].y = -100;
+                            ballImageTail[0].x = -100;
+                            ballImageTail[0].y = -100;
+                        }
+                        
+                    }
+                    
+                    let mixArray = [...[ballImageTail], ...[midLine,midRect,
                         ball, userOne, userTwo,
                         userOneText, userTwoText,
                         startLine, endLine,
-                        ballImage,h1Image,h2Image
-                        
-                    ]);
+                        ballImage,h1Image,h2Image] ];
+
+                    canvas.setShapes(mixArray.flat());
 
                     if(circleCollide(userOne,ball)){
                         if(ball.x > userOne.x){
-                            newx = 1*randomBetween(1,5);
+                            newx = 1*randomBetween(1, newXYRandom);
                         }
                         if(ball.x < userOne.x){
-                            newx = -1*randomBetween(1,5);
+                            newx = -1*randomBetween(1,newXYRandom);
                         }
 
                         if(ball.y > userOne.y){
-                            newy = 1*randomBetween(1,5);
+                            newy = 1*randomBetween(1,newXYRandom);
                         }
                         if(ball.y < userOne.y){
-                            newy = -1*randomBetween(1,5);
+                            newy = -1*randomBetween(1,newXYRandom);
                         }
                     }
 
                     if(circleCollide(userTwo,ball)){
                         if(ball.x > userTwo.x){
-                            newx = 1*randomBetween(1,5);
+                            newx = 1*randomBetween(1,newXYRandom);
                         }
                         if(ball.x < userTwo.x){
-                            newx = -1*randomBetween(1,5);
+                            newx = -1*randomBetween(1,newXYRandom);
                         }
 
                         if(ball.y > userTwo.y){
-                            newy = 1*randomBetween(1,5);
+                            newy = 1*randomBetween(1,newXYRandom);
                         }
                         if(ball.y < userTwo.y){
-                            newy = -1*randomBetween(1,5);
+                            newy = -1*randomBetween(1,newXYRandom);
                         }
                     }
 
                     if(ball.x< ( 0 + ball.radius/2)){
-                        newx = randomBetween(1,4);
+                        newx = randomBetween(1,2);
                     }
                     if(ball.x> (windowWidth - ball.radius/2)){
-                        newx = -1*randomBetween(1,4);
-                        
+                        newx = -1*randomBetween(1,2);
                     }
                     if(ball.y+10> (windowHeight - ball.radius/2)){
-                        newy= -1*randomBetween(1,3);
+                        newy= -1*randomBetween(1,2);
                         userOneText.text = parseInt(userOneText.text)+1;
                         ball.x = windowWidth/2;
                         ball.y = windowHeight/2;
@@ -131,7 +153,7 @@
                         }
                     }
                     if(ball.y-10< (0 + ball.radius/2) ){
-                        newy= randomBetween(1,3);
+                        newy= randomBetween(1,2);
                         userTwoText.text = parseInt(userTwoText.text)+1;
                         ball.x = windowWidth/2;
                         ball.y = windowHeight/2;
@@ -153,6 +175,9 @@
                     h2Image.x = userTwo.x-userTwo.radius;
                     h2Image.y = userTwo.y-userTwo.radius;
                     userTwo.x=ball.x;
+                    // userOne.x=ball.x;
+
+                    
 
                     // move shape function ends
                 }
@@ -174,22 +199,22 @@
                     userOne.y = windowHeight-userOne.radius;
                 }
 
-                if(e.touches.length>=2){
-                    userTwo.x=e.touches[1].clientX;
-                    userTwo.y=e.touches[1].clientY;
-                    if(userTwo.x<=0){
-                        userTwo.x = userTwo.radius;
-                    }
-                    if(userTwo.x>= windowWidth-userOne.radius ){
-                        userTwo.x = windowWidth-userTwo.radius;
-                    }
-                    if(userTwo.y >= windowHeight*0.50){
-                        userTwo.y = windowHeight*0.50;
-                    }
-                    if(userTwo.y <= 0 ){
-                        userTwo.y = userTwo.radius;
-                    }
-                }
+                // if(e.touches.length>=2){
+                //     userTwo.x=e.touches[1].clientX;
+                //     userTwo.y=e.touches[1].clientY;
+                //     if(userTwo.x<=0){
+                //         userTwo.x = userTwo.radius;
+                //     }
+                //     if(userTwo.x>= windowWidth-userOne.radius ){
+                //         userTwo.x = windowWidth-userTwo.radius;
+                //     }
+                //     if(userTwo.y >= windowHeight*0.50){
+                //         userTwo.y = windowHeight*0.50;
+                //     }
+                //     if(userTwo.y <= 0 ){
+                //         userTwo.y = userTwo.radius;
+                //     }
+                // }
 				
 			});
 		}
