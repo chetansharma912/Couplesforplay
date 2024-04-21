@@ -48,7 +48,7 @@
             let ballImage=new SpriteImage("images/Ball.png",100-ball.radius*2,100-ball.radius*2,ball.radius*2,ball.radius*2);
             let ballImageTail= [];
             for(let i=0;i<20;i++){
-                ballImageTail.push(new Circle( (windowWidth*0.50),(windowHeight*0.50),15-(i*(15/20)), "black", "#ff0000b3") );
+                ballImageTail.push(new Circle( (windowWidth*0.50),(windowHeight*0.50),15-(i*(15/20)), "#ff0000b3", "#ff0000b3") );
             }
 
             let bgImage=new SpriteImage("images/Intro.png",0,windowHeight*0.50 - windowWidth*0.50 ,windowWidth,windowWidth);
