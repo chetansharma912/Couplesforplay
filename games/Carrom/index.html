@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrom Game</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+    canvas {
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="gameCanvas" width="600" height="600"></canvas>
+
+  <script>
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+    const boardRadius = 250;
+    const strikerRadius = 20;
+    let strikerX = canvas.width / 2;
+    const strikerY = canvas.height - strikerRadius - 10;
+    let isDragging = false;
+
+    function drawBoard() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      // Draw the board
+      ctx.beginPath();
+      ctx.arc(canvas.width / 2, canvas.height / 2, boardRadius, 0, Math.PI * 2);
+      ctx.fillStyle = '#6e4b26';
+      ctx.fill();
+      ctx.closePath();
+
+      // Draw the striker
+      ctx.beginPath();
+      ctx.arc(strikerX, strikerY, strikerRadius, 0, Math.PI * 2);
+      ctx.fillStyle = '#fff';
+      ctx.fill();
+      ctx.closePath();
+    }
+
+    function startDrag(e) {
+      isDragging = true;
+      document.addEventListener('mousemove', drag);
+      document.addEventListener('touchmove', drag);
+      document.addEventListener('mouseup', stopDrag);
+      document.addEventListener('touchend', stopDrag);
+    }
+
+    function drag(e) {
+      if (!isDragging) return;
+      const rect = canvas.getBoundingClientRect();
+      strikerX = e.type === 'touchmove' ? e.touches[0].clientX - rect.left : e.clientX - rect.left;
+      strikerX = Math.max(strikerRadius, Math.min(canvas.width - strikerRadius, strikerX));
+      drawBoard();
+    }
+
+    function stopDrag() {
+      isDragging = false;
+      document.removeEventListener('mousemove', drag);
+      document.removeEventListener('touchmove', drag);
+      document.removeEventListener('mouseup', stopDrag);
+      document.removeEventListener('touchend', stopDrag);
+    }
+
+    drawBoard();
+
+    canvas.addEventListener('mousedown', startDrag);
+    canvas.addEventListener('touchstart', startDrag);
+  </script>
+</body>
+</html>

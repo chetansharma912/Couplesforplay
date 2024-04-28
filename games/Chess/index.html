@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chess Game</title>
+  <style>
+    .chessboard {
+      width: 400px;
+      height: 400px;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .square {
+      width: 50px;
+      height: 50px;
+      border: 1px solid black;
+      box-sizing: border-box;
+    }
+    .white {
+      background-color: #f0d9b5;
+    }
+    .black {
+      background-color: #b58863;
+    }
+  </style>
+</head>
+<body>
+  <div class="chessboard" id="chessboard">
+    <!-- Generate Chessboard -->
+  </div>
+
+  <script>
+    // Function to generate the chessboard
+    function generateChessboard() {
+      const chessboard = document.getElementById("chessboard");
+      const boardSize = 8;
+
+      for (let row = 0; row < boardSize; row++) {
+        for (let col = 0; col < boardSize; col++) {
+          const square = document.createElement("div");
+          square.classList.add("square");
+          if ((row + col) % 2 === 0) {
+            square.classList.add("white");
+          } else {
+            square.classList.add("black");
+          }
+          chessboard.appendChild(square);
+        }
+      }
+    }
+
+    // Call the function to generate the chessboard
+    generateChessboard();
+  </script>
+</body>
+</html>
