@@ -1,15 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Checkers Game</title>
+  <title>Checkers</title>
+  <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable='no'">
+  <link href="../../css/bootstrap@5.1.3.min.css" rel="stylesheet">
+  <link href="../../css/awesome.css" rel="stylesheet">
+  <link href="../../css/animate.css" rel="stylesheet">
+  <script src="../../js/bootstrap@5.1.3.js"></script>
+
+  <script type="text/javascript" src="../../js/easy.js"></script>
+  <style>
+    body {
+      overflow: hidden;
+
+      * {
+        padding: 0px !important;
+        margin: 0px !important;
+      }
+    }
+  </style>
+  <script>
+    window.onload = function () {
+      let windowWidth = window.innerWidth;
+      let windowHeight = window.innerHeight;
+
+      let canvas = new createCanvas(windowWidth, windowHeight, "border:1px dotted black;background:#b58863;");
+
+      // middle box
+      let midRect = new Rectangle(0, windowHeight * 0.5 - windowWidth * 0.5, windowWidth - 2, windowWidth, "black", "#f0d9b5");
+
+      // players
+      let playerOneSection = new Rectangle(0, windowHeight * 0.10, windowWidth, windowHeight * 0.1, "black", "black");
+      let playerOneFace = new Rectangle(windowWidth - windowHeight * 0.1, windowHeight * 0.10, windowHeight * 0.1, windowHeight * 0.1, "white", "white");
+
+      let playerTwoSection = new Rectangle(0, windowHeight * 0.90 - windowHeight * 0.1, windowWidth, windowHeight * 0.1, "black", "black");
+      let playerTwoFace = new Rectangle(0, windowHeight * 0.90 - windowHeight * 0.1, windowHeight * 0.1, windowHeight * 0.1, "white", "white");
+
+      let verticalLines = [];
+      let horizontalLines = [];
+
+      for (let i = 1; i < 8; i++) {
+        verticalLines.push(
+          new Line(
+            i * (windowWidth / 8),
+            windowHeight * 0.5 - windowWidth * 0.5,
+            i * (windowWidth / 8),
+            windowHeight * 0.5 + windowWidth * 0.5,
+            "black")
+        );
+
+        horizontalLines.push(
+          new Line(
+            0,
+            windowHeight * 0.5 - i * (windowWidth / 8) + (windowWidth * 0.5),
+            windowHeight * 0.5 + windowWidth * 0.5,
+            windowHeight * 0.5 - i * (windowWidth / 8) + (windowWidth * 0.5),
+            "black")
+        );
+      }
+
+      canvas.drawCanvas();
+
+      let shapesBoard = [...[midRect, playerOneSection, playerOneFace, playerTwoSection, playerTwoFace], [...verticalLines], [...horizontalLines]].flat();
+
+      canvas.setShapes(shapesBoard);
+
+      canvas.draw();
+
+      canvas.animate(() => {
+
+      });
+
+      canvas.getCanvas().addEventListener('touchmove', function (e) {
+        // userOne.x=e.touches[0].clientX;
+
+      });
+    }
+  </script>
 </head>
+
 <body>
-  <div class="board" id="board">
-    <!-- Generate Checkers Board -->
-  </div>
-  <link rel="stylesheet" href="index.css">
-  <script src="index.js"></script>
+  <div class="container"></div>
 </body>
+
 </html>
