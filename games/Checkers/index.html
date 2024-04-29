@@ -26,7 +26,7 @@
       let windowWidth = window.innerWidth;
       let windowHeight = window.innerHeight;
 
-      let canvas = new createCanvas(windowWidth, windowHeight, "border:1px dotted black;background: green;");
+      let canvas = new createCanvas(windowWidth, windowHeight, "border:1px dotted black;background: white;");
 
       // middle box
       let midRectImage = new SpriteImage("images/woodTexture.jpg",0, windowHeight * 0.5 - windowWidth * 0.5, windowWidth - 2, windowWidth, "black", "#f0d9b5");
@@ -56,7 +56,7 @@
               (windowWidth/8),
               (windowWidth/8),
               "#00000000",
-              color?"brown":"#d2a367")
+              color?"#008080":"white")
           );
           color = !color;
         }
