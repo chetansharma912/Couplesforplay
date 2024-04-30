@@ -140,26 +140,24 @@
         
       });
 
-      let turn = true, drop = false;;
+      let pick = true, drop = false;;
       canvas.getCanvas().addEventListener('touchstart', function (e) {
         ex = e.touches[0].clientX;
         ey = e.touches[0].clientY;
         uk = "images/blank.png";
 
-        boxesCheckers.forEach((line,i)=>{
-          line.forEach((item,j)=>{
+        boxesCheckers.forEach((line)=>{
+          line.forEach((item)=>{
             // console.log(e.touches[0].clientX,e.touches[0].clientY);
             
             if (item.x < ex && (item.x + item.width) > ex && item.y < ey && (item.y + item.height) > ey) {
-              if (turn && item.img.src.includes("White")) {
-                // item.img.src = uk;
+              if (pick && item.img.src.includes("White")) {
+                item.img.src = uk;
                 turn = !turn;
-                // console.log(item);
-                console.log(item,i,j);
-                suggestMove(item,i,j);
+                console.log(item);
               }
-              else if (!turn && item.img.src.includes("Red")) {
-                // item.img.src = uk;
+              else if (!pick && item.img.src.includes("Red")) {
+                item.img.src = uk;
                 turn = !turn;
                 console.log(item);
               }
@@ -168,54 +166,8 @@
 
           })
         })
-      });
 
-      function suggestMovePlayerOne(item,i,j){
-        if(i >= 0 && j >= 0 && i <= 7 && j <= 7){
-          if(j==0){
-            if(boxesCheckers[i-1][j+1].img.src.includes("blank")){
-              boxesCheckers[i-1][j+1].img.src = "images/Box.png";
-            }
-            
-          }
-          else if (j==7){
-            if(boxesCheckers[i-1][j-1].img.src.includes("blank")){
-              boxesCheckers[i-1][j-1].img.src = "images/Box.png";
-            }
-          }
-          else {
-            if(boxesCheckers[i-1][j-1].img.src.includes("blank")){
-              boxesCheckers[i-1][j-1].img.src = "images/Box.png";
-            }
-            if(boxesCheckers[i-1][j+1].img.src.includes("blank")){
-              boxesCheckers[i-1][j+1].img.src = "images/Box.png";
-            }
-          }
-        }
-      }
-      function suggestMovePlayerTwo(item,i,j){
-        if(i >= 0 && j >= 0 && i <= 7 && j <= 7){
-          if(j==0){
-            if(boxesCheckers[i-1][j+1].img.src.includes("blank")){
-              boxesCheckers[i-1][j+1].img.src = "images/Box.png";
-            }
-            
-          }
-          else if (j==7){
-            if(boxesCheckers[i-1][j-1].img.src.includes("blank")){
-              boxesCheckers[i-1][j-1].img.src = "images/Box.png";
-            }
-          }
-          else {
-            if(boxesCheckers[i-1][j-1].img.src.includes("blank")){
-              boxesCheckers[i-1][j-1].img.src = "images/Box.png";
-            }
-            if(boxesCheckers[i-1][j+1].img.src.includes("blank")){
-              boxesCheckers[i-1][j+1].img.src = "images/Box.png";
-            }
-          }
-        }
-      }
+      });
     }
   </script>
 </head>

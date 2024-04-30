@@ -9,8 +9,45 @@
 </head>
 <body>
     <div class="container-fluid">
+        <div class="menu row">
+            <div class="menu-item col-md-2" >
+                <span class="text">Menu</span>
+                <span class="icon menu-icon"></span>
+                
+            </div>
+            <div class="menu-item col-md-2" data-bs-toggle="modal" data-bs-target="#loginModal" >
+                <span class="text">Login</span>
+                <span class="icon login"></span>
+                
+            </div>
+            <div class="menu-item col-md-2" data-bs-toggle="modal" data-bs-target="#shareModal" >
+                <span class="text">Share</span>
+                <span class="icon share"></span>
+               
+            </div>
+            <!-- <div class="menu-item col-md-2" >
+                <span class="icon chatbox"></span>
+                <span class="text">Chatbox</span>
+            </div> -->
+            <div class="menu-item col-md-2" data-bs-toggle="modal" data-bs-target="#contactusModal" >
+                <span class="text">Contact Us</span>
+                <span class="icon contact-us"></span>
+               
+            </div>
+            <!-- <div class="menu-item col-md-2" >
+                <span class="icon profile"></span>
+                <span class="text">Profile</span>
+            </div> -->
+            <div class="menu-item col-md-2" data-bs-toggle="modal" data-bs-target="#aboutusModal" >
+                <span class="text">About Us</span>
+                <span class="icon about-us"></span>
+                
+            </div>
+            
+            
+        </div>
 
-        <div class="div-two text-center carousel">
+        <div class="div-two text-center carousel" style="margin-top: 75px;">
             <div id="carouselSlidesOnly" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselCaptions" data-bs-slide-to="0" class="active"
@@ -61,12 +98,40 @@
                 <p>
                     The World's #1 Website for Couple's to Play Online Games
                 </p>
-                <p>
+                <!-- <p>
                     <button class="btn btn-success text-light" data-bs-toggle="modal" data-bs-target="#loginModal">
                         Start Playing with your Partner
                         <span style="color:red !important;">&hearts;</span>
                     </button>
-                </p>
+                </p> -->
+                <div class="row games">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <img class="card-img-top" src="images/carousel/game1.png" alt="Card image cap">
+                            <div class="card-body">
+                                <h1 class="card-text">Tic Tac Toe</h1>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img class="card-img-top" src="images/carousel/game2.png" alt="Card image cap">
+                            <div class="card-body">
+                                <h1 class="card-text">Checkers</h1>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img class="card-img-top" src="images/carousel/game3.png" alt="Card image cap">
+                            <div class="card-body">
+                                <h1 class="card-text">Connect 4</h1>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img class="card-img-top" src="images/carousel/game1.png" alt="Card image cap">
+                            <div class="card-body">
+                                <h1 class="card-text">Ping Pong</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </h1>
         </div>
         
@@ -114,38 +179,7 @@
             </h2>
         </div>
 
-        <div class="menu row">
-            <div class="menu-item col-md-2" >
-                <span class="icon home"></span>
-                <span class="text">Home</span>
-            </div>
-            <div class="menu-item col-md-2" data-bs-toggle="modal" data-bs-target="#loginModal" >
-                <span class="icon login"></span>
-                <span class="text">Login</span>
-            </div>
-            <div class="menu-item col-md-2" data-bs-toggle="modal" data-bs-target="#shareModal" >
-                <span class="icon share"></span>
-                <span class="text">Share</span>
-            </div>
-            <!-- <div class="menu-item col-md-2" >
-                <span class="icon chatbox"></span>
-                <span class="text">Chatbox</span>
-            </div> -->
-            <div class="menu-item col-md-2" data-bs-toggle="modal" data-bs-target="#contactusModal" >
-                <span class="icon contact-us"></span>
-                <span class="text">Contact Us</span>
-            </div>
-            <!-- <div class="menu-item col-md-2" >
-                <span class="icon profile"></span>
-                <span class="text">Profile</span>
-            </div> -->
-            <div class="menu-item col-md-2" data-bs-toggle="modal" data-bs-target="#aboutusModal" >
-                <span class="icon about-us"></span>
-                <span class="text">About Us</span>
-            </div>
-            
-            
-        </div>
+        
 
         <!-- Login / Registration Modal section -->
         <div class="modal" id="loginModal">

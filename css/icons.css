@@ -57,6 +57,9 @@
 .share-file {
     background: url(../images/svg/share.svg) no-repeat center;
 }
+.menu-icon {
+    background: url(../images/svg/menu.svg) no-repeat center;
+}
 
 /* Social Media */
 .facebook {

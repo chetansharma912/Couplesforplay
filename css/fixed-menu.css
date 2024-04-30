@@ -12,7 +12,7 @@
     background-color: white;
     position: fixed;
     z-index: 999999;
-    bottom: 0;
+    top: 0;
     width: 100%;
     padding: 10px;
     box-shadow: 0px 0px 5px 0.5px #a80075;
@@ -62,7 +62,7 @@
 .menu .menu-item:hover{
     background-color: white;
     .icon {
-        translate: 0px -50% !important;
+        translate: 0px 50% !important;
         background-color: #ffd7f3;
         box-shadow: 0px 0px 0px 5px #fff7fd;
         border: 2px solid black;
@@ -92,7 +92,7 @@
         box-shadow: -1px -10px 0px 0px #fff7fd;
     } */
     .text {
-        translate: 0px -50% !important;
+        translate: 0px 50% !important;
         color: #a80075 !important;
         font-size: 11px;
         font-weight: 800 !important;
