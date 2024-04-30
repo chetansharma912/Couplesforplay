@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Checkers</title>
+  <title>Tic Tac Toe</title>
   <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable='no'">
   <link href="../../css/bootstrap@5.1.3.min.css" rel="stylesheet">
@@ -26,110 +26,70 @@
       let windowWidth = window.innerWidth;
       let windowHeight = window.innerHeight;
 
-      let canvas = new createCanvas(windowWidth, windowHeight, "border:1px dotted black;background: black;");
+      let canvas = new createCanvas(windowWidth, windowHeight, "background: black;");
 
       // middle box
-      let midRectImage = new SpriteImage("images/woodTexture.jpg",0, windowHeight * 0.5 - windowWidth * 0.5, windowWidth - 2, windowWidth, "black", "#f0d9b5");
-
+      let menuRect = new Rectangle(0, 0, windowWidth , windowHeight*0.1, "black", "#f0d9b5");
+      let bottomMenuRect = new Rectangle(0, windowHeight*0.9, windowWidth , windowHeight*0.1, "black", "#f0d9b5");
+      
       // players 1
-      let playerOneSection = new Rectangle(0, windowHeight * 0.10, windowWidth, windowHeight * 0.1, "black", "transparent");
-      let playerOneFaceImage = new SpriteImage('images/Box.png',0, windowHeight * 0.1, windowHeight * 0.1, windowHeight * 0.1);
 
-      // players 2
-      let playerTwoSection = new Rectangle(0, windowHeight * 0.90 - windowHeight * 0.1, windowWidth, windowHeight * 0.1, "black", "transparent");
-      let playerTwoFaceImage = new SpriteImage("images/Box.png",windowWidth - windowHeight * 0.1, windowHeight * 0.90 - windowHeight * 0.1, windowHeight * 0.1, windowHeight * 0.1);
+      let check = [];
+      let flag = true; let cnt=0;
+      let xpoints=0,opoints=0,draw=0;
 
-      // Lines Sections
       let verticalLines = [];
       let horizontalLines = [];
-
-      // Array Section
-      let boxes = [];
-      let boxesCheckers = [];
-      let positionCheckers = [];
-      let color = false;
-      
-      for(let i=1;i<=8;i++){
-        let boxesLines = [];
-        let boxesCheckersLines = [];
-        let positionCheckersLines = [];
-
-        for(let j=0;j<8;j++){
-          boxesLines.push(
-            new Rectangle(
-              j * (windowWidth/8),
-              windowHeight*0.2 + (i * (windowWidth/8))-10,
-              (windowWidth/8),
-              (windowWidth/8),
-              "#00000000",
-              color?"#008080":"white")
-          );
-
-          let url = "", num = 0;
-
-          if(i<4){
-            url = color? "images/Red.png": "images/blank.png";
-            num = color? 1: 0;
-          }
-          else if(i>5){
-            url = color? "images/White.png": "images/blank.png";
-            num = color? 2: 0;
-          }
-          else {
-            url = "images/blank.png";
-            num = 0;
-          }
-
-          positionCheckersLines.push(num);
-          boxesCheckersLines.push(
-            new SpriteImage(
-              url,
-              j * (windowWidth / 8),
-              windowHeight * 0.2 + (i * (windowWidth / 8)) - 10,
-              (windowWidth / 8),
-              (windowWidth / 8)
-            )
-          );
-
-          color = !color;
-        }
-        color = !color;
-        boxesCheckers.push(boxesCheckersLines);
-        positionCheckers.push(positionCheckersLines);
-        boxes.push(boxesLines);
+      for (let i = 1; i < 3; i++) {
+        verticalLines.push(
+          new Line(
+            i * (windowWidth / 3),
+            windowHeight * 0.5 - windowWidth * 0.5,
+            i * (windowWidth / 3),
+            windowHeight * 0.5 + windowWidth * 0.5,
+            "white")
+        );
+        horizontalLines.push(
+          new Line(
+            0,
+            windowHeight * 0.5 - i * (windowWidth / 3) + (windowWidth * 0.5),
+            windowHeight * 0.5 + windowWidth * 0.5,
+            windowHeight * 0.5 - i * (windowWidth / 3) + (windowWidth * 0.5),
+            "white")
+        );
       }
 
-      console.log(boxes,boxesCheckers,positionCheckers);
+      let tictactoeBoxes = [];
+      for(let i=1;i<=3;i++){
+        let tictactoeBox = [];
+        let c =[];
+        for(let j=0;j<3;j++){
+          tictactoeBox.push(
+            new SpriteImage(
+              "images/game1.png",
+              j * (windowWidth / 3),
+              windowHeight * 0.2 + (i * (windowWidth / 3)) - ((windowWidth / 3)/2)-5,
+              (windowWidth / 3),
+              (windowWidth / 3)
+            )
+          );
+          c.push(null);
+        }
+        check.push(c);
+        tictactoeBoxes.push(tictactoeBox);
+      }
 
-      // for (let i = 1; i < 8; i++) {
-      //   verticalLines.push(
-      //     new Line(
-      //       i * (windowWidth / 8),
-      //       windowHeight * 0.5 - windowWidth * 0.5,
-      //       i * (windowWidth / 8),
-      //       windowHeight * 0.5 + windowWidth * 0.5,
-      //       "black")
-      //   );
-
-      //   horizontalLines.push(
-      //     new Line(
-      //       0,
-      //       windowHeight * 0.5 - i * (windowWidth / 8) + (windowWidth * 0.5),
-      //       windowHeight * 0.5 + windowWidth * 0.5,
-      //       windowHeight * 0.5 - i * (windowWidth / 8) + (windowWidth * 0.5),
-      //       "black")
-      //   );
-      // }
-
-      let uk="",ex=0,ey=0;
+      // console.log(tictactoeBoxes,check);
+      
       canvas.drawCanvas();
 
       let shapesBoard = [
-                    ...[playerOneFaceImage, playerTwoFaceImage],
+                    menuRect,
+                    [...tictactoeBoxes].flat(),
                     [...verticalLines],
                     [...horizontalLines],
-                    [...boxes].flat(),
-                    [...boxesCheckers].flat()
+                    
+                    bottomMenuRect
                   ].flat();
 
       canvas.setShapes(shapesBoard);
@@ -140,34 +100,66 @@
         
       });
 
-      let pick = true, drop = false;;
+      let turn = true, game=true;;
+      let cntXO = 0;
       canvas.getCanvas().addEventListener('touchstart', function (e) {
         ex = e.touches[0].clientX;
         ey = e.touches[0].clientY;
-        uk = "images/blank.png";
 
-        boxesCheckers.forEach((line)=>{
-          line.forEach((item)=>{
-            // console.log(e.touches[0].clientX,e.touches[0].clientY);
-            
-            if (item.x < ex && (item.x + item.width) > ex && item.y < ey && (item.y + item.height) > ey) {
-              if (pick && item.img.src.includes("White")) {
-                item.img.src = uk;
-                turn = !turn;
-                console.log(item);
+        if(game){
+          // console.log("abc");
+          tictactoeBoxes.forEach((line,i)=>{
+            line.forEach((item,j)=>{
+              // console.log(item);
+              if (item.x < ex && (item.x + item.width) > ex && item.y < ey && (item.y + item.height) > ey) {
+                if (turn) {
+                  turn = !turn;
+                  item.img.src = "images/White.png";
+                  check[i][j] = "O";
+                  cntXO++;
+                }
+                else if (!turn) {
+                  turn = !turn;
+                  item.img.src = "images/Red.png";
+                  check[i][j] = "X";
+                  cntXO++;
+                }
               }
-              else if (!pick && item.img.src.includes("Red")) {
-                item.img.src = uk;
-                turn = !turn;
-                console.log(item);
-              }
+            })
+          });
 
-            }
-
-          })
-        })
-
+          checkWin(cntXO);
+        }
       });
+
+
+      function checkWin(cnt) {
+        let s = check.flat();
+        // console.log(s);
+        let wins = [[0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 4, 8], [2, 4, 6]];
+        wins.forEach((win) => {
+          if(s[win[0]]=="O" && s[win[1]]=="O" && s[win[2]]=="O"){
+            console.log("O Won");
+            game = false;
+          }
+          else if(s[win[0]]=="X" && s[win[1]]=="X" && s[win[2]]=="X"){
+            console.log("X Won");
+            game = false;
+          }
+          else {
+            if(cnt>8){
+              console.log("Draw");
+              game = false;
+            }
+          }
+        });
+      }
+
+      function checkseq(a, b, c, d) {
+        let ck = check.flat();
+        let seq = (ck[a] == d && ck[b] == d && ck[c] == d);
+        return seq;
+      }
     }
   </script>
 </head>
