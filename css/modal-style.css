@@ -21,6 +21,13 @@
         border-radius: 50%;
         border: 2px solid white;
     }
+    .modal-content {
+        height: 70%;
+        overflow: scroll;
+    }
+    .modal-dialog {
+        height: 100%;
+    }
 }
 
 #contactusModal {
