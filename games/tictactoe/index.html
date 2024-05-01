@@ -26,7 +26,7 @@
       let windowWidth = window.innerWidth;
       let windowHeight = window.innerHeight;
 
-      let canvas = new createCanvas(windowWidth, windowHeight, "background: black;");
+      let canvas = new createCanvas(windowWidth, windowHeight, "background: #1b2838;");
 
       let gameMenu = canvas.createGameMenu(windowWidth, windowHeight);
 
@@ -43,7 +43,7 @@
             windowHeight * 0.5 - windowWidth * 0.5,
             i * (windowWidth / 3),
             windowHeight * 0.5 + windowWidth * 0.5,
-            "white")
+            "#6b7986")
         );
         horizontalLines.push(
           new Line(
@@ -51,7 +51,7 @@
             windowHeight * 0.5 - i * (windowWidth / 3) + (windowWidth * 0.5),
             windowHeight * 0.5 + windowWidth * 0.5,
             windowHeight * 0.5 - i * (windowWidth / 3) + (windowWidth * 0.5),
-            "white")
+            "#6b7986")
         );
       }
 
@@ -60,15 +60,15 @@
         let tictactoeBox = [];
         let c =[];
         for(let j=0;j<3;j++){
-          // tictactoeBox.push(
-          //   new SpriteImage(
-          //     "images/game1.png",
-          //     j * (windowWidth / 3),
-          //     (((i*(windowWidth / 3)) + (windowHeight*0.5))-(windowWidth/3))-(windowWidth/2),
-          //     (windowWidth / 3),
-          //     (windowWidth / 3)
-          //   )
-          // );
+          tictactoeBox.push(
+            new SpriteImage(
+              "images/game1.png",
+              j * (windowWidth / 3),
+              (((i*(windowWidth / 3)) + (windowHeight*0.5))-(windowWidth/3))-(windowWidth/2),
+              (windowWidth / 3),
+              (windowWidth / 3)
+            )
+          );
           c.push(null);
         }
         check.push(c);

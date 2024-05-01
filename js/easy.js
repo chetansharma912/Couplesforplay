@@ -238,48 +238,192 @@ var createCanvas=function(width,height,css) {
 	}
 
 	this.createGameMenu = (windowWidth,windowHeight) => {
-		// middle box
-		let menuRect = new Rectangle(0, 0, windowWidth , windowHeight*0.1, "black", "#f0d9b5");
-		let bottomMenuRect = new Rectangle(0, windowHeight*0.9, windowWidth , windowHeight*0.1, "black", "#f0d9b5");
+		let bgColor = "#111b27";
+		let color = "#6b7986";
+		let transparent = "#00000000";
+
 		
-		// players
-		let playerOneFace = new Rectangle(0, 0, windowWidth*0.20 , windowHeight*0.1, "red", "red");
-		let playerTwoFace = new Rectangle(windowWidth*0.80, 0, windowWidth*0.20 , windowHeight*0.1, "white", "white");
+		// middle box
+		let menuRect = new Rectangle(0, 0, windowWidth , windowHeight*0.1, color, bgColor);
+		let bottomMenuRect = new Rectangle(0, windowHeight*0.9, windowWidth , windowHeight*0.1, color, bgColor);
+		
+		// Playe One Face
+		let playerOneFace = new Rectangle(0, 0, windowWidth*0.20 , windowHeight*0.1, transparent, transparent);
+		let playerOneFaceButton = new Rectangle(0,0, playerOneFace.width*0.5 , playerOneFace.height*0.5, transparent, transparent);
+		playerOneFaceButton.alignMiddleTo(playerOneFace);
+		let playerOneFaceButtonHTML = document.createElement("button");
+		playerOneFaceButtonHTML.style.cssText = this.setBound(playerOneFaceButton.x, playerOneFaceButton.y , playerOneFaceButton.width, playerOneFaceButton.height);
+		playerOneFaceButtonHTML.innerHTML = "";
+		playerOneFaceButtonHTML.id="playerface";
+		playerOneFaceButtonHTML.style.background = 'url("../game-menu-svg/playerone.png") 50% 50% / cover no-repeat';
+
+		// Player Two Face
+		let playerTwoFace = new Rectangle(windowWidth*0.80, 0, windowWidth*0.20 , windowHeight*0.1, transparent, transparent);
+		let playerTwoFaceButton = new Rectangle(0,0, playerOneFace.width*0.5 , playerOneFace.height*0.5, transparent, transparent);
+		playerTwoFaceButton.alignMiddleTo(playerTwoFace);
+		let playerTwoFaceButtonHTML = document.createElement("button");
+		playerTwoFaceButtonHTML.style.cssText = this.setBound(playerTwoFaceButton.x, playerTwoFaceButton.y , playerTwoFaceButton.width, playerTwoFaceButton.height);
+		playerTwoFaceButtonHTML.innerHTML = "";
+		playerTwoFaceButtonHTML.id="playerface";
+		playerTwoFaceButtonHTML.style.background = 'url("../game-menu-svg/playertwo.png") 50% 50% / cover no-repeat';
   
-		// players names and information
-		let playerOneName = new Rectangle(windowWidth*0.20, 0, windowWidth*0.30 , windowHeight*0.1, "green", "green");
-		let playerTwoName = new Rectangle(windowWidth*0.50, 0, windowWidth*0.30 , windowHeight*0.1, "blue", "blue");
+		// Players One names and information
+		let playerOneName = new Rectangle(windowWidth*0.20, 0, windowWidth*0.30 , windowHeight*0.1, transparent, transparent);
+		let playerOneNameButton = new Rectangle(0,0, playerOneName.width*0.7 , playerOneName.height*0.8, transparent, transparent);
+		playerOneNameButton.alignMiddleTo(playerOneName);
+		let playerOneNameButtonHTML = document.createElement("span");
+		playerOneNameButtonHTML.classList.add('left');
+		playerOneNameButtonHTML.style.cssText = this.setBound(playerOneNameButton.x, playerOneNameButton.y , playerOneNameButton.width, playerOneNameButton.height);
+		playerOneNameButtonHTML.innerHTML = "Player 1<br>Timer<br>Ind";
+
+		// Players Two names and information
+		let playerTwoName = new Rectangle(windowWidth*0.50, 0, windowWidth*0.30 , windowHeight*0.1, transparent, transparent);
+		let playerTwoNameButton = new Rectangle(0,0, playerTwoName.width*0.7 , playerTwoName.height*0.8, transparent, transparent);
+		playerTwoNameButton.alignMiddleTo(playerTwoName);
+		let playerTwoNameButtonHTML = document.createElement("span");
+		playerTwoNameButtonHTML.classList.add('right');
+		playerTwoNameButtonHTML.style.cssText = this.setBound(playerTwoNameButton.x, playerTwoNameButton.y , playerTwoNameButton.width, playerTwoNameButton.height);
+		playerTwoNameButtonHTML.innerHTML = "Player 2<br>Timer<br>Ind";
   
-		// score
-		let playerOneScore = new Rectangle(windowWidth*0.30, windowHeight*0.1, windowWidth*0.20 , windowHeight*0.1, "pink", "pink");
-		let playerTwoScore = new Rectangle(windowWidth*0.50, windowHeight*0.1, windowWidth*0.20 , windowHeight*0.1, "lightblue", "lightblue");
-  
-		// about menu
-		let aboutGameSection = new Rectangle(0, windowHeight*0.9, windowWidth*0.30 , windowHeight*0.1, "white", "white");
-		let aboutGameButton = new RoundRectangle(0,0, aboutGameSection.width*0.8, aboutGameSection.height*0.5,10 ,"red", "red");
+		// Player One Menu
+		let playerOneScore = new Rectangle(0, windowHeight*0.1, windowWidth*0.15 , windowWidth*0.12, color, bgColor);
+		let playerOneScoreButton = new Rectangle(0,0, playerOneScore.width , playerOneScore.height, transparent, transparent);
+		playerOneScoreButton.alignMiddleTo(playerOneScore);
+		let playerOneScoreButtonHTML = document.createElement("p");
+		playerOneScoreButtonHTML.style.cssText = this.setBound(playerOneScoreButton.x, playerOneScoreButton.y , playerOneScoreButton.width, playerOneScoreButton.height);
+		playerOneScoreButtonHTML.innerHTML = "0";
+
+		// Player Two Menu
+		let playerTwoScore = new Rectangle(windowWidth*0.85, windowHeight*0.1, windowWidth*0.15 , windowWidth*0.12, color, bgColor);
+		let playerTwoScoreButton = new Rectangle(0,0, playerTwoScore.width , playerTwoScore.height, transparent, transparent);
+		playerTwoScoreButton.alignMiddleTo(playerTwoScore);
+		let playerTwoScoreButtonHTML = document.createElement("p");
+		playerTwoScoreButtonHTML.style.cssText = this.setBound(playerTwoScoreButton.x, playerTwoScoreButton.y , playerTwoScoreButton.width, playerTwoScoreButton.height);
+		playerTwoScoreButtonHTML.innerHTML = "0";
+
+
+		// About Game Menu
+		let aboutGameSection = new Rectangle(0, windowHeight*0.9, windowWidth*0.30 , windowHeight*0.1, transparent, transparent);
+		let aboutGameButton = new RoundRectangle(0,0, aboutGameSection.width*0.8, aboutGameSection.height*0.5,10 , transparent, transparent);
 		aboutGameButton.alignMiddleTo(aboutGameSection);
+		let aboutGameButtonHTML = document.createElement("button");
+		aboutGameButtonHTML.style.cssText = this.setBound(aboutGameButton.x, aboutGameButton.y , aboutGameButton.width, aboutGameButton.height);
+		aboutGameButtonHTML.innerHTML = "About Game";
+		aboutGameButtonHTML.addEventListener('click',()=>{
+			alert('about game');
+		});		
 
-		let text = new Text("Name", "20px Arial", (windowWidth*0.90)-10 , windowHeight*0.75+60, "white");
-		text.alignMiddleTo(aboutGameButton);
-		let textrect = new Rectangle(text.x, text.y -20, text.x -20 , 20, "green", "green");
+		// Setting Menu
+		let settingSection = new Rectangle(windowWidth*0.30, windowHeight*0.9, windowWidth*0.20 , windowHeight*0.1, transparent, transparent);
+		let settingSectionButton = new Rectangle(0,0, settingSection.width*0.5 , settingSection.height*0.5, transparent, transparent);
+		settingSectionButton.alignMiddleTo(settingSection);
+		let settingSectionButtonHTML = document.createElement("button");
+		settingSectionButtonHTML.style.cssText = this.setBound(settingSectionButton.x, settingSectionButton.y , settingSectionButton.width, settingSectionButton.height);
+		settingSectionButtonHTML.innerHTML = "";
+		settingSectionButtonHTML.style.background = 'url("../game-menu-svg/settings.svg") 50% 50% / 50% no-repeat';
+		settingSectionButtonHTML.addEventListener('click',()=>{
+			alert('settings');
+		});	
 
-		let settingSection = new Rectangle(windowWidth*0.30, windowHeight*0.9, windowWidth*0.20 , windowHeight*0.1, "red", "red");
-		let menuIconSection = new Rectangle(windowWidth*0.80, windowHeight*0.9, windowWidth*0.20 , windowHeight*0.1, "green", "green");
+		// Menu Icon Menu
+		let menuIconSection = new Rectangle(windowWidth*0.80, windowHeight*0.9, windowWidth*0.20 , windowHeight*0.1, transparent, transparent);
+		let menuIconSectionButton = new Rectangle(0,0, menuIconSection.width*0.5 , menuIconSection.height*0.5, transparent, transparent);
+		menuIconSectionButton.alignMiddleTo(menuIconSection);
+		let menuIconSectionButtonHTML = document.createElement("button");
+		menuIconSectionButtonHTML.style.cssText = this.setBound(menuIconSectionButton.x, menuIconSectionButton.y , menuIconSectionButton.width, menuIconSectionButton.height);
+		menuIconSectionButtonHTML.innerHTML = "";
+		menuIconSectionButtonHTML.style.background = 'url("../game-menu-svg/menu.svg") 50% 50% / 50% no-repeat';
+		
+		menuIconSectionButtonHTML.addEventListener('click',()=>{
+			alert('menu icon');
+		});	
 
-		// return [
-		// 		menuRect,
-		// 		playerOneFace,playerTwoFace,
-		// 		playerOneName,playerTwoName,
-		// 		playerOneScore,playerTwoScore,
-		// 		bottomMenuRect,
-		// 		aboutGameSection,aboutGameButton,text,
-		// 		settingSection,
-		// 		menuIconSection
-		// 	];
+		
+		this.createStyleInHTML();
+		
+		this.appendAll([
+			aboutGameButtonHTML,
+			settingSectionButtonHTML,
+			menuIconSectionButtonHTML,
+			playerOneScoreButtonHTML,
+			playerTwoScoreButtonHTML,
+			playerOneFaceButtonHTML,
+			playerTwoFaceButtonHTML,
+			playerOneNameButtonHTML,
+			playerTwoNameButtonHTML
+		]);
+		
 
 		return [
-			aboutGameSection,aboutGameButton,textrect,text,
-		];
+				menuRect,
+				playerOneFace,playerTwoFace,
+				playerOneName,playerTwoName,
+				playerOneScore,playerTwoScore,
+				bottomMenuRect,
+				aboutGameSection,
+				settingSection,
+				menuIconSection
+			];
+	}
+
+	this.createStyleInHTML = () => {
+		let style = document.createElement("style");
+		style.innerHTML = `
+			button {
+				position : absolute;
+				border : 1px solid #6b7986;
+				border-radius : 10px;
+				font-size : 12px;
+				background-color :#1b2838;
+				color : #6b7986;
+				font-weight: 700;
+			}
+			p {
+				position : absolute;
+				font-size : 12px;
+				color : #6b7986;
+				font-weight: 700;
+				text-align: center;
+    			font-size: 30px;
+			}
+			span {
+				position : absolute;
+				font-size : 12px;
+				color : #6b7986;
+				font-weight: 700;
+    			font-size: 15px;
+			}
+			.left {
+				text-align: left;
+			}
+			.right {
+				text-align: right;
+			}
+			#playerface {
+				border-radius: 50%;
+    			outline: 4px solid #6b7986;
+			}
+			.timer {
+				background-color : green;
+				color: white;
+			}
+		`;
+		document.body.appendChild(style);
+	}
+
+	this.setBound = (x,y,width,height) => {
+		return `
+			top : ${y}px;
+			left : ${x}px;
+			width : ${width}px;
+			height : ${height}px;
+		`;
+	}
+	
+	this.appendAll = (arr)=>{
+		arr.forEach((item)=>{
+			document.body.prepend(item);
+		});
 	}
 };
 var vibrate=function(shape, number){

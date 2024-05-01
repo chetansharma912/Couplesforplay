@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html>
 <body>
-  <canvas id="myCanvas"></canvas>
+  <style>
+    canvas {
+      border: 1px solid black;
+    }
+  </style>
+  <canvas id="myCanvas" width="500px" height="500px"></canvas>
+  <button>Text</button>
 
   <script>
     const canvas = document.getElementById('myCanvas');
@@ -15,10 +21,38 @@
     canvas.addEventListener('mousemove', draw);
     canvas.addEventListener('mouseup', stopDrawing);
 
+    let x = 200;
+    let y=400;
+    let wid = 80;
+    let hei = 30;
+    let textWidth= hei*0.7 ;
+
     function startDrawing(event) {
       isDrawing = true;
       [lastX, lastY] = [event.clientX - canvas.offsetLeft, event.clientY - canvas.offsetTop];
     }
+
+    context.rect(x,y,wid,hei);
+    context.fillStyle = '#f0f0f0';
+    context.fill();
+    context.strokeStyle = '#000000';
+    context.stroke();
+
+    context.fillStyle = '#000000';
+    context.font = textWidth+"px cursive";
+    context.fillText("my name is", (x + (wid*0.9)/2) - textWidth , y + hei/2 + textWidth/2.5 , wid*0.8);
+
+
+            let fx = 100,fy=100;
+            let textSize = 15;
+            context.font = textSize+"px Arial";
+            context.fillText("Name", fx,fy,textSize*5);
+
+            context.rect(fx - textSize*1, fy - textSize*1 , textSize*6 , textSize*2);
+            context.stroke();
+
+    
+    
 
     function draw(event) {
       if (!isDrawing) return;
@@ -28,7 +62,11 @@
       context.beginPath();
       context.moveTo(lastX, lastY);
       context.lineTo(x, y);
+
       context.stroke();
+
+
+
 
       [lastX, lastY] = [x, y];
     }
