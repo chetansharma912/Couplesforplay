@@ -195,6 +195,46 @@ var createCanvas=function(width,height,css) {
 	this.setBackground=function(bgcolor){
 		this.canvas.style.background=bgcolor;
 	}
+
+	this.createGameMenu = (windowWidth,windowHeight) => {
+		// middle box
+		let menuRect = new Rectangle(0, 0, windowWidth , windowHeight*0.1, "black", "#f0d9b5");
+		let bottomMenuRect = new Rectangle(0, windowHeight*0.9, windowWidth , windowHeight*0.1, "black", "#f0d9b5");
+		
+		// players
+		let playerOneFace = new Rectangle(0, 0, windowWidth*0.20 , windowHeight*0.1, "red", "red");
+		let playerTwoFace = new Rectangle(windowWidth*0.80, 0, windowWidth*0.20 , windowHeight*0.1, "white", "white");
+  
+		// players names and information
+		let playerOneName = new Rectangle(windowWidth*0.20, 0, windowWidth*0.30 , windowHeight*0.1, "green", "green");
+		let playerTwoName = new Rectangle(windowWidth*0.50, 0, windowWidth*0.30 , windowHeight*0.1, "blue", "blue");
+  
+		// score
+		let playerOneScore = new Rectangle(windowWidth*0.30, windowHeight*0.1, windowWidth*0.20 , windowHeight*0.1, "pink", "pink");
+		let playerTwoScore = new Rectangle(windowWidth*0.50, windowHeight*0.1, windowWidth*0.20 , windowHeight*0.1, "lightblue", "lightblue");
+  
+		// about menu
+		let aboutGameSection = new Rectangle(0, windowHeight*0.9, windowWidth*0.30 , windowHeight*0.1, "white", "white");
+		// let aboutGameButton = new RoundRectangle(
+		// 	windowWidth * 0.15- aboutGameSection.width * 0.4,
+		// 	(aboutGameSection.height * 0.5) + aboutGameSection.y - aboutGameSection.height * 0.25,
+		// 	(aboutGameSection.width) * 0.8,
+		// 	(aboutGameSection.height) * 0.5,
+		// 	12, "red", "red");
+		let settingSection = new Rectangle(windowWidth*0.30, windowHeight*0.9, windowWidth*0.20 , windowHeight*0.1, "red", "red");
+		let menuIconSection = new Rectangle(windowWidth*0.80, windowHeight*0.9, windowWidth*0.20 , windowHeight*0.1, "green", "green");
+
+		return [
+				menuRect,
+				playerOneFace,playerTwoFace,
+				playerOneName,playerTwoName,
+				playerOneScore,playerTwoScore,
+				bottomMenuRect,
+				aboutGameSection,
+				settingSection,
+				menuIconSection
+			];
+	}
 };
 var vibrate=function(shape, number){
 	shape.x+=random(number,"-");

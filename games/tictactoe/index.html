@@ -28,11 +28,7 @@
 
       let canvas = new createCanvas(windowWidth, windowHeight, "background: black;");
 
-      // middle box
-      let menuRect = new Rectangle(0, 0, windowWidth , windowHeight*0.1, "black", "#f0d9b5");
-      let bottomMenuRect = new Rectangle(0, windowHeight*0.9, windowWidth , windowHeight*0.1, "black", "#f0d9b5");
-      
-      // players 1
+      let gameMenu = canvas.createGameMenu(windowWidth, windowHeight);
 
       let check = [];
       let flag = true; let cnt=0;
@@ -78,18 +74,14 @@
         check.push(c);
         tictactoeBoxes.push(tictactoeBox);
       }
-
-      // console.log(tictactoeBoxes,check);
       
       canvas.drawCanvas();
 
       let shapesBoard = [
-                    menuRect,
+                    [...gameMenu].flat(),
                     [...tictactoeBoxes].flat(),
                     [...verticalLines],
-                    [...horizontalLines],
-                    
-                    bottomMenuRect
+                    [...horizontalLines]
                   ].flat();
 
       canvas.setShapes(shapesBoard);
@@ -146,13 +138,12 @@
             console.log("X Won");
             game = false;
           }
-          else {
-            if(cnt>8){
-              console.log("Draw");
-              game = false;
-            }
-          }
         });
+
+        if(cnt>=9 && game){
+          console.log("Draw");
+          game = false;
+        }
       }
 
       function checkseq(a, b, c, d) {
