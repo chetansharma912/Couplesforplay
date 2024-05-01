@@ -228,14 +228,14 @@ var createCanvas=function(width,height,css) {
 		this.canvas.style.background=bgcolor;
 	}
 
-	this.alignToCenterOfParent = (parent,child) =>{
-		let findParentCenterY = parent.height/2 - child.height/2;
-		let findParentCenterX = parent.width/2 - child.width/2;
-		console.log(parent.x,parent.y,parent.width,parent.height);
-		console.log(child.x,child.y,child.width,child.height);
-		console.log(findParentCenterX,findParentCenterY);
-		return [child.x,child.y];
-	}
+	// this.alignToCenterOfParent = (parent,child) =>{
+	// 	let findParentCenterY = parent.height/2 - child.height/2;
+	// 	let findParentCenterX = parent.width/2 - child.width/2;
+	// 	console.log(parent.x,parent.y,parent.width,parent.height);
+	// 	console.log(child.x,child.y,child.width,child.height);
+	// 	console.log(findParentCenterX,findParentCenterY);
+	// 	return [child.x,child.y];
+	// }
 
 	this.createGameMenu = (windowWidth,windowHeight) => {
 		let bgColor = "#111b27";
@@ -274,7 +274,7 @@ var createCanvas=function(width,height,css) {
 		let playerOneNameButtonHTML = document.createElement("span");
 		playerOneNameButtonHTML.classList.add('left');
 		playerOneNameButtonHTML.style.cssText = this.setBound(playerOneNameButton.x, playerOneNameButton.y , playerOneNameButton.width, playerOneNameButton.height);
-		playerOneNameButtonHTML.innerHTML = "Player 1<br>Timer<br>Ind";
+		playerOneNameButtonHTML.innerHTML = "Player 1 III<br>00 : 00";
 
 		// Players Two names and information
 		let playerTwoName = new Rectangle(windowWidth*0.50, 0, windowWidth*0.30 , windowHeight*0.1, transparent, transparent);
@@ -283,7 +283,7 @@ var createCanvas=function(width,height,css) {
 		let playerTwoNameButtonHTML = document.createElement("span");
 		playerTwoNameButtonHTML.classList.add('right');
 		playerTwoNameButtonHTML.style.cssText = this.setBound(playerTwoNameButton.x, playerTwoNameButton.y , playerTwoNameButton.width, playerTwoNameButton.height);
-		playerTwoNameButtonHTML.innerHTML = "Player 2<br>Timer<br>Ind";
+		playerTwoNameButtonHTML.innerHTML = "III Player 2<br>00 : 00";
   
 		// Player One Menu
 		let playerOneScore = new Rectangle(0, windowHeight*0.1, windowWidth*0.15 , windowWidth*0.12, color, bgColor);
