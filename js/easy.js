@@ -290,6 +290,7 @@ var createCanvas=function(width,height,css) {
 		let playerOneScoreButton = new Rectangle(0,0, playerOneScore.width , playerOneScore.height, transparent, transparent);
 		playerOneScoreButton.alignMiddleTo(playerOneScore);
 		let playerOneScoreButtonHTML = document.createElement("p");
+		playerOneScoreButtonHTML.id = "OWins";
 		playerOneScoreButtonHTML.style.cssText = this.setBound(playerOneScoreButton.x, playerOneScoreButton.y , playerOneScoreButton.width, playerOneScoreButton.height);
 		playerOneScoreButtonHTML.innerHTML = "0";
 
@@ -298,6 +299,7 @@ var createCanvas=function(width,height,css) {
 		let playerTwoScoreButton = new Rectangle(0,0, playerTwoScore.width , playerTwoScore.height, transparent, transparent);
 		playerTwoScoreButton.alignMiddleTo(playerTwoScore);
 		let playerTwoScoreButtonHTML = document.createElement("p");
+		playerTwoScoreButtonHTML.id = "XWins";
 		playerTwoScoreButtonHTML.style.cssText = this.setBound(playerTwoScoreButton.x, playerTwoScoreButton.y , playerTwoScoreButton.width, playerTwoScoreButton.height);
 		playerTwoScoreButtonHTML.innerHTML = "0";
 
