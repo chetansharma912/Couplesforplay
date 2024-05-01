@@ -60,15 +60,15 @@
         let tictactoeBox = [];
         let c =[];
         for(let j=0;j<3;j++){
-          tictactoeBox.push(
-            new SpriteImage(
-              "images/game1.png",
-              j * (windowWidth / 3),
-              (((i*(windowWidth / 3)) + (windowHeight*0.5))-(windowWidth/3))-(windowWidth/2),
-              (windowWidth / 3),
-              (windowWidth / 3)
-            )
-          );
+          // tictactoeBox.push(
+          //   new SpriteImage(
+          //     "images/game1.png",
+          //     j * (windowWidth / 3),
+          //     (((i*(windowWidth / 3)) + (windowHeight*0.5))-(windowWidth/3))-(windowWidth/2),
+          //     (windowWidth / 3),
+          //     (windowWidth / 3)
+          //   )
+          // );
           c.push(null);
         }
         check.push(c);
@@ -104,22 +104,24 @@
             line.forEach((item,j)=>{
               // console.log(item);
               if (item.x < ex && (item.x + item.width) > ex && item.y < ey && (item.y + item.height) > ey) {
-                if (turn) {
-                  turn = !turn;
-                  item.img.src = "images/White.png";
-                  check[i][j] = "O";
-                  cntXO++;
-                }
-                else if (!turn) {
-                  turn = !turn;
-                  item.img.src = "images/Red.png";
-                  check[i][j] = "X";
-                  cntXO++;
+                if(item.img.src.includes("game1")){
+                  if (turn) {
+                    turn = !turn;
+                    item.img.src = "images/White.png";
+                    check[i][j] = "O";
+                    cntXO++;
+                  }
+                  else if (!turn) {
+                    turn = !turn;
+                    item.img.src = "images/Red.png";
+                    check[i][j] = "X";
+                    cntXO++;
+                  }
                 }
               }
             })
           });
-
+          console.log(cntXO);
           checkWin(cntXO);
         }
       });

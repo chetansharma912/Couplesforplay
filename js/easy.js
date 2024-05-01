@@ -8,6 +8,16 @@ class Rectangle{
 		this.fillColor=fillColor;
 		this.shape = "rect";
 	}
+	alignMiddleTo = (Rect)=> {
+		this.y = Rect.height*0.5 - this.height/2 + Rect.y;
+		this.x = Rect.width*0.5 - this.width/2 + Rect.x;
+	}
+	alignCenterTo = (Rect)=> {
+		this.x = Rect.width*0.5 - this.width/2 + Rect.x;
+	}
+	alignVerticallyCenterTo = (Rect)=> {
+		this.y = Rect.height*0.5 - this.height/2 + Rect.y;
+	}
 }
 
 class RoundRectangle{
@@ -21,6 +31,17 @@ class RoundRectangle{
 		this.fillColor=fillColor;
 		this.shape = "roundrect";
 	}
+	alignMiddleTo = (Rect)=> {
+		this.y = Rect.height*0.5 - this.height/2 + Rect.y;
+		this.x = Rect.width*0.5 - this.width/2 + Rect.x;
+	}
+	alignCenterTo = (Rect)=> {
+		this.x = Rect.width*0.5 - this.width/2 + Rect.x;
+	}
+	alignVerticallyCenterTo = (Rect)=> {
+		this.y = Rect.height*0.5 - this.height/2 + Rect.y;
+	}
+	
 }
 
 class Circle{
@@ -79,6 +100,17 @@ class Text{
 		this.borderColor=borderColor;
 		this.fillColor=fillColor;
 		this.shape = "text";
+	}
+
+	alignMiddleTo = (Rect)=> {
+		this.y = Rect.y + 20;
+		this.x = Rect.x + Rect.width / 4;
+	}
+	alignCenterTo = (Rect)=> {
+		this.x = Rect.x + Rect.width / 4;
+	}
+	alignVerticallyCenterTo = (Rect)=> {
+		this.y = Rect.height*0.5 - this.height/2 + Rect.y;
 	}
 }
 
@@ -196,6 +228,15 @@ var createCanvas=function(width,height,css) {
 		this.canvas.style.background=bgcolor;
 	}
 
+	this.alignToCenterOfParent = (parent,child) =>{
+		let findParentCenterY = parent.height/2 - child.height/2;
+		let findParentCenterX = parent.width/2 - child.width/2;
+		console.log(parent.x,parent.y,parent.width,parent.height);
+		console.log(child.x,child.y,child.width,child.height);
+		console.log(findParentCenterX,findParentCenterY);
+		return [child.x,child.y];
+	}
+
 	this.createGameMenu = (windowWidth,windowHeight) => {
 		// middle box
 		let menuRect = new Rectangle(0, 0, windowWidth , windowHeight*0.1, "black", "#f0d9b5");
@@ -215,25 +256,30 @@ var createCanvas=function(width,height,css) {
   
 		// about menu
 		let aboutGameSection = new Rectangle(0, windowHeight*0.9, windowWidth*0.30 , windowHeight*0.1, "white", "white");
-		// let aboutGameButton = new RoundRectangle(
-		// 	windowWidth * 0.15- aboutGameSection.width * 0.4,
-		// 	(aboutGameSection.height * 0.5) + aboutGameSection.y - aboutGameSection.height * 0.25,
-		// 	(aboutGameSection.width) * 0.8,
-		// 	(aboutGameSection.height) * 0.5,
-		// 	12, "red", "red");
+		let aboutGameButton = new RoundRectangle(0,0, aboutGameSection.width*0.8, aboutGameSection.height*0.5,10 ,"red", "red");
+		aboutGameButton.alignMiddleTo(aboutGameSection);
+
+		let text = new Text("Name", "20px Arial", (windowWidth*0.90)-10 , windowHeight*0.75+60, "white");
+		text.alignMiddleTo(aboutGameButton);
+		let textrect = new Rectangle(text.x, text.y -20, text.x -20 , 20, "green", "green");
+
 		let settingSection = new Rectangle(windowWidth*0.30, windowHeight*0.9, windowWidth*0.20 , windowHeight*0.1, "red", "red");
 		let menuIconSection = new Rectangle(windowWidth*0.80, windowHeight*0.9, windowWidth*0.20 , windowHeight*0.1, "green", "green");
 
+		// return [
+		// 		menuRect,
+		// 		playerOneFace,playerTwoFace,
+		// 		playerOneName,playerTwoName,
+		// 		playerOneScore,playerTwoScore,
+		// 		bottomMenuRect,
+		// 		aboutGameSection,aboutGameButton,text,
+		// 		settingSection,
+		// 		menuIconSection
+		// 	];
+
 		return [
-				menuRect,
-				playerOneFace,playerTwoFace,
-				playerOneName,playerTwoName,
-				playerOneScore,playerTwoScore,
-				bottomMenuRect,
-				aboutGameSection,
-				settingSection,
-				menuIconSection
-			];
+			aboutGameSection,aboutGameButton,textrect,text,
+		];
 	}
 };
 var vibrate=function(shape, number){
