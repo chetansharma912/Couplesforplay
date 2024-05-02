@@ -33,9 +33,9 @@
       let check = [];
       let flag = true;
       
-      let turn = true, game=true;
+      let turn = false, game=true;
       let cntXO = 0;
-      let XWins = 0, OWins = 0;
+      let PlayerOneWins = 0, PlayerTwoWins = 0;
 
       let verticalLines = [];
       let horizontalLines = [];
@@ -88,17 +88,17 @@
               // console.log(item);
               if (item.x < ex && (item.x + item.width) > ex && item.y < ey && (item.y + item.height) > ey) {
                 // console.log("a");
-                if(item.img.src.includes("game1")) {
+                if(item.img.src.includes("Blank")) {
                   if (turn) {
                     turn = !turn;
-                    item.img.src = "images/White.png";
+                    item.img.src = "images/O.png";
                     check[i][j] = "O";
                     cntXO++;
                     // console.log("b");
                   }
                   else if (!turn) {
                     turn = !turn;
-                    item.img.src = "images/Red.png";
+                    item.img.src = "images/X.png";
                     check[i][j] = "X";
                     cntXO++;
                     // console.log("c");
@@ -122,7 +122,7 @@
           for (let j = 0; j < 3; j++) {
             tictactoeBox.push(
               new SpriteImage(
-                "images/game1.png",
+                "images/Blank.png",
                 j * (windowWidth / 3),
                 (((i * (windowWidth / 3)) + (windowHeight * 0.5)) - (windowWidth / 3)) - (windowWidth / 2),
                 (windowWidth / 3),
@@ -144,17 +144,17 @@
         // console.log(s);
         let wins = [[0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 4, 8], [2, 4, 6]];
         wins.forEach((win) => {
-          if(s[win[0]]=="O" && s[win[1]]=="O" && s[win[2]]=="O"){
-            alert("O Won");
-            OWins++;
-            document.querySelector("#OWins").innerHTML = OWins;
+          if(s[win[0]]=="X" && s[win[1]]=="X" && s[win[2]]=="X"){
+            alert("X Won");
+            PlayerOneWins++;
+            document.querySelector("#PlayerOneWins").innerHTML = PlayerOneWins;
             // game = false;
             resetGame();
           }
-          else if(s[win[0]]=="X" && s[win[1]]=="X" && s[win[2]]=="X"){
-            alert("X Won");
-            XWins++;
-            document.querySelector("#XWins").innerHTML = XWins;
+          else if(s[win[0]]=="O" && s[win[1]]=="O" && s[win[2]]=="O"){
+            alert("O Won");
+            PlayerTwoWins++;
+            document.querySelector("#PlayerTwoWins").innerHTML = PlayerTwoWins;
             // game = false;
             resetGame();
           }

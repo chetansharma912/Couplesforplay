@@ -290,18 +290,33 @@ var createCanvas=function(width,height,css) {
 		let playerOneScoreButton = new Rectangle(0,0, playerOneScore.width , playerOneScore.height, transparent, transparent);
 		playerOneScoreButton.alignMiddleTo(playerOneScore);
 		let playerOneScoreButtonHTML = document.createElement("p");
-		playerOneScoreButtonHTML.id = "OWins";
+		playerOneScoreButtonHTML.id = "PlayerOneWins";
 		playerOneScoreButtonHTML.style.cssText = this.setBound(playerOneScoreButton.x, playerOneScoreButton.y , playerOneScoreButton.width, playerOneScoreButton.height);
 		playerOneScoreButtonHTML.innerHTML = "0";
+
+		// Player One Menu
+		let playerOneScoreImage = new Rectangle(windowWidth*0.15, windowHeight*0.1, windowWidth*0.12 , windowWidth*0.12, color, bgColor);
+		let playerOneScoreImageButton = new Rectangle(0,0, playerOneScoreImage.width , playerOneScoreImage.height, transparent, transparent);
+		playerOneScoreImageButton.alignMiddleTo(playerOneScoreImage);
+		let playerOneScoreImageButtonHTML = document.createElement("img");
+		playerOneScoreImageButtonHTML.src = "images/X.png";
+		playerOneScoreImageButtonHTML.style.cssText = this.setBound(playerOneScoreImageButton.x, playerOneScoreImageButton.y , playerOneScoreImageButton.width, playerOneScoreImageButton.height);
 
 		// Player Two Menu
 		let playerTwoScore = new Rectangle(windowWidth*0.85, windowHeight*0.1, windowWidth*0.15 , windowWidth*0.12, color, bgColor);
 		let playerTwoScoreButton = new Rectangle(0,0, playerTwoScore.width , playerTwoScore.height, transparent, transparent);
 		playerTwoScoreButton.alignMiddleTo(playerTwoScore);
 		let playerTwoScoreButtonHTML = document.createElement("p");
-		playerTwoScoreButtonHTML.id = "XWins";
+		playerTwoScoreButtonHTML.id = "PlayerTwoWins";
 		playerTwoScoreButtonHTML.style.cssText = this.setBound(playerTwoScoreButton.x, playerTwoScoreButton.y , playerTwoScoreButton.width, playerTwoScoreButton.height);
 		playerTwoScoreButtonHTML.innerHTML = "0";
+
+		let playerTwoScoreImage = new Rectangle(windowWidth*0.73, windowHeight*0.1, windowWidth*0.12 , windowWidth*0.12, color, bgColor);
+		let playerTwoScoreImageButton = new Rectangle(0,0, playerTwoScoreImage.width , playerTwoScoreImage.height, transparent, transparent);
+		playerTwoScoreImageButton.alignMiddleTo(playerTwoScoreImage);
+		let playerTwoScoreImageButtonHTML = document.createElement("img");
+		playerTwoScoreImageButtonHTML.src = "images/O.png";
+		playerTwoScoreImageButtonHTML.style.cssText = this.setBound(playerTwoScoreImageButton.x, playerTwoScoreImageButton.y , playerTwoScoreImageButton.width, playerTwoScoreImageButton.height);
 
 
 		// About Game Menu
@@ -352,7 +367,9 @@ var createCanvas=function(width,height,css) {
 			playerOneFaceButtonHTML,
 			playerTwoFaceButtonHTML,
 			playerOneNameButtonHTML,
-			playerTwoNameButtonHTML
+			playerTwoNameButtonHTML,
+			playerOneScoreImageButtonHTML,
+			playerTwoScoreImageButtonHTML
 		]);
 		
 
@@ -387,6 +404,10 @@ var createCanvas=function(width,height,css) {
 				font-weight: 700;
 				text-align: center;
     			font-size: 30px;
+			}
+			img {
+				position : absolute;
+				text-align: center;
 			}
 			span {
 				position : absolute;
