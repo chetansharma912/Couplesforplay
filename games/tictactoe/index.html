@@ -11,6 +11,8 @@
   <script src="../../js/bootstrap@5.1.3.js"></script>
 
   <script type="text/javascript" src="../../js/easy.js"></script>
+  <script type="text/javascript" src="../../js/game-menu.js"></script>
+
   <style>
     body {
       overflow: hidden;
@@ -19,6 +21,7 @@
         padding: 0px !important;
         margin: 0px !important;
       }
+
     }
   </style>
   <script>
@@ -28,7 +31,10 @@
 
       let canvas = new createCanvas(windowWidth, windowHeight, "background: #1b2838;");
 
-      let gameMenu = canvas.createGameMenu(windowWidth, windowHeight);
+      let gameMenu = createGameMenu(windowWidth,windowHeight);
+
+      setPreloadsGame();
+      
 
       let check = [];
       let flag = true;
@@ -36,6 +42,7 @@
       let turn = false, game=true;
       let cntXO = 0;
       let PlayerOneWins = 0, PlayerTwoWins = 0;
+      let xwins=false,owins=false,drawwins=false;
 
       let verticalLines = [];
       let horizontalLines = [];
@@ -88,7 +95,7 @@
               // console.log(item);
               if (item.x < ex && (item.x + item.width) > ex && item.y < ey && (item.y + item.height) > ey) {
                 // console.log("a");
-                if(item.img.src.includes("Blank")) {
+                if(item.img.src.includes("Blank-min")) {
                   if (turn) {
                     turn = !turn;
                     item.img.src = "images/O-min.png";
@@ -137,33 +144,40 @@
 
         game = true;
         cntXO = 0;
+        xwins=false;
+        owins=false;
+        drawwins=false;
       }
 
       function checkWin(cnt) {
         let s = check.flat();
         // console.log(s);
-        let wins = [[0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 4, 8], [2, 4, 6]];
-        wins.forEach((win) => {
-          if(s[win[0]]=="X" && s[win[1]]=="X" && s[win[2]]=="X"){
-            alert("X Won");
-            PlayerOneWins++;
-            document.querySelector("#PlayerOneWins").innerHTML = PlayerOneWins;
-            // game = false;
-            resetGame();
+        let win = [[0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 4, 8], [2, 4, 6]];
+        for(var i=0;i<win.length;i++){
+          if(game){
+            if(s[win[i][0]]=="X" && s[win[i][1]]=="X" && s[win[i][2]]=="X"){
+              alert("Player 1 Won");
+              PlayerOneWins++;
+              document.querySelector("#PlayerOneWins").innerHTML = PlayerOneWins;
+              game = false;
+              resetGame();
+              break;
+            }
+            else if(s[win[i][0]]=="O" && s[win[i][1]]=="O" && s[win[i][2]]=="O"){
+              alert("Player 2 Won");
+              PlayerTwoWins++;
+              document.querySelector("#PlayerTwoWins").innerHTML = PlayerTwoWins;
+              game = false;
+              resetGame();
+              break;
+            }
           }
-          else if(s[win[0]]=="O" && s[win[1]]=="O" && s[win[2]]=="O"){
-            alert("O Won");
-            PlayerTwoWins++;
-            document.querySelector("#PlayerTwoWins").innerHTML = PlayerTwoWins;
-            // game = false;
-            resetGame();
-          }
-        });
-
+        }
+        
         if(cnt>=9 && game){
-          alert("Draw");
-          resetGame();
-          // game = false;
+            alert("Draw");
+            resetGame();
+            // game = false;
         }
       }
 
@@ -172,6 +186,52 @@
         let seq = (ck[a] == d && ck[b] == d && ck[c] == d);
         return seq;
       }
+    }
+
+    function setPreloadsGame() {
+      let playerOneFaceButtonHTML = document.getElementById('playerface1');
+      playerOneFaceButtonHTML.style.background = 'url("../../images/players-icons/P1.png") 50% 50% / cover no-repeat';
+
+      let playerTwoFaceButtonHTML = document.getElementById('playerface2');
+      playerTwoFaceButtonHTML.style.background = 'url("../../images/players-icons/P4.png") 50% 50% / cover no-repeat';
+
+      let playerOneNameButtonHTML = document.getElementById('playerOneName');
+      playerOneNameButtonHTML.innerHTML = "Player 1 III<br>00 : 00";
+
+      let playerTwoNameButtonHTML = document.getElementById('playerTwoName');
+      playerTwoNameButtonHTML.innerHTML = "III Player 2<br>00 : 00";
+
+      let playerOneScoreImageButtonHTML = document.getElementById('playerOneScoreImage');
+      playerOneScoreImageButtonHTML.src = "images/X-min.png";
+
+      let playerTwoScoreImageButtonHTML = document.getElementById('playerTwoScoreImage');
+      playerTwoScoreImageButtonHTML.src = "images/O-min.png";
+
+      let playerOneScoreButtonHTML = document.getElementById('PlayerOneWins');
+      playerOneScoreButtonHTML.innerHTML = "0";
+
+      let playerTwoScoreButtonHTML = document.getElementById('PlayerTwoWins');
+      playerTwoScoreButtonHTML.innerHTML = "0";
+
+      let aboutGameButtonHTML = document.getElementById('aboutGame');
+      aboutGameButtonHTML.innerHTML = "About Game";
+      aboutGameButtonHTML.addEventListener('click',()=>{
+          alert('about game');
+      });	
+
+      let settingSectionButtonHTML = document.getElementById('gamesettings');
+      settingSectionButtonHTML.innerHTML = "";
+      settingSectionButtonHTML.style.background = 'url("../game-menu-svg/settings.svg") 50% 50% / 50% no-repeat';
+      settingSectionButtonHTML.addEventListener('click',()=>{
+          alert('settings');
+      });	
+
+      let menuIconSectionButtonHTML = document.getElementById('gamemenu');
+      menuIconSectionButtonHTML.innerHTML = "";
+      menuIconSectionButtonHTML.style.background = 'url("../game-menu-svg/menu.svg") 50% 50% / 50% no-repeat';
+      menuIconSectionButtonHTML.addEventListener('click',()=>{
+          alert('menu icon');
+      });	
     }
   </script>
 </head>
