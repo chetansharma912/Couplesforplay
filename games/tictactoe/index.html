@@ -91,14 +91,14 @@
                 if(item.img.src.includes("Blank")) {
                   if (turn) {
                     turn = !turn;
-                    item.img.src = "images/O.png";
+                    item.img.src = "images/O-min.png";
                     check[i][j] = "O";
                     cntXO++;
                     // console.log("b");
                   }
                   else if (!turn) {
                     turn = !turn;
-                    item.img.src = "images/X.png";
+                    item.img.src = "images/X-min.png";
                     check[i][j] = "X";
                     cntXO++;
                     // console.log("c");
@@ -122,7 +122,7 @@
           for (let j = 0; j < 3; j++) {
             tictactoeBox.push(
               new SpriteImage(
-                "images/Blank.png",
+                "images/Blank-min.png",
                 j * (windowWidth / 3),
                 (((i * (windowWidth / 3)) + (windowHeight * 0.5)) - (windowWidth / 3)) - (windowWidth / 2),
                 (windowWidth / 3),

@@ -299,7 +299,7 @@ var createCanvas=function(width,height,css) {
 		let playerOneScoreImageButton = new Rectangle(0,0, playerOneScoreImage.width , playerOneScoreImage.height, transparent, transparent);
 		playerOneScoreImageButton.alignMiddleTo(playerOneScoreImage);
 		let playerOneScoreImageButtonHTML = document.createElement("img");
-		playerOneScoreImageButtonHTML.src = "images/X.png";
+		playerOneScoreImageButtonHTML.src = "images/X-min.png";
 		playerOneScoreImageButtonHTML.style.cssText = this.setBound(playerOneScoreImageButton.x, playerOneScoreImageButton.y , playerOneScoreImageButton.width, playerOneScoreImageButton.height);
 
 		// Player Two Menu
@@ -315,7 +315,7 @@ var createCanvas=function(width,height,css) {
 		let playerTwoScoreImageButton = new Rectangle(0,0, playerTwoScoreImage.width , playerTwoScoreImage.height, transparent, transparent);
 		playerTwoScoreImageButton.alignMiddleTo(playerTwoScoreImage);
 		let playerTwoScoreImageButtonHTML = document.createElement("img");
-		playerTwoScoreImageButtonHTML.src = "images/O.png";
+		playerTwoScoreImageButtonHTML.src = "images/O-min.png";
 		playerTwoScoreImageButtonHTML.style.cssText = this.setBound(playerTwoScoreImageButton.x, playerTwoScoreImageButton.y , playerTwoScoreImageButton.width, playerTwoScoreImageButton.height);
 
 
