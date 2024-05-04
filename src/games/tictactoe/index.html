@@ -32,8 +32,8 @@
   <script>
     let windowWidth = window.innerWidth;
     let windowHeight = window.innerHeight;
-    let playerOneTimer = new Rectangle(windowWidth*0.0, (windowWidth*0.2)+3 , windowWidth/2 , "2", 'turquoise', 'turquoise');
-    let playerTwoTimer = new Rectangle(windowWidth*0.5, (windowWidth*0.2)+3 , windowWidth/2 , "2", 'turquoise', 'turquoise');
+    let playerOneTimer = new Rectangle(windowWidth*0.0, (windowWidth*0.2) , windowWidth/2 , "2", 'turquoise', 'turquoise');
+    let playerTwoTimer = new Rectangle(windowWidth*0.5, (windowWidth*0.2) , windowWidth/2 , "2", 'turquoise', 'turquoise');
     let countTiming = 0;
     let gameTimer = setInterval(()=>{},1000);
     let check = [];
@@ -387,7 +387,7 @@
           modalContent.style.cssText = setbound(windowWidth*0.05, windowHeight*0.3, windowWidth*0.90 , windowHeight*0.4);
       });	
 
-      let status = new Rectangle(windowWidth*0.0, windowHeight*0.2, windowWidth , windowHeight*0.05, 'transparent', 'transparent');
+      let status = new Rectangle(windowWidth*0.0, windowHeight*0.17, windowWidth , windowHeight*0.05, 'transparent', 'transparent');
       let statusParagraph = document.createElement("p");
       statusParagraph.id = "statusParagraph";
       statusParagraph.innerHTML = "Player 1 Turn";
