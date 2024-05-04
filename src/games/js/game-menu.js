@@ -99,9 +99,27 @@ function createGameMenu(windowWidth,windowHeight) {
     let menuIconSectionButtonHTML = document.createElement("button");
     menuIconSectionButtonHTML.style.cssText = setbound(menuIconSectionButton.x, menuIconSectionButton.y , menuIconSectionButton.width, menuIconSectionButton.height);
     menuIconSectionButtonHTML.id = "gamemenu";
-    
-    createStyleInHTML();
-    
+
+    // create Dialog Modal box
+    let menuDialogBox = document.createElement("div");
+    menuDialogBox.classList.add('modal');
+    menuDialogBox.id = "main-modal" ;
+    menuDialogBox.classList.add('animate__animated');
+    menuDialogBox.classList.add('animate__flipInY');
+
+    menuDialogBox.innerHTML = `
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    // some data here
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger buttonDialog" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>                
+        </div>
+    `;
+
     appendAll([
         aboutGameButtonHTML,
         settingSectionButtonHTML,
@@ -113,7 +131,8 @@ function createGameMenu(windowWidth,windowHeight) {
         playerOneNameButtonHTML,
         playerTwoNameButtonHTML,
         playerOneScoreImageButtonHTML,
-        playerTwoScoreImageButtonHTML
+        playerTwoScoreImageButtonHTML,
+        menuDialogBox
     ]);
     
 
@@ -127,55 +146,6 @@ function createGameMenu(windowWidth,windowHeight) {
             settingSection,
             menuIconSection
         ];
-}
-
-function createStyleInHTML(){
-    let style = document.createElement("style");
-    style.innerHTML = `
-        button {
-            position : absolute;
-            border : 1px solid #6b7986;
-            border-radius : 10px;
-            font-size : 12px;
-            background-color :#1b2838;
-            color : #6b7986;
-            font-weight: 700;
-        }
-        p {
-            position : absolute;
-            font-size : 12px;
-            color : #6b7986;
-            font-weight: 700;
-            text-align: center;
-            font-size: 30px;
-        }
-        img {
-            position : absolute;
-            text-align: center;
-        }
-        span {
-            position : absolute;
-            font-size : 12px;
-            color : #6b7986;
-            font-weight: 700;
-            font-size: 15px;
-        }
-        .left {
-            text-align: left;
-        }
-        .right {
-            text-align: right;
-        }
-        #playerface1, #playerface2 {
-            border-radius: 50%;
-            outline: 4px solid #6b7986;
-        }
-        .timer {
-            background-color : green;
-            color: white;
-        }
-    `;
-    document.body.appendChild(style);
 }
 
 function setbound(x,y,width,height){
