@@ -162,4 +162,3 @@ function appendAll(arr) {
         document.body.prepend(item);
     });
 }
-

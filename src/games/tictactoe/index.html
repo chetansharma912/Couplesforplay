@@ -13,6 +13,7 @@
   <script type="text/javascript" src="../js/easy.js"></script>
   <link href="../css/game-menu.css" rel="stylesheet">
   <script type="text/javascript" src="../js/game-menu.js"></script>
+  <link href="../../css/icons.css" rel="stylesheet">
 
   <style>
     body {
@@ -221,14 +222,17 @@
           document.querySelector(".modal-body").innerHTML = `
             <h4>*Game Rules*</h4>
             <p class="text-center">
-              Tic-Tac-Toe is a classic game played on a 3x3 grid. The rules are simple:
-<br><br>
-1. Two players take turns marking spaces in the grid with either an "X" or an "O".<br>
-2. The first player to get three of their marks in a row (horizontally, vertically, or diagonally) wins.<br>
-3. If all spaces are filled without any player achieving three in a row, the game is a draw.<br>
-4. Players cannot mark a space that is already occupied.<br><br>
-That's pretty much it! It's a game of strategy and quick thinking.
+              Tic-Tac-Toe is a classic game played on a 3x3 grid.
+              <br>The rules are simple:
+              <br><br>
             </p>
+            <p class="text-left" style="text-align:left;">
+              1. Two players take turns marking spaces in the grid with either an "X" or an "O".<br><br>
+              2. The first player to get three of their marks in a row (horizontally, vertically, or diagonally) wins.<br><br>
+              3. If all spaces are filled without any player achieving three in a row, the game is a draw.<br><br>
+              4. Players cannot mark a space that is already occupied.<br><br><br>
+            </p>
+            <p class="text-center">That's pretty much it! It's a game of strategy and quick thinking.</p>
           `;
           
           let modalContent = document.querySelector('.modal-content');
@@ -244,8 +248,38 @@ That's pretty much it! It's a game of strategy and quick thinking.
       settingSectionButtonHTML.addEventListener('click',()=>{
           document.querySelector(".modal-body").innerHTML = `
             <h4>Settings</h4>
-            <p class="text-center">
-              
+            <p class="text-center"><table>
+                <tbody>
+                  <tr>
+                    <td>Sound</td>
+                    <td>
+                      <img class="sound" src="../images/game-menu-svg/volume-mute-outline.svg">
+                    </td>
+                  </tr>  
+                  <tr>
+                    <td>Music</td>
+                    <td>
+                      <img class="music" src="../images/game-menu-svg/volume-high-outline.svg">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Language</td>
+                    <td>
+                      <select>
+                        <option>English</option>
+                      </select>
+                    </td>
+                  </tr>  
+                  <tr>
+                    <td>Theme</td>
+                    <td>
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                      </div>
+                    </td>
+                  </tr>  
+                </tbody>  
+              </table>
             </p>
           `;
           
