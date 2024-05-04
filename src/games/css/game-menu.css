@@ -36,6 +36,16 @@ span {
     border-radius: 50%;
     outline: 4px solid #6b7986;
 }
+.playerOneTimerNumber , .playerTwoTimerNumber {
+    font-size: 15px;
+    width: 100%;
+}
+.playerTwoTimerNumber {
+    text-align: right;
+}
+.playerOneTimerNumber {
+    text-align: left;
+}
 .timer {
     background-color : green;
     color: white;

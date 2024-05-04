@@ -144,7 +144,8 @@ function createGameMenu(windowWidth,windowHeight) {
             bottomMenuRect,
             aboutGameSection,
             settingSection,
-            menuIconSection
+            menuIconSection,
+            status
         ];
 }
 

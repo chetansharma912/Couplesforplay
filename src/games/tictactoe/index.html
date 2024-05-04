@@ -14,6 +14,9 @@
   <link href="../css/game-menu.css" rel="stylesheet">
   <script type="text/javascript" src="../js/game-menu.js"></script>
   <link href="../../css/icons.css" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+    </style>
 
   <style>
     body {
@@ -29,6 +32,17 @@
   <script>
     let windowWidth = window.innerWidth;
     let windowHeight = window.innerHeight;
+    let playerOneTimer = new Rectangle(windowWidth*0.0, (windowWidth*0.2)+3 , windowWidth/2 , "2", 'turquoise', 'turquoise');
+    let playerTwoTimer = new Rectangle(windowWidth*0.5, (windowWidth*0.2)+3 , windowWidth/2 , "2", 'turquoise', 'turquoise');
+    let countTiming = 0;
+    let gameTimer = setInterval(()=>{},1000);
+    let check = [];
+    let flag = true;
+    let turn = false, game=true;
+    let cntXO = 0;
+    let PlayerOneWins = 0, PlayerTwoWins = 0;
+    let xwins=false,owins=false,drawwins=false;
+    
     window.onload = function () {
       
       let canvas = new createCanvas(windowWidth, windowHeight, "background: #1b2838;");
@@ -36,14 +50,6 @@
       let gameMenu = createGameMenu(windowWidth,windowHeight);
 
       setPreloadsGame();
-
-      let check = [];
-      let flag = true;
-      
-      let turn = false, game=true;
-      let cntXO = 0;
-      let PlayerOneWins = 0, PlayerTwoWins = 0;
-      let xwins=false,owins=false,drawwins=false;
 
       let verticalLines = [];
       let horizontalLines = [];
@@ -78,12 +84,12 @@
                     [...gameMenu].flat(),
                     [...tictactoeBoxes].flat(),
                     [...verticalLines],
-                    [...horizontalLines]
+                    [...horizontalLines],
+                    status,playerOneTimer,playerTwoTimer
                   ].flat();
 
         canvas.setShapes(shapesBoard);
       });
-
       
       canvas.getCanvas().addEventListener('touchstart', function (e) {
         ex = e.touches[0].clientX;
@@ -97,11 +103,13 @@
               if (item.x < ex && (item.x + item.width) > ex && item.y < ey && (item.y + item.height) > ey) {
                 // console.log("a");
                 if(item.img.src.includes("Blank-min")) {
+                  document.querySelector("#statusParagraph").style.display = "none";
                   if (turn) {
                     turn = !turn;
                     item.img.src = "images/O-min.png";
                     check[i][j] = "O";
                     cntXO++;
+                    document.querySelector("#statusParagraph").innerHTML = "Player 1 Turn";
                     // console.log("b");
                   }
                   else if (!turn) {
@@ -109,6 +117,7 @@
                     item.img.src = "images/X-min.png";
                     check[i][j] = "X";
                     cntXO++;
+                    document.querySelector("#statusParagraph").innerHTML = "Player 2 Turn";
                     // console.log("c");
                   }
                 }
@@ -119,6 +128,23 @@
           checkWin(cntXO);
         }
       });
+
+      gameTimer = setInterval(()=>{
+        countTiming++;
+        if(!turn){
+          playerOneTimer.width = playerOneTimer.width - ((windowWidth*0.5)/60);
+          document.querySelector(".playerOneTimerNumber").innerHTML =  "00:"+playerOneTimer.width/((windowWidth*0.5)/60);
+        }
+        else {
+          playerTwoTimer.x = playerTwoTimer.x + ((windowWidth*0.5)/60);
+          playerTwoTimer.width = playerTwoTimer.width + ((windowWidth*0.5)/60);
+          document.querySelector(".playerTwoTimerNumber").innerHTML =  "00:"+ (60-(playerTwoTimer.width-windowWidth*0.5)/((windowWidth*0.5)/60));
+        }
+        if(countTiming%2 == 0){
+          document.querySelector("#statusParagraph").style.display = "block";
+        }
+        console.log(playerOneTimer.width);
+      },1000);
 
       function resetGame() {
         tictactoeBoxes = [];
@@ -148,6 +174,10 @@
         xwins=false;
         owins=false;
         drawwins=false;
+        playerOneTimer = new Rectangle(windowWidth*0.0, (windowWidth*0.2)+3 , windowWidth/2 , "2", 'turquoise', 'turquoise');
+        playerTwoTimer = new Rectangle(windowWidth*0.5, (windowWidth*0.2)+3 , windowWidth/2 , "2", 'turquoise', 'turquoise');
+        document.querySelector(".playerTwoTimerNumber").innerHTML =  "01:00";
+        document.querySelector(".playerOneTimerNumber").innerHTML =  "01:00";
       }
 
       function checkWin(cnt) {
@@ -158,6 +188,7 @@
           if(game){
             if(s[win[i][0]]=="X" && s[win[i][1]]=="X" && s[win[i][2]]=="X"){
               alert("Player 1 Won");
+              document.querySelector("#statusParagraph").style.display = "Player 1 Won";
               PlayerOneWins++;
               document.querySelector("#PlayerOneWins").innerHTML = PlayerOneWins;
               game = false;
@@ -166,6 +197,7 @@
             }
             else if(s[win[i][0]]=="O" && s[win[i][1]]=="O" && s[win[i][2]]=="O"){
               alert("Player 2 Won");
+              document.querySelector("#statusParagraph").style.display = "Player 2 Won";
               PlayerTwoWins++;
               document.querySelector("#PlayerTwoWins").innerHTML = PlayerTwoWins;
               game = false;
@@ -199,10 +231,18 @@
       playerTwoFaceButtonHTML.style.background = 'url("../../images/players-icons/P4.png") 50% 50% / cover no-repeat';
 
       let playerOneNameButtonHTML = document.getElementById('playerOneName');
-      playerOneNameButtonHTML.innerHTML = "Player 1 III<br>00 : 00";
+      playerOneNameButtonHTML.innerHTML = `
+      Player 1 III
+      <br>
+      <p class="playerOneTimerNumber">01:00</p>
+      `;
 
       let playerTwoNameButtonHTML = document.getElementById('playerTwoName');
-      playerTwoNameButtonHTML.innerHTML = "III Player 2<br>00 : 00";
+      playerTwoNameButtonHTML.innerHTML = `
+      III Player 2
+      <br>
+      <p class="playerTwoTimerNumber">01:00</p>
+      `;;
 
       let playerOneScoreImageButtonHTML = document.getElementById('playerOneScoreImage');
       playerOneScoreImageButtonHTML.src = "images/X-min.png";
@@ -346,6 +386,16 @@
           let modalContent = document.querySelector('.modal-content');
           modalContent.style.cssText = setbound(windowWidth*0.05, windowHeight*0.3, windowWidth*0.90 , windowHeight*0.4);
       });	
+
+      let status = new Rectangle(windowWidth*0.0, windowHeight*0.2, windowWidth , windowHeight*0.05, 'transparent', 'transparent');
+      let statusParagraph = document.createElement("p");
+      statusParagraph.id = "statusParagraph";
+      statusParagraph.innerHTML = "Player 1 Turn";
+      statusParagraph.style.cssText = setbound(status.x, status.y , status.width, status.height);
+      statusParagraph.style.fontFamily = "Comic Neue";
+      statusParagraph.classList.add('animate__animated');
+      statusParagraph.classList.add('animate__bounceIn');
+      document.body.appendChild(statusParagraph);
     }
   </script>
 </head>
