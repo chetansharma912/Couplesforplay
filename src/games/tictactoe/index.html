@@ -11,7 +11,7 @@
   <script src="../../js/bootstrap@5.1.3.js"></script>
 
   <script type="text/javascript" src="../../js/easy.js"></script>
-  <script type="text/javascript" src="../../js/game-menu.js"></script>
+  <script type="text/javascript" src="../js/game-menu.js"></script>
 
   <style>
     body {
@@ -34,7 +34,6 @@
       let gameMenu = createGameMenu(windowWidth,windowHeight);
 
       setPreloadsGame();
-      
 
       let check = [];
       let flag = true;
@@ -221,14 +220,14 @@
 
       let settingSectionButtonHTML = document.getElementById('gamesettings');
       settingSectionButtonHTML.innerHTML = "";
-      settingSectionButtonHTML.style.background = 'url("../game-menu-svg/settings.svg") 50% 50% / 50% no-repeat';
+      settingSectionButtonHTML.style.background = 'url("../images/game-menu-svg/settings.svg") 50% 50% / 50% no-repeat';
       settingSectionButtonHTML.addEventListener('click',()=>{
           alert('settings');
       });	
 
       let menuIconSectionButtonHTML = document.getElementById('gamemenu');
       menuIconSectionButtonHTML.innerHTML = "";
-      menuIconSectionButtonHTML.style.background = 'url("../game-menu-svg/menu.svg") 50% 50% / 50% no-repeat';
+      menuIconSectionButtonHTML.style.background = 'url("../images/game-menu-svg/menu.svg") 50% 50% / 50% no-repeat';
       menuIconSectionButtonHTML.addEventListener('click',()=>{
           alert('menu icon');
       });	
