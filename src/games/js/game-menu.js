@@ -114,7 +114,7 @@ function createGameMenu(windowWidth,windowHeight) {
                     // some data here
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger buttonDialog" data-bs-dismiss="modal">Close</button>
+                   // Some footer code
                 </div>
             </div>                
         </div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <title>Tic Tac Toe</title>
@@ -190,6 +190,8 @@
     }
 
     function setPreloadsGame() {
+      let soundFlag = true, musicFlag = true;
+
       let playerOneFaceButtonHTML = document.getElementById('playerface1');
       playerOneFaceButtonHTML.style.background = 'url("../../images/players-icons/P1.png") 50% 50% / cover no-repeat';
 
@@ -233,6 +235,12 @@
               4. Players cannot mark a space that is already occupied.<br><br><br>
             </p>
             <p class="text-center">That's pretty much it! It's a game of strategy and quick thinking.</p>
+            <br><br>
+          `;
+
+          document.querySelector(".modal-footer").style.display="flex";
+          document.querySelector(".modal-footer").innerHTML = `
+            <button type="button" class="btn btn-danger buttonDialog" data-bs-dismiss="modal">Close</button>
           `;
           
           let modalContent = document.querySelector('.modal-content');
@@ -253,7 +261,7 @@
                   <tr>
                     <td>Sound</td>
                     <td>
-                      <img class="sound" src="../images/game-menu-svg/volume-mute-outline.svg">
+                      <img class="sound" src="../images/game-menu-svg/volume-high-outline.svg">
                     </td>
                   </tr>  
                   <tr>
@@ -266,7 +274,8 @@
                     <td>Language</td>
                     <td>
                       <select>
-                        <option>English</option>
+                        <option value="English">English</option>
+                        <option value="Spanish">Spanish</option>
                       </select>
                     </td>
                   </tr>  
@@ -282,16 +291,60 @@
               </table>
             </p>
           `;
+          document.querySelector(".modal-footer").style.display="flex";
+          document.querySelector(".modal-footer").innerHTML = `
+            <button type="button" class="btn btn-danger buttonDialog" data-bs-dismiss="modal">Close</button>
+          `;
           
           let modalContent = document.querySelector('.modal-content');
           modalContent.style.cssText = setbound(windowWidth*0.05, windowHeight*0.15, windowWidth*0.90 , windowHeight*0.70);
+
+          document.querySelector('.music').src = musicFlag ? "../images/game-menu-svg/volume-high-outline.svg" : "../images/game-menu-svg/volume-mute-outline.svg";
+          document.querySelector('.sound').src = soundFlag ? "../images/game-menu-svg/volume-high-outline.svg" : "../images/game-menu-svg/volume-mute-outline.svg";
+          
+          document.querySelector('.sound').addEventListener('touchstart',(e)=>{
+            soundFlag= !soundFlag;
+            if(soundFlag){
+              e.target.src = "../images/game-menu-svg/volume-high-outline.svg";
+            }
+            else {
+              e.target.src = "../images/game-menu-svg/volume-mute-outline.svg";
+            }
+          });
+
+          document.querySelector('.music').addEventListener('touchstart',(e)=>{
+            musicFlag= !musicFlag;
+            if(musicFlag){
+              e.target.src = "../images/game-menu-svg/volume-high-outline.svg";
+            }
+            else {
+              e.target.src = "../images/game-menu-svg/volume-mute-outline.svg";
+            }
+          });
       });	
 
       let menuIconSectionButtonHTML = document.getElementById('gamemenu');
       menuIconSectionButtonHTML.innerHTML = "";
       menuIconSectionButtonHTML.style.background = 'url("../images/game-menu-svg/exit-outline.svg") 50% 50% / 50% no-repeat';
+      menuIconSectionButtonHTML.setAttribute('data-bs-toggle' ,"modal");
+      menuIconSectionButtonHTML.setAttribute('data-bs-target' , "#main-modal");
       menuIconSectionButtonHTML.addEventListener('click',()=>{
-          alert("Exit game functionality");
+        document.querySelector(".modal-body").innerHTML = `
+            <h4>Leave Game</h4>
+            <p class="text-center">
+              Are you sure want to leave game?
+              <br><br>
+              
+              <button type="button" class="btn btn-danger buttonDialog">Leave</button>
+              <br>
+              <button type="button" class="btn btn-success buttonDialog" data-bs-dismiss="modal">Continue</button>
+            </p>
+          `;
+          document.querySelector(".modal-footer").style.display="none";
+
+          
+          let modalContent = document.querySelector('.modal-content');
+          modalContent.style.cssText = setbound(windowWidth*0.05, windowHeight*0.3, windowWidth*0.90 , windowHeight*0.4);
       });	
     }
   </script>
