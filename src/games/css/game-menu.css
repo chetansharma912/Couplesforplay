@@ -61,11 +61,12 @@ span {
         align-items: flex-end;
         justify-content: center;
         padding: 10px !important;
-        background: #021221;
+        background: #66686a;
     }
     p {
         font-size: 15px !important;
         padding: 0px 30px !important;
+        position: relative;
     }
     h4 {
         font-weight: 700;
@@ -73,5 +74,33 @@ span {
         margin: 30px !important;
         border: 1px solid #6b7979;
         padding: 10px !important;
+    }
+    table {
+        color: white;
+        width: 100%;
+        td {
+            padding: 10px !important;
+        }
+        .music, .sound {
+            width: 40px;
+            height: 40px;
+            background-size: cover;
+            position: relative;
+        }
+        select {
+            width: 70%;
+            height: 100%;
+            padding: 10px !important;
+            text-align: center;
+            color: white;
+            background: #021221;
+            font-size: 15px;
+        }
+        .form-check {
+            display: inline-flex;
+        }
+        .form-check-input:checked {
+            background-color: #021221;
+        }
     }
 }
