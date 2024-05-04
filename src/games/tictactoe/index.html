@@ -133,12 +133,12 @@
         countTiming++;
         if(!turn){
           playerOneTimer.width = playerOneTimer.width - ((windowWidth*0.5)/60);
-          document.querySelector(".playerOneTimerNumber").innerHTML =  "00:"+playerOneTimer.width/((windowWidth*0.5)/60);
+          document.querySelector(".playerOneTimerNumber").innerHTML =  "00:"+Math.floor(playerOneTimer.width/((windowWidth*0.5)/60));
         }
         else {
           playerTwoTimer.x = playerTwoTimer.x + ((windowWidth*0.5)/60);
           playerTwoTimer.width = playerTwoTimer.width + ((windowWidth*0.5)/60);
-          document.querySelector(".playerTwoTimerNumber").innerHTML =  "00:"+ (60-(playerTwoTimer.width-windowWidth*0.5)/((windowWidth*0.5)/60));
+          document.querySelector(".playerTwoTimerNumber").innerHTML =  "00:"+ Math.floor((60-(playerTwoTimer.width-windowWidth*0.5)/((windowWidth*0.5)/60)));
         }
         if(countTiming%2 == 0){
           document.querySelector("#statusParagraph").style.display = "block";
