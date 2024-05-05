@@ -45,7 +45,7 @@ function createGameMenu(windowWidth,windowHeight) {
     playerTwoNameButtonHTML.style.cssText = setbound(playerTwoNameButton.x, playerTwoNameButton.y , playerTwoNameButton.width, playerTwoNameButton.height);
 
     // Player One Menu
-    let playerOneScore = new Rectangle(0, windowHeight*0.1, windowWidth*0.15 , windowWidth*0.12, color, bgColor);
+    let playerOneScore = new Rectangle(windowWidth*0.5-windowWidth*0.1, windowHeight*0.1-windowWidth*0.05, windowWidth*0.05 , windowWidth*0.05, color, bgColor);
     let playerOneScoreButton = new Rectangle(0,0, playerOneScore.width , playerOneScore.height, transparent, transparent);
     playerOneScoreButton.alignMiddleTo(playerOneScore);
     let playerOneScoreButtonHTML = document.createElement("p");
@@ -53,7 +53,7 @@ function createGameMenu(windowWidth,windowHeight) {
     playerOneScoreButtonHTML.style.cssText = setbound(playerOneScoreButton.x, playerOneScoreButton.y , playerOneScoreButton.width, playerOneScoreButton.height);
     
     // Player One Image Menu
-    let playerOneScoreImage = new Rectangle(windowWidth*0.15, windowHeight*0.1, windowWidth*0.12 , windowWidth*0.12, color, bgColor);
+    let playerOneScoreImage = new Rectangle(windowWidth*0.5-windowWidth*0.15, windowHeight*0.1-windowWidth*0.05, windowWidth*0.05 , windowWidth*0.05, color, bgColor);
     let playerOneScoreImageButton = new Rectangle(0,0, playerOneScoreImage.width , playerOneScoreImage.height, transparent, transparent);
     playerOneScoreImageButton.alignMiddleTo(playerOneScoreImage);
     let playerOneScoreImageButtonHTML = document.createElement("img");
@@ -61,7 +61,7 @@ function createGameMenu(windowWidth,windowHeight) {
     playerOneScoreImageButtonHTML.style.cssText = setbound(playerOneScoreImageButton.x, playerOneScoreImageButton.y , playerOneScoreImageButton.width, playerOneScoreImageButton.height);
 
     // Player Two Menu
-    let playerTwoScore = new Rectangle(windowWidth*0.85, windowHeight*0.1, windowWidth*0.15 , windowWidth*0.12, color, bgColor);
+    let playerTwoScore = new Rectangle(windowWidth*0.5+windowWidth*0.05, windowHeight*0.1-windowWidth*0.05, windowWidth*0.05 , windowWidth*0.05, color, bgColor);
     let playerTwoScoreButton = new Rectangle(0,0, playerTwoScore.width , playerTwoScore.height, transparent, transparent);
     playerTwoScoreButton.alignMiddleTo(playerTwoScore);
     let playerTwoScoreButtonHTML = document.createElement("p");
@@ -69,7 +69,7 @@ function createGameMenu(windowWidth,windowHeight) {
     playerTwoScoreButtonHTML.style.cssText = setbound(playerTwoScoreButton.x, playerTwoScoreButton.y , playerTwoScoreButton.width, playerTwoScoreButton.height);
 
     // Player Two Image Menu
-    let playerTwoScoreImage = new Rectangle(windowWidth*0.73, windowHeight*0.1, windowWidth*0.12 , windowWidth*0.12, color, bgColor);
+    let playerTwoScoreImage = new Rectangle(windowWidth*0.5+windowWidth*0.1, windowHeight*0.1-windowWidth*0.05, windowWidth*0.05 , windowWidth*0.05, color, bgColor);
     let playerTwoScoreImageButton = new Rectangle(0,0, playerTwoScoreImage.width , playerTwoScoreImage.height, transparent, transparent);
     playerTwoScoreImageButton.alignMiddleTo(playerTwoScoreImage);
     let playerTwoScoreImageButtonHTML = document.createElement("img");
