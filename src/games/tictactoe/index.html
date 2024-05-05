@@ -32,8 +32,8 @@
   <script>
     let windowWidth = window.innerWidth;
     let windowHeight = window.innerHeight;
-    let playerOneTimer = new Rectangle(windowWidth*0.0, (windowWidth*0.2) , windowWidth/2 , "2", 'turquoise', 'turquoise');
-    let playerTwoTimer = new Rectangle(windowWidth*0.5, (windowWidth*0.2) , windowWidth/2 , "2", 'turquoise', 'turquoise');
+    let playerOneTimer = new Rectangle(windowWidth*0.0, 0 , windowWidth/2 , "2", 'lightgreen', 'lightgreen');
+    let playerTwoTimer = new Rectangle(windowWidth*0.5, 0 , windowWidth/2 , "2", 'lightgreen', 'lightgreen');
     let countTiming = 0;
     let gameTimer = setInterval(()=>{},1000);
     let check = [];
@@ -133,12 +133,56 @@
         countTiming++;
         if(!turn){
           playerOneTimer.width = playerOneTimer.width - ((windowWidth*0.5)/60);
-          document.querySelector(".playerOneTimerNumber").innerHTML =  "00:"+Math.floor(playerOneTimer.width/((windowWidth*0.5)/60));
+          let count = Math.floor(playerOneTimer.width/((windowWidth*0.5)/60));
+          if(count<=0) {
+            playerTwoWon();
+          }
+          else if(count<15) {
+            playerOneTimer.fillColor = "red";
+            playerOneTimer.borderColor = "red";
+          }
+          else if(count<30) {
+            playerOneTimer.fillColor = "orange";
+            playerOneTimer.borderColor = "orange";
+          }
+          else if(count<45) {
+            playerOneTimer.fillColor = "yellow";
+            playerOneTimer.borderColor = "yellow";
+          }
+          else if(count<50) {
+            playerOneTimer.fillColor = "turquoise";
+            playerOneTimer.borderColor = "turquoise";
+          }
+          count = count<10 ? '0'+count : count;
+          document.querySelector(".playerOneTimerNumber").innerHTML =  "00:"+count;
+          
         }
         else {
           playerTwoTimer.x = playerTwoTimer.x + ((windowWidth*0.5)/60);
           playerTwoTimer.width = playerTwoTimer.width + ((windowWidth*0.5)/60);
-          document.querySelector(".playerTwoTimerNumber").innerHTML =  "00:"+ Math.floor((60-(playerTwoTimer.width-windowWidth*0.5)/((windowWidth*0.5)/60)));
+          let count = Math.floor((60-(playerTwoTimer.width-windowWidth*0.5)/((windowWidth*0.5)/60)));
+          if(count<=0) {
+            playerOneWon();
+          }
+          else if(count<15) {
+            playerTwoTimer.fillColor = "red";
+            playerTwoTimer.borderColor = "red";
+          }
+          else if(count<30) {
+            playerTwoTimer.fillColor = "orange";
+            playerTwoTimer.borderColor = "orange";
+          }
+          else if(count<45) {
+            playerTwoTimer.fillColor = "yellow";
+            playerTwoTimer.borderColor = "yellow";
+          }
+          else if(count<50) {
+            playerTwoTimer.fillColor = "turquoise";
+            playerTwoTimer.borderColor = "turquoise";
+          }
+
+          count = count<10 ? '0'+count : count;
+          document.querySelector(".playerTwoTimerNumber").innerHTML =  "00:"+count;
         }
         if(countTiming%2 == 0){
           document.querySelector("#statusParagraph").style.display = "block";
@@ -174,8 +218,8 @@
         xwins=false;
         owins=false;
         drawwins=false;
-        playerOneTimer = new Rectangle(windowWidth*0.0, (windowWidth*0.2)+3 , windowWidth/2 , "2", 'turquoise', 'turquoise');
-        playerTwoTimer = new Rectangle(windowWidth*0.5, (windowWidth*0.2)+3 , windowWidth/2 , "2", 'turquoise', 'turquoise');
+        playerOneTimer = new Rectangle(windowWidth*0.0, 0 , windowWidth/2 , "2", 'lightgreen', 'lightgreen');
+        playerTwoTimer = new Rectangle(windowWidth*0.5, 0 , windowWidth/2 , "2", 'lightgreen', 'lightgreen');
         document.querySelector(".playerTwoTimerNumber").innerHTML =  "01:00";
         document.querySelector(".playerOneTimerNumber").innerHTML =  "01:00";
       }
@@ -187,21 +231,11 @@
         for(var i=0;i<win.length;i++){
           if(game){
             if(s[win[i][0]]=="X" && s[win[i][1]]=="X" && s[win[i][2]]=="X"){
-              alert("Player 1 Won");
-              document.querySelector("#statusParagraph").style.display = "Player 1 Won";
-              PlayerOneWins++;
-              document.querySelector("#PlayerOneWins").innerHTML = PlayerOneWins;
-              game = false;
-              resetGame();
+              playerOneWon();
               break;
             }
             else if(s[win[i][0]]=="O" && s[win[i][1]]=="O" && s[win[i][2]]=="O"){
-              alert("Player 2 Won");
-              document.querySelector("#statusParagraph").style.display = "Player 2 Won";
-              PlayerTwoWins++;
-              document.querySelector("#PlayerTwoWins").innerHTML = PlayerTwoWins;
-              game = false;
-              resetGame();
+              playerTwoWon();
               break;
             }
           }
@@ -210,8 +244,25 @@
         if(cnt>=9 && game){
             alert("Draw");
             resetGame();
-            // game = false;
         }
+      }
+
+      function playerOneWon() {
+        // alert("Player 1 Won");
+        document.querySelector("#statusParagraph").style.display = "Player 1 Won";
+        PlayerOneWins++;
+        document.querySelector("#PlayerOneWins").innerHTML = PlayerOneWins;
+        game = false;
+        resetGame();
+      }
+
+      function playerTwoWon() {
+        // alert("Player 2 Won");
+        document.querySelector("#statusParagraph").style.display = "Player 2 Won";
+        PlayerTwoWins++;
+        document.querySelector("#PlayerTwoWins").innerHTML = PlayerTwoWins;
+        game = false;
+        resetGame();
       }
 
       function checkseq(a, b, c, d) {
@@ -378,6 +429,7 @@
               <button type="button" class="btn btn-danger buttonDialog">Leave</button>
               <br>
               <button type="button" class="btn btn-success buttonDialog" data-bs-dismiss="modal">Continue</button>
+              <br>
             </p>
           `;
           document.querySelector(".modal-footer").style.display="none";

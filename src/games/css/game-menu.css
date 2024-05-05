@@ -46,6 +46,9 @@ span {
 .playerOneTimerNumber {
     text-align: left;
 }
+#PlayerOneWins, #PlayerTwoWins {
+    font-size: 13px;
+}
 .timer {
     background-color : green;
     color: white;
