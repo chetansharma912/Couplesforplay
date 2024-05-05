@@ -120,7 +120,7 @@ function createGameMenu(windowWidth,windowHeight) {
         </div>
     `;
 
-    appendAll([
+    prependAll([
         aboutGameButtonHTML,
         settingSectionButtonHTML,
         menuIconSectionButtonHTML,
@@ -136,18 +136,46 @@ function createGameMenu(windowWidth,windowHeight) {
     ]);
     
 
+    // return [
+    //         menuRect,
+    //         playerOneFace,playerTwoFace,
+    //         playerOneName,playerTwoName,
+    //         playerOneScore,playerTwoScore,
+    //         bottomMenuRect,
+    //         aboutGameSection,
+    //         settingSection,
+    //         menuIconSection,
+    //         status
+    //     ];
     return [
             menuRect,
             playerOneFace,playerTwoFace,
             playerOneName,playerTwoName,
-            playerOneScore,playerTwoScore,
             bottomMenuRect,
             aboutGameSection,
             settingSection,
-            menuIconSection,
-            status
+            menuIconSection
         ];
 }
+
+function loadingScreen() {
+    let loader = new Rectangle(0, 0, windowWidth , windowHeight, 'black', 'blank');
+    let loaderDiv = document.createElement("div");
+    loaderDiv.id = "loaderDiv";
+    loaderDiv.style.cssText = setbound(loader.x, loader.y , loader.width, loader.height);
+
+    let loadingImage = new Rectangle(windowWidth*0.5-(windowWidth*0.25), windowHeight*0.5-(windowWidth*0.25), windowWidth*0.5 , windowWidth*0.5, 'red', 'red');
+    let loadingImageDiv = new Rectangle(0,0, loadingImage.width , loadingImage.height, 'transparent', 'transparent');
+    loadingImageDiv.alignMiddleTo(loadingImage);
+    let loadingImageDivHTML = document.createElement("div");
+    loadingImageDivHTML.id = "loaderImage";
+    loadingImageDivHTML.style.cssText = setbound(loadingImageDiv.x, loadingImageDiv.y , loadingImageDiv.width, loadingImageDiv.height);
+
+    appendAll([
+        loaderDiv,
+        loadingImageDivHTML
+    ]);
+  }
 
 function setbound(x,y,width,height){
     return `
@@ -158,8 +186,14 @@ function setbound(x,y,width,height){
     `;
 }
 
-function appendAll(arr) {
+function prependAll(arr) {
     arr.forEach((item)=>{
         document.body.prepend(item);
+    });
+}
+
+function appendAll(arr) {
+    arr.forEach((item)=>{
+        document.body.append(item);
     });
 }

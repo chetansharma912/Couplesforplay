@@ -117,3 +117,12 @@ span {
         }
     }
 }
+
+#loaderDiv {
+    background-color: #1b2838;
+    position: absolute;
+}
+#loaderImage {
+    position: absolute;
+    background : url("../tictactoe/images/loading-screen-image.png") 100% 100% / cover no-repeat;
+}
