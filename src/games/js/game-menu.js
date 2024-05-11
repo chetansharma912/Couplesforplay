@@ -120,7 +120,7 @@ function createGameMenu(windowWidth,windowHeight) {
         </div>
     `;
 
-    appendAll([
+    prependAll([
         aboutGameButtonHTML,
         settingSectionButtonHTML,
         menuIconSectionButtonHTML,
@@ -136,16 +136,25 @@ function createGameMenu(windowWidth,windowHeight) {
     ]);
     
 
+    // return [
+    //         menuRect,
+    //         playerOneFace,playerTwoFace,
+    //         playerOneName,playerTwoName,
+    //         playerOneScore,playerTwoScore,
+    //         bottomMenuRect,
+    //         aboutGameSection,
+    //         settingSection,
+    //         menuIconSection,
+    //         status
+    //     ];
     return [
             menuRect,
             playerOneFace,playerTwoFace,
             playerOneName,playerTwoName,
-            playerOneScore,playerTwoScore,
             bottomMenuRect,
             aboutGameSection,
             settingSection,
-            menuIconSection,
-            status
+            menuIconSection
         ];
 }
 
@@ -158,8 +167,20 @@ function setbound(x,y,width,height){
     `;
 }
 
-function appendAll(arr) {
+function prependAll(arr) {
     arr.forEach((item)=>{
         document.body.prepend(item);
+    });
+}
+
+function appendAll(arr) {
+    arr.forEach((item)=>{
+        document.body.append(item);
+    });
+}
+
+function removeAll(arr) {
+    arr.forEach((item)=>{
+        document.body.removeChild(item);
     });
 }

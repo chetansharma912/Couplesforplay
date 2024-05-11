@@ -117,3 +117,32 @@ span {
         }
     }
 }
+
+#loaderDiv {
+    background-color: #1b2838;
+    position: absolute;
+}
+#loaderImage {
+    position: absolute;
+    background : url("../tictactoe/images/loading-screen-image.png") 100% 100% / cover no-repeat;
+}
+#LoadingIndicator, #LoadingMiddleIndicator {
+    position: absolute;
+    background-color: #021221;
+    outline: 2px solid #021221;
+    border-radius: 10px;
+}
+#LoadingMiddleIndicator {
+    background-color: teal;
+    outline: none;
+}
+#LoadingNameIndicator {
+    position: absolute;
+    outline: none;
+    text-align: center;
+    color: #a0a0a0;
+    font-size: 27px !important;
+    padding: 0px !important;
+    font-weight: 800;
+    font-family: cursive;
+}
