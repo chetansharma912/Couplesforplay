@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="easy.js"></script>
+	<script>
+		window.onload=function(){
+			var canvas=new createCanvas(500,500,"border:5px dashed black;");
+			canvas.drawCanvas();
+			var size=50;
+			var c=[size];
+			var color=[size];
+			var rx=[size];
+			var ry=[size];
+
+			var r=new Rectangle(90,200,50,50);
+			var l=new Line(0,0,500,500);
+			var cir=new Circle(300,100,50);
+
+			setup();
+			draw();
+		
+
+			function draw(){
+				canvas.clear();
+				/*for (var i = 0; i < size; i++) {
+					canvas.drawCircle(c[i],"",color[i]);
+				};*/
+
+				//vibrate();
+				//move();
+				canvas.drawRect(r,"black","red");
+
+				
+				canvas.drawLine(l,"red");
+				
+				
+				canvas.drawCircle(cir,"","blue");
+				
+				cir.x++;
+				setTimeout(draw,1);
+			}
+
+
+			function setup(){
+				for (var i = 0; i < size; i++) {
+					c.push(new Circle(random(490),random(490),randomBetween(2,10)));
+					rx[i]=(randomBetween(1,2,"-"));
+					ry[i]=(randomBetween(1,2,"-"));
+					color[i]=(randomColor());
+				};
+
+				//setTimeout(setup,500);
+			}
+
+			function vibrate(){
+				for (var i = 0; i < size; i++) {
+					c[i].x+=randomBetween(1,5,"-");
+					c[i].y+=randomBetween(1,5,"-");
+
+					if(c[i].x<=(0+c[i].radius)){
+						c[i].x=10;
+					}
+					if(c[i].x>=(500-c[i].radius)){
+						c[i].x=(500-c[i].radius);
+					}
+					if(c[i].y<=(0+c[i].radius)){
+						c[i].y=10;
+					}
+					if(c[i].y>=(500-c[i].radius)){
+						c[i].y=(500-c[i].radius);
+					}
+				};
+			}
+
+			function move(){
+				for (var i = 0; i < size; i++) {
+					c[i].x+=rx[i];
+					c[i].y+=ry[i];
+
+					if(c[i].x<=(0+c[i].radius)){
+						rx[i]=1;
+					}
+					if(c[i].x>=(500-c[i].radius)){
+						rx[i]=-1;
+					}
+					if(c[i].y<=(0+c[i].radius)){
+						ry[i]=1;
+					}
+					if(c[i].y>=(500-c[i].radius)){
+						ry[i]=-1;
+					}
+				};
+			}
+						
+		}
+	</script>
+</head>
+<body>
+</body>
+</html>

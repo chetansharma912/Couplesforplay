@@ -1,0 +1,149 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+		console.log($("#svg path").attr("d"));
+		var x="M",xx=0;
+		for(i=0;i<200;i++){
+			
+			var xasign=getRandomNumber(2)==1?-1:1;
+			var xa=getRandomNumber(100)*xasign;
+			
+			
+			var yasign=getRandomNumber(2)==1?-1:1;
+			var ya=xx*yasign;
+			x=x+xa+","+ya+" ";
+			
+			xx=xa;
+		}
+		$("#svg path").attr("d",x)
+		console.log(x);
+	});
+	
+	function getRandomNumber(n){
+		var x = Math.round(Math.random()*n);
+		return x==0?1:x;
+	}
+</script>
+
+<!-- <div class="rain"></div> -->
+
+<div class="box">Anything</div>
+<svg id="svg" height="210" width="400">
+  <path d="M26,37 l16,39 l28,-10 l12,-34 l-27,-12 l62,34 l-28,26 l37,-55 l8,32 l31,5 l-21,40 l-20,-5 l-3,22 l72,-93 l14,-8 l14,28 l-13,5 l29,15 l-30,4 l10,24 l54,-56 l6,-12 l23,9 l-5,20 l69,8 l-4,-34 l-33,-19 l7,37 l-13,39 l-23,0 l72,-17 l36,-25 l0,0 l-1,14 l-26,-32 l42,-12 l24,28 l-19,16 l43,-11 l12,-21 l7,15 l-7,12" stroke="blue" stroke-width="1" fill="none"/>
+  Sorry, your browser does not support inline SVG.
+</svg>
+
+
+<style>
+.box{
+	border:1px solid black;
+	width:200px;
+	height:100px;
+	position:absolute;
+}
+
+
+.rain{
+	background : url(https://images.unsplash.com/photo-1591024185321-42d6c4e62ee3?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cmFpbnklMjBza3l8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80);
+	background-size:cover;
+	margin:auto;
+	width:300px;
+	height:300px;
+	border:1px solid black;
+	position:relative;
+}
+.drops{
+	width:2px;
+	opacity:1;
+	border-radius:50px;
+	background:#c0c0c0b8;
+	position:absolute;
+	height:0px;
+	transition: all 2s ease-in-out;
+}
+
+</style>
+
+
+
+<!-- 
+<script>
+	
+
+	createRain();
+	function createRain(){
+		console.log(document.querySelector("#svg path"));
+	
+		console.log("start");
+		
+		var rain =document.querySelector(".rain");
+		rain.style.cssText = "";
+		
+		createRainDrops(rain,30);
+	}
+	
+	function createRainDrops(rain,dropCount){
+		var drops=[];
+		for(i=0;i<dropCount;i++){
+			drops[i]=document.createElement("div")
+			drops[i].className = "drops drops"+i;
+			dropResetPosition(drops[i]);
+			rain.appendChild(drops[i]);
+		}
+		
+		startRain();
+	}	
+	
+	function dropResetPosition(drop){
+		drop.style.top = getRandomNumber(250);
+		drop.style.left = getRandomNumber(300);
+	}
+	
+	function startRain(){
+		var showdrops= getRandomNumber(30);
+		
+		for(i=0;i<showdrops;i++){
+			var drop=document.querySelector(".drops"+getRandomNumber(29));
+			drop.style.opacity = "0";
+			drop.style.height = "15px";
+			drop.style.top = "300";
+			
+			//dropResetPosition(drop);
+		}
+		
+		setTimeout(startRain,3000);
+	}
+	
+	function getRandomNumber(n){
+		var x = Math.round(Math.random()*n);
+		return x==0?1:x;
+	}
+
+
+</script> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

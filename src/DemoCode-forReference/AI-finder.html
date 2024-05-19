@@ -1,0 +1,135 @@
+<canvas id="canvas" width="500" height="500"></canvas>
+<progress id="file" value="50" max="100"> 50% </progress><br>
+<button onClick="aaa()">click +10</button>
+<style>
+#canvas{
+	border:1px solid black;
+}
+</style>
+
+<script>
+
+var setx=-1,sety=-1,x=250,y=250;
+var px=[],py=[],len=10;var dx=getRandomNumber(500),dy=getRandomNumber(500);
+
+moveRightLeft();
+function moveRightLeft(){
+	
+	var c = document.getElementById("canvas");
+	var ctx = c.getContext("2d");
+	ctx.fillStyle = 'black';
+	
+	ctx.beginPath();
+	ctx.fillRect(0, 0, 500,500);
+	
+	
+	for(i=0;i<len;i++){
+		ctx.arc(px[i], py[i], 2, 0, 2 * Math.PI);		
+	}
+	
+	ctx.fill();
+	ctx.fillStyle = 'red';
+	ctx.fillRect(dx, dy, 5,5);	
+	
+	for(i=len;i>=1;i--){
+		px[i]=px[i-1];
+		py[i]=py[i-1];
+	}
+	
+	px[0]=x;py[0]=y;
+	
+	ctx.strokeStyle = "green";
+	ctx.stroke();
+	
+	ctx.arc(x, y, 2, 1, 2 * Math.PI);
+	ctx.fillStyle = 'green';
+	
+	
+	
+	
+	
+	move();
+
+	if(x>=250+getRandomNumber(500)){
+		setx=-1;
+	}
+	if(x<=250-getRandomNumber(500)){
+		setx=1;
+	}
+
+	
+	
+	
+	
+	//console.log(x);
+	setTimeout(moveRightLeft,10);
+}
+function move(){
+	x=x+setx;
+	y=y+sety;
+	if(x>dx){
+		setx=-1;
+	}
+	if(x<dx){
+		setx=1;
+	}
+	if(y>dy){
+		sety=-1;
+	}
+	if(y<dy){
+		sety=1;
+	}
+	if(y==dy || x==dx){
+		setDest();
+	}
+}
+
+function setDest(){
+	dx=getRandomNumber(500);
+	dy=getRandomNumber(500);
+	len++;
+	//console.log(dx+" "+dy+" "+x+" "+y);
+}
+function getRandomNumber(n){
+	var x = Math.round(Math.random()*n);
+	return x==0?1:x;
+}
+
+/*function aaa(){
+	let c=document.getElementById("file");
+	//alert(c);
+	c.value = c.value + 10;
+}
+
+
+window.onload = () =>{
+	document.body.appendChild(ele1("div","abc","function 1 outout"));
+	document.body.appendChild(ele2("li","function 2 outout"));
+	document.body.appendChild(ele2("p","p tag function 2 outout"));
+	document.body.appendChild(ele3( {"tag":"div","class":"aaa","text":"hello world"}) );
+	document.body.appendChild(ele3( {"tag":"div","text":"ababababab"}) );
+}
+
+const ele1 = (tagname, classname, text) => {
+	let element = document.createElement(tagname);
+	element.innerHTML = text;
+	element.className = classname;
+	return element;
+}
+const ele2 = (tagname, text) => {
+	let element = document.createElement(tagname);
+	element.innerHTML = text;
+	return element;
+}*/
+
+/*Single function
+const ele3 = (j) => {
+	let element = document.createElement(j.tag);
+	element.innerHTML = j.text;
+	if(j.class){
+		element.className = j.class;
+	}
+	return element;
+}*/
+
+</script>

@@ -1,0 +1,118 @@
+<html>
+
+<head>
+	<style>
+		canvas{
+			/*background-color:black;*/
+			width:500px;
+			height:500px;
+			border:1px solid black;
+		}
+	</style>
+	
+</head>
+
+<body>
+	<canvas id="canvas" onkeypress="take(event)" width="500" height="500" contenteditable></canvas>
+	<div id="info">Points :</div>
+</body>
+
+<script>
+	var canvas = document.getElementById("canvas");
+	var ctx = canvas.getContext("2d");
+	var hx,hy;
+	var tx=[],ty=[];
+	
+	load();
+	function load(){
+		hx=0;hy=00;
+		incx=0,incy=0;
+	}
+	
+	move();
+	var cnt=0;var tail=1;
+	function move(){
+		ctx.clearRect(0, 0, 500, 500);
+		for(var i=tail;i>=1;i--){
+			ctx.fillStyle = "blue";
+			ctx.fillRect(tx[i],ty[i],10,10);
+			tx[i]=tx[i-1];
+			ty[i]=ty[i-1];
+		}
+		tx[i]=hx;
+		ty[i]=hy;
+			
+		ctx.fillStyle = getColor();
+		hx=hx+incx;
+		hy=hy+incy;
+		
+		ctx.fillRect(hx,hy,10,10);
+		
+		cnt++;
+		if(cnt%5==0){
+			tail++;
+		}
+		setTimeout(move, 10);
+	}
+	
+	document.addEventListener("keydown", function(event){
+			//alert(event.code);
+			if(event.code === "KeyW"){
+				incy=-1;
+				incx=0;
+			}
+			if(event.code === "KeyS"){
+				incy=1;
+				incx=0;
+			}
+			if(event.code === "KeyA"){
+				incy=0;
+				incx=-1;
+			}
+			if(event.code === "KeyD"){
+				incy=0;
+				incx=1;
+			}
+			
+			if(event.code === "ArrowUp"){
+				incy=-1;
+				incx=0;
+			}
+			if(event.code === "ArrowDown"){
+				incy=1;
+				incx=0;
+			}
+			if(event.code === "ArrowLeft"){
+				incy=0;
+				incx=-1;
+			}
+			if(event.code === "ArrowRight"){
+				incy=0;
+				incx=1;
+			}
+		}
+	)
+	
+	
+	function getColor(){
+		var str="#";
+		var h="1234567890abcdef";
+		for(var i=0;i<6;i++){
+			var j=Math.floor(Math.random() * Math.floor(16));
+			str=str+h.charAt(j);
+		}
+		
+		return str;
+	}
+</script>
+
+</html>
+
+
+
+
+
+
+
+
+

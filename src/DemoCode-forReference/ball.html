@@ -1,0 +1,121 @@
+<html>
+
+<head>
+	<style>
+		canvas{
+			/*background-color:black;*/
+			width:500px;
+			height:500px;
+			border:1px solid black;
+		}
+	</style>
+	
+</head>
+
+<body>
+	<canvas id="canvas" width="500" height="500"></canvas>
+	<div id="info">ahjgsujf</div>
+</body>
+
+<script>
+	var array=1;
+	var x=[],y=[];var newx=[];newy=[],color=[];
+	var cnt=0;
+	var canvas = document.getElementById("canvas");
+	var ctx = canvas.getContext("2d");
+	
+	
+	for(var i=0;i<array;i++){
+		x[i]=Math.floor(Math.random() * Math.floor(500));
+		y[i]=Math.floor(Math.random() * Math.floor(500));
+		newx[i]=Math.floor(Math.random() * Math.floor(2));
+		newy[i]=Math.floor(Math.random() * Math.floor(2));
+		if(newx[i]==0){
+			newx[i]=-1;
+		}
+		if(newy[i]==0){
+			newy[i]=-1;
+		}
+		color[i]= getColor();
+	}	
+	
+	
+	move();
+	function move(){
+		
+		// ctx.clearRect(0, 0, 500, 500);
+		for(var i=0;i<array;i++){
+			if(x[i]>=500){
+				newx[i]=-1;
+			}
+			if(x[i]<=0){
+				newx[i]=1;
+			}
+			if(y[i]>=500){
+				newy[i]=-1;
+			}
+			if(y[i]<=0){
+				newy[i]=1;
+			}
+			
+			x[i]=x[i]+newx[i];
+			y[i]=y[i]+newy[i];
+			
+			ctx.strokeStyle = color[i]+"";
+			ctx.beginPath();
+			ctx.arc(x[i], y[i], 5, 0, 2 * Math.PI);
+			ctx.stroke();
+			ctx.fill();
+			ctx.fillStyle = color[i]+"";
+			//ctx.fillRect(x[i], y[i], 10, 10);
+		}
+		setTimeout(move, 1);
+		
+		cnt++;
+		if(cnt>=500){
+			var rcnt=Math.floor(Math.random() * Math.floor(25));
+			for(var i=0;i<rcnt;i++){
+				x.push(Math.floor(Math.random() * Math.floor(500)));
+				y.push(Math.floor(Math.random() * Math.floor(500)));
+				
+				var xc=(Math.floor(Math.random() * Math.floor(2)));
+				var yc=(Math.floor(Math.random() * Math.floor(2)));
+				if(xc==0){
+					xc=-1;
+				}
+				if(yc==0){
+					yc=-1;
+				}
+				newx.push(xc);
+				newy.push(yc);
+				color.push(getColor());
+				array++;
+			}			
+			cnt=0;
+			var f = document.getElementById("info");
+			f.innerHTML=rcnt+" "+x.length;
+		}
+		
+	}
+	function getColor(){
+		var str="#";
+		var h="1234567890abcdef";
+		for(var i=0;i<6;i++){
+			var j=Math.floor(Math.random() * Math.floor(16));
+			str=str+h.charAt(j);
+		}
+		
+		return str;
+	}
+</script>
+
+</html>
+
+
+
+
+
+
+
+
+

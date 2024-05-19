@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="easy.js"></script>
+	<script>
+		window.onload=function(){
+			var canvas=new createCanvas(500,500,"border:1px dotted black;");
+			canvas.drawCanvas();
+
+			
+			
+			var c1=new Circle(300,300,10);
+			var c2=new Circle(200,200,10);
+
+			setup();
+			function setup(){
+				draw();
+			}
+
+			function draw(){
+				canvas.clear();
+				if(circleCollide(c1,c2)){
+					canvas.drawCircle(c1,"black","black");		
+				}
+				else{
+					canvas.drawCircle(c1,"black","red");
+				}
+				vibrate(c1,5);
+				canvas.drawCircle(c2,"black","green");
+				setTimeout(draw,1);
+			}
+
+			canvas.getCanvas().addEventListener('mousemove', function(e) { 
+				c2.x=e.pageX;
+				c2.y=e.pageY;
+			});
+		}
+	</script>
+</head>
+<body>
+</body>
+</html>
